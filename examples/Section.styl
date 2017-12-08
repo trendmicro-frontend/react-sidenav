@@ -1,0 +1,24 @@
+.section {
+    background: #fff;
+    border: 1px solid #d6d6d6;
+    position: relative;
+    z-index: 1;
+    transition: height .3s ease;
+}
+.section:last-child {
+    margin-bottom: 20px;
+}
+.section-content {
+    padding: 0 16px 16px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+@media screen and (max-width: 1023px) {
+    .section-content {
+        position: static;
+        height: 100%;
+    }
+}

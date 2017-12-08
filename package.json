@@ -1,0 +1,94 @@
+{
+  "name": "@trendmicro/react-sidenav",
+  "version": "0.1.0",
+  "description": "React SideNav",
+  "main": "lib/index.js",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "scripts": {
+    "prepublish": "npm run lint && npm test && npm run clean && npm run build && npm run build-examples",
+    "build": "webpack && npm run cleancss",
+    "build-examples": "cd examples; webpack",
+    "clean": "rm -f {lib,dist}/*",
+    "cleancss": "cleancss -o dist/react-sidenav.min.css dist/react-sidenav.css",
+    "demo": "http-server -p 8000 docs/",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
+    "test": "tap test/*.js --node-arg=--require --node-arg=babel-register --node-arg=--require --node-arg=babel-polyfill",
+    "coveralls": "tap test/*.js --coverage --coverage-report=text-lcov --nyc-arg=--require --nyc-arg=babel-register --nyc-arg=--require --nyc-arg=babel-polyfill | coveralls",
+    "dev": "cd examples; webpack-dev-server --hot --inline --host 0.0.0.0 --port 8000 --content-base ../docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trendmicro-frontend/react-sidenav.git"
+  },
+  "author": "Cheton Wu <cheton_wu@trend.com.tw>",
+  "contributors": [
+    {
+      "name": "Cheton Wu",
+      "email": "cheton_wu@trend.com.tw",
+      "url": "https://github.com/trendmicro-frontend"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trendmicro-frontend/react-sidenav/issues"
+  },
+  "homepage": "https://github.com/trendmicro-frontend/react-sidenav",
+  "keywords": [
+    "react",
+    "react-sidenav",
+    "sidenav"
+  ],
+  "peerDependencies": {
+    "react": "^0.14.0 || >=15.0.0"
+  },
+  "dependencies": {
+    "@trendmicro/react-anchor": "^0.5.6",
+    "chained-function": "^0.5.0",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "uncontrollable": "^4.1.0",
+    "warning": "^3.0.0"
+  },
+  "devDependencies": {
+    "@trendmicro/react-buttons": "~1.2.1",
+    "babel-cli": "~6.26.0",
+    "babel-core": "~6.26.0",
+    "babel-eslint": "~8.0.1",
+    "babel-loader": "~7.1.2",
+    "babel-plugin-transform-decorators-legacy": "~1.3.4",
+    "babel-preset-env": "~1.6.1",
+    "babel-preset-react": "~6.24.1",
+    "babel-preset-stage-0": "~6.24.1",
+    "clean-css": "~4.1.9",
+    "clean-css-cli": "~4.1.10",
+    "coveralls": "~3.0.0",
+    "css-loader": "~0.28.7",
+    "eslint": "^4.8.0",
+    "eslint-config-trendmicro": "^1.0.0",
+    "eslint-loader": "~1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "extract-text-webpack-plugin": "~3.0.1",
+    "file-loader": "~1.1.5",
+    "find-imports": "~0.5.2",
+    "html-webpack-plugin": "~2.30.1",
+    "http-server": "~0.10.0",
+    "nib": "~1.1.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "style-loader": "~0.19.0",
+    "stylint": "~1.5.9",
+    "stylint-loader": "~1.0.0",
+    "stylus-loader": "~3.0.1",
+    "tap": "~10.7.2",
+    "trendmicro-ui": "~0.4.4",
+    "url-loader": "~0.6.2",
+    "webpack": "~3.6.0",
+    "webpack-dev-server": "~2.9.1"
+  }
+}

@@ -1,0 +1,77 @@
+.sidenav-nav > .sidenav-navitem {
+    clear: both;
+    position: relative;
+
+    &.selected > a {
+        cursor: default;
+    }
+
+    &:hover > a::after {
+        background: #fff;
+        opacity: .15;
+    }
+
+    &.selected > a::after,
+    &:hover.selected > a::after {
+        background: #000;
+        opacity: .2;
+    }
+
+    &:hover > a > i,
+    &.selected > a > i {
+        opacity: 1;
+    }
+
+    &:hover > a > i,
+    &:hover > a > span,
+    &.selected > a > i,
+    &.selected > a > span {
+        color: #fff;
+    }
+
+    > a {
+        position: relative;
+        display: block;
+        line-height: 50px;
+        height: 50px;
+        white-space: nowrap;
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+
+        // Background layer
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+
+    > a > i {
+        display: block;
+        float: left;
+        width: 64px;
+        height: 50px;
+        margin-right: -6px;
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: transparent;
+        opacity: .7;
+    }
+    > a > i {
+        color: #f9dcdd;
+        line-height: 50px;
+    }
+    > a > i + span {
+        text-transform: uppercase;
+        display: none;
+        color: #f9dcdd;
+    }
+}
