@@ -1,3 +1,5 @@
+### This repository is currently under development and the information provided may be subject to changes.
+
 # react-sidenav [![build status](https://travis-ci.org/trendmicro-frontend/react-sidenav.svg?branch=master)](https://travis-ci.org/trendmicro-frontend/react-sidenav) [![Coverage Status](https://coveralls.io/repos/github/trendmicro-frontend/react-sidenav/badge.svg?branch=master)](https://coveralls.io/github/trendmicro-frontend/react-sidenav?branch=master)
 
 [![NPM](https://nodei.co/npm/@trendmicro/react-sidenav.png?downloads=true&stars=true)](https://nodei.co/npm/@trendmicro/react-sidenav/)
