@@ -788,21 +788,30 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, ".sidenav---_u0En {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1006;\n  min-width: 64px;\n  background: #db3d44;\n  -webkit-transition: all 0.15s;\n  -moz-transition: all 0.15s;\n  -o-transition: all 0.15s;\n  -ms-transition: all 0.15s;\n  transition: all 0.15s;\n}\n.sidenav---_u0En.expanded---262ja {\n  min-width: 240px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER i + span {\n  display: inline-block;\n}\n.sidenav-toggle---23_Hl {\n  position: relative;\n  float: left;\n  width: 64px;\n  height: 64px;\n  padding: 0;\n  margin: 0;\n  background-color: transparent;\n  background-image: none;\n  border: 0;\n  border-radius: 0;\n  cursor: pointer;\n}\n.sidenav-toggle---23_Hl:focus {\n  outline: none;\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  display: block;\n  width: 20px;\n  height: 2px;\n  margin: 0 auto;\n  background-color: #fff;\n  border-radius: 1px;\n  -webkit-transition: all 0.15s;\n  -moz-transition: all 0.15s;\n  -o-transition: all 0.15s;\n  -ms-transition: all 0.15s;\n  transition: all 0.15s;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ + .icon-bar---2jamJ {\n  margin-top: 4px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  width: 25px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(1) {\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(2) {\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(3) {\n  margin-top: -8px;\n  -webkit-transform: rotate(-45deg);\n  -moz-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.sidenav-nav---uvKqK {\n  float: left;\n  padding: 0;\n  margin: 0;\n  clear: both;\n  list-style: none;\n  width: 100%;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER {\n  clear: both;\n  position: relative;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a {\n  cursor: default;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a::after {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.selected---91VwC > a::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a > i,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a > i {\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a > i,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a > span,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a > i,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a > span {\n  color: #fff;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a {\n  position: relative;\n  display: block;\n  line-height: 50px;\n  height: 50px;\n  white-space: nowrap;\n  text-decoration: none;\n  color: #fff;\n  font-size: 14px;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a::after {\n  content: '';\n  position: absolute;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  background: #fff;\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n  z-index: -1;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a > i {\n  display: block;\n  float: left;\n  width: 64px;\n  height: 50px;\n  margin-right: -6px;\n  vertical-align: top;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-color: transparent;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a > i {\n  color: #f9dcdd;\n  line-height: 50px;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a > i + span {\n  text-transform: uppercase;\n  display: none;\n  color: #f9dcdd;\n}\n.sidenav---_u0En {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n}\n.sidenav---_u0En *,\n.sidenav---_u0En *:before,\n.sidenav---_u0En *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n", ""]);
+exports.push([module.i, ".sidenav---_u0En {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1006;\n  min-width: 64px;\n  background: #db3d44;\n  -webkit-transition: all 0.15s;\n  -moz-transition: all 0.15s;\n  -o-transition: all 0.15s;\n  -ms-transition: all 0.15s;\n  transition: all 0.15s;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER:hover > .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja {\n  min-width: 240px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER .sidenav-navitem-icon---13yIY + .sidenav-navitem-title---y0eCZ {\n  display: inline-block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a {\n  cursor: pointer;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  position: static;\n  border: none;\n  float: left;\n  clear: both;\n  width: 100%;\n  background: transparent;\n  overflow: hidden;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo {\n  position: relative;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover::before {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > a {\n  color: #fff;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > a::before {\n  content: \" \";\n  width: 2px;\n  height: 20px;\n  left: 10px;\n  top: 4px;\n  position: absolute;\n  border-left: 2px #fff solid;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover > a {\n  background: transparent;\n  color: #fff;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > a {\n  color: #f9dcdd;\n  padding: 0 14px 0 20px;\n  line-height: 28px;\n}\n.sidenav-toggle---23_Hl {\n  position: relative;\n  float: left;\n  width: 64px;\n  height: 64px;\n  padding: 0;\n  margin: 0;\n  background-color: transparent;\n  background-image: none;\n  border: 0;\n  border-radius: 0;\n  cursor: pointer;\n}\n.sidenav-toggle---23_Hl:focus {\n  outline: none;\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  display: block;\n  width: 20px;\n  height: 2px;\n  margin: 0 auto;\n  background-color: #fff;\n  border-radius: 1px;\n  -webkit-transition: all 0.15s;\n  -moz-transition: all 0.15s;\n  -o-transition: all 0.15s;\n  -ms-transition: all 0.15s;\n  transition: all 0.15s;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ + .icon-bar---2jamJ {\n  margin-top: 4px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  width: 25px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(1) {\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(2) {\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(3) {\n  margin-top: -8px;\n  -webkit-transform: rotate(-45deg);\n  -moz-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.sidenav-nav---uvKqK {\n  float: left;\n  padding: 0;\n  margin: 0;\n  clear: both;\n  list-style: none;\n  width: 100%;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER {\n  clear: both;\n  position: relative;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a {\n  cursor: default;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a::after {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.selected---91VwC > a::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a .sidenav-navitem-icon---13yIY,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a .sidenav-navitem-icon---13yIY {\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a .sidenav-navitem-icon---13yIY,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a .sidenav-navitem-title---y0eCZ,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a .sidenav-navitem-icon---13yIY,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > a .sidenav-navitem-title---y0eCZ {\n  color: #fff;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a {\n  position: relative;\n  display: block;\n  line-height: 50px;\n  height: 50px;\n  white-space: nowrap;\n  text-decoration: none;\n  color: #fff;\n  font-size: 14px;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a::after {\n  content: '';\n  position: absolute;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  background: #fff;\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n  z-index: -1;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a .sidenav-navitem-icon---13yIY {\n  display: block;\n  float: left;\n  width: 64px;\n  height: 50px;\n  margin-right: -6px;\n  vertical-align: top;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-color: transparent;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n  line-height: 50px;\n  text-align: center;\n  color: #f9dcdd;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a .sidenav-navitem-icon---13yIY > * {\n  color: #f9dcdd;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a .sidenav-navitem-icon---13yIY + .sidenav-navitem-title---y0eCZ {\n  display: none;\n}\n.sidenav-subnav---3Hr7K {\n  min-width: 200px;\n  position: absolute;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  top: 0;\n  left: 64px;\n  background: #fff;\n  border: 1px #bbb solid;\n  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  margin: 0 24px;\n  line-height: 48px;\n  border-bottom: 1px #ccc solid;\n  font-size: 14px;\n  font-weight: normal;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:nth-child(2) {\n  margin-top: 8px;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:last-child {\n  margin-bottom: 8px;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > a {\n  color: #db3d44;\n  font-weight: bold;\n  background: none;\n  cursor: default;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > a {\n  display: block;\n  text-decoration: none;\n  color: #222;\n  font-size: 13px;\n  line-height: 30px;\n  padding: 0 24px;\n}\n.sidenav---_u0En {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n}\n.sidenav---_u0En *,\n.sidenav---_u0En *:before,\n.sidenav---_u0En *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n", ""]);
 
 // exports
 exports.locals = {
 	"sidenav": "sidenav---_u0En",
-	"expanded": "expanded---262ja",
+	"collapsed": "collapsed---2IIb7",
 	"sidenav-nav": "sidenav-nav---uvKqK",
 	"sidenavNav": "sidenav-nav---uvKqK",
 	"sidenav-navitem": "sidenav-navitem---3r9ER",
 	"sidenavNavitem": "sidenav-navitem---3r9ER",
+	"sidenav-subnav": "sidenav-subnav---3Hr7K",
+	"sidenavSubnav": "sidenav-subnav---3Hr7K",
+	"expanded": "expanded---262ja",
+	"sidenav-navitem-icon": "sidenav-navitem-icon---13yIY",
+	"sidenavNavitemIcon": "sidenav-navitem-icon---13yIY",
+	"sidenav-navitem-title": "sidenav-navitem-title---y0eCZ",
+	"sidenavNavitemTitle": "sidenav-navitem-title---y0eCZ",
+	"selected": "selected---91VwC",
+	"sidenav-subnavitem": "sidenav-subnavitem---3Rbfo",
+	"sidenavSubnavitem": "sidenav-subnavitem---3Rbfo",
 	"sidenav-toggle": "sidenav-toggle---23_Hl",
 	"sidenavToggle": "sidenav-toggle---23_Hl",
 	"icon-bar": "icon-bar---2jamJ",
-	"iconBar": "icon-bar---2jamJ",
-	"selected": "selected---91VwC"
+	"iconBar": "icon-bar---2jamJ"
 };
 
 /***/ }),
@@ -20926,13 +20935,15 @@ var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _NavItem = __webpack_require__("../src/NavItem.jsx");
+
+var _NavItem2 = _interopRequireDefault(_NavItem);
+
 var _index = __webpack_require__("../src/index.styl");
 
 var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -20952,43 +20963,46 @@ var Nav = (_temp = _class = function (_PureComponent) {
     }
 
     _createClass(Nav, [{
+        key: 'renderNavItem',
+        value: function renderNavItem(child, _ref) {
+            var onSelect = _ref.onSelect,
+                props = _objectWithoutProperties(_ref, ['onSelect']);
+
+            return (0, _react.cloneElement)(child, _extends({}, props, {
+                onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
+            }));
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _cx;
+            var _this2 = this;
 
             var _props = this.props,
                 Component = _props.componentClass,
-                expanded = _props.expanded,
                 onSelect = _props.onSelect,
                 className = _props.className,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ['componentClass', 'expanded', 'onSelect', 'className', 'children']);
-
-            var activeNavItems = [];
-            var navItems = _react2.default.Children.map(children, function (child) {
-                if (!_react2.default.isValidElement(child)) {
-                    return child;
-                }
-
-                // TODO: NavItem
-
-                if (child.props.active) {
-                    activeNavItems.push(child);
-                }
-
-                return (0, _react.cloneElement)(child, {
-                    expanded: expanded,
-                    onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
-                });
-            });
+                props = _objectWithoutProperties(_props, ['componentClass', 'onSelect', 'className', 'children']);
 
             return _react2.default.createElement(
                 Component,
                 _extends({}, props, {
                     role: 'menu',
-                    className: (0, _classnames2.default)(className, (_cx = {}, _defineProperty(_cx, _index2.default.sidenavNav, true), _defineProperty(_cx, _index2.default.sidenavNavSelected, activeNavItems.length > 0), _cx))
+                    className: (0, _classnames2.default)(className, _index2.default.sidenavNav)
                 }),
-                navItems
+                _react2.default.Children.map(children, function (child) {
+                    if (!_react2.default.isValidElement(child)) {
+                        return child;
+                    }
+
+                    if (child.type === _NavItem2.default) {
+                        return _this2.renderNavItem(child, {
+                            onSelect: onSelect
+                        });
+                    }
+
+                    return child;
+                })
             );
         }
     }]);
@@ -20998,14 +21012,10 @@ var Nav = (_temp = _class = function (_PureComponent) {
     // A custom element for this component.
     componentClass: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.func]),
 
-    // Sidenav
-    expanded: _propTypes2.default.bool,
+    // Passing props from parent
     onSelect: _propTypes2.default.func
 }, _class.defaultProps = {
-    componentClass: 'ul',
-
-    // Sidenav
-    expanded: false
+    componentClass: 'ul'
 }, _temp);
 exports.default = Nav;
 
@@ -21046,6 +21056,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
+
+var _SubNavItem = __webpack_require__("../src/SubNavItem.jsx");
+
+var _SubNavItem2 = _interopRequireDefault(_SubNavItem);
 
 var _index = __webpack_require__("../src/index.styl");
 
@@ -21102,54 +21116,78 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
     _createClass(NavItem, [{
         key: 'render',
         value: function render() {
-            var _cx;
+            var _cx, _cx2;
 
             var _props = this.props,
                 Component = _props.componentClass,
+                title = _props.title,
+                icon = _props.icon,
                 active = _props.active,
                 disabled = _props.disabled,
-                divider = _props.divider,
+                expanded = _props.expanded,
+                eventKey = _props.eventKey,
                 header = _props.header,
                 onClick = _props.onClick,
+                onSelect = _props.onSelect,
                 className = _props.className,
                 style = _props.style,
-                props = _objectWithoutProperties(_props, ['componentClass', 'active', 'disabled', 'divider', 'header', 'onClick', 'className', 'style']);
+                children = _props.children,
+                props = _objectWithoutProperties(_props, ['componentClass', 'title', 'icon', 'active', 'disabled', 'expanded', 'eventKey', 'header', 'onClick', 'onSelect', 'className', 'style', 'children']);
 
-            delete props.eventKey;
-            delete props.onSelect;
+            var activeNavItems = [];
+            var navItems = _react2.default.Children.map(children, function (child) {
+                if (!_react2.default.isValidElement(child)) {
+                    return child;
+                }
 
-            if (divider) {
-                // Forcibly blank out the children; separators shouldn't render any.
-                props.children = undefined;
+                if (child.props.active) {
+                    activeNavItems.push(child);
+                }
 
-                return _react2.default.createElement(Component, _extends({}, props, {
-                    role: 'separator',
-                    className: (0, _classnames2.default)(className, _index2.default.sidenavNavitem, _index2.default.divider),
-                    style: style
-                }));
-            }
-
-            if (header) {
-                return _react2.default.createElement(Component, _extends({}, props, {
-                    role: 'heading',
-                    className: (0, _classnames2.default)(className, _index2.default.sidenavNavitem, _index2.default.header),
-                    style: style
-                }));
-            }
+                return (0, _react.cloneElement)(child, {
+                    onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
+                });
+            });
 
             return _react2.default.createElement(
                 Component,
                 {
                     role: 'presentation',
-                    className: (0, _classnames2.default)(className, _index2.default.sidenavNavitem, (_cx = {}, _defineProperty(_cx, _index2.default.selected, active), _defineProperty(_cx, _index2.default.disabled, disabled), _cx)),
+                    className: (0, _classnames2.default)(className, _index2.default.sidenavNavitem, (_cx = {}, _defineProperty(_cx, _index2.default.selected, active || activeNavItems.length > 0), _defineProperty(_cx, _index2.default.expanded, expanded || active), _defineProperty(_cx, _index2.default.disabled, disabled), _cx)),
                     style: style
                 },
-                _react2.default.createElement(_reactAnchor2.default, _extends({}, props, {
-                    disabled: disabled,
-                    role: 'menuitem',
-                    tabIndex: '-1',
-                    onClick: (0, _chainedFunction2.default)(onClick, this.handleClick)
-                }))
+                _react2.default.createElement(
+                    _reactAnchor2.default,
+                    _extends({}, props, {
+                        disabled: disabled,
+                        role: 'menuitem',
+                        tabIndex: '-1',
+                        onClick: (0, _chainedFunction2.default)(onClick, this.handleClick)
+                    }),
+                    _react2.default.createElement(
+                        'span',
+                        { className: _index2.default.sidenavNavitemIcon },
+                        icon
+                    ),
+                    _react2.default.createElement(
+                        'span',
+                        { className: _index2.default.sidenavNavitemTitle },
+                        title
+                    )
+                ),
+                navItems && _react2.default.createElement(
+                    'ul',
+                    _extends({}, props, {
+                        role: 'menu',
+                        className: (0, _classnames2.default)((_cx2 = {}, _defineProperty(_cx2, _index2.default.sidenavSubnav, true), _defineProperty(_cx2, _index2.default.sidenavSubnavSelected, activeNavItems.length > 0), _cx2))
+                    }),
+                    _react2.default.createElement(
+                        _SubNavItem2.default,
+                        { header: true },
+                        title
+                    ),
+                    navItems
+                )
             );
         }
     }]);
@@ -21159,35 +21197,38 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
     // A custom element for this component.
     componentClass: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.func]),
 
-    // Sidenav
-    // Highlight the nav item as active.
+    title: _propTypes2.default.any,
+
+    icon: _propTypes2.default.any,
+
+    // Highlight the navigation item as active.
     active: _propTypes2.default.bool,
 
-    // Disable the nav item, making it unselectable.
+    // Disable the navigation item, making it unselectable.
     disabled: _propTypes2.default.bool,
 
-    // Style the nav item as a horizontal rule, providing visual separation between groups of menu items.
-    divider: _propTypes2.default.bool,
+    // Whether the navigation item is expanded or collapsed.
+    expanded: _propTypes2.default.bool,
 
-    // Value passed to the `onSelect` handler, useful for identifying the selected nav item.
+    // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
     eventKey: _propTypes2.default.any,
 
-    // Style the nav item as header label, useful for describing a group of nav items.
+    // Style the navigation item as header label, useful for describing a group of navigation items.
     header: _propTypes2.default.bool,
 
     // HTML `href` attribute corresponding to `a.href`.
     href: _propTypes2.default.string,
 
-    // Callback fired when the nav item is clicked.
+    // Callback fired when the navigation item is clicked.
     onClick: _propTypes2.default.func,
 
-    // Callback fired when the nav item is selected.
+    // Callback fired when the navigation item is selected.
     onSelect: _propTypes2.default.func
 }, _class.defaultProps = {
     componentClass: 'li',
     active: false,
     disabled: false,
-    divider: false,
+    expanded: false,
     header: false
 }, _temp2);
 exports.default = NavItem;
@@ -21245,6 +21286,10 @@ var _Nav2 = _interopRequireDefault(_Nav);
 var _NavItem = __webpack_require__("../src/NavItem.jsx");
 
 var _NavItem2 = _interopRequireDefault(_NavItem);
+
+var _SubNavItem = __webpack_require__("../src/SubNavItem.jsx");
+
+var _SubNavItem2 = _interopRequireDefault(_SubNavItem);
 
 var _index = __webpack_require__("../src/index.styl");
 
@@ -21362,7 +21407,7 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
             return _react2.default.createElement(
                 Component,
                 _extends({}, props, {
-                    className: (0, _classnames2.default)(className, _index2.default.sidenav, (_cx = {}, _defineProperty(_cx, _index2.default.disabled, disabled), _defineProperty(_cx, _index2.default.expanded, expanded), _cx))
+                    className: (0, _classnames2.default)(className, _index2.default.sidenav, (_cx = {}, _defineProperty(_cx, _index2.default.disabled, disabled), _defineProperty(_cx, _index2.default.expanded, expanded), _defineProperty(_cx, _index2.default.collapsed, !expanded), _cx))
                 }),
                 _react2.default.Children.map(children, function (child) {
                     if (!_react2.default.isValidElement(child)) {
@@ -21377,7 +21422,7 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
 
                     if (child.type === _Nav2.default) {
                         return _this4.renderNav(child, {
-                            expanded: expanded, onSelect: onSelect
+                            onSelect: onSelect
                         });
                     }
 
@@ -21416,8 +21461,187 @@ var UncontrollableSideNav = (0, _uncontrollable2.default)(SideNav, {
 UncontrollableSideNav.Toggle = _Toggle2.default;
 UncontrollableSideNav.Nav = _Nav2.default;
 UncontrollableSideNav.NavItem = _NavItem2.default;
+UncontrollableSideNav.SubNavItem = _SubNavItem2.default;
 
 exports.default = UncontrollableSideNav;
+
+/***/ }),
+
+/***/ "../src/SubNavItem.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _reactAnchor = __webpack_require__("../node_modules/@trendmicro/react-anchor/lib/index.js");
+
+var _reactAnchor2 = _interopRequireDefault(_reactAnchor);
+
+var _chainedFunction = __webpack_require__("../node_modules/chained-function/lib/index.js");
+
+var _chainedFunction2 = _interopRequireDefault(_chainedFunction);
+
+var _classnames = __webpack_require__("../node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = __webpack_require__("../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _index = __webpack_require__("../src/index.styl");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SubNavItem = (_temp2 = _class = function (_PureComponent) {
+    _inherits(SubNavItem, _PureComponent);
+
+    function SubNavItem() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, SubNavItem);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SubNavItem.__proto__ || Object.getPrototypeOf(SubNavItem)).call.apply(_ref, [this].concat(args))), _this), _this.c = {
+            subnav: null
+        }, _this.handleClick = function (event) {
+            var _this$props = _this.props,
+                href = _this$props.href,
+                disabled = _this$props.disabled,
+                onSelect = _this$props.onSelect,
+                eventKey = _this$props.eventKey;
+
+
+            if (!href || disabled) {
+                event.preventDefault();
+            }
+
+            if (disabled) {
+                return;
+            }
+
+            if (onSelect) {
+                onSelect(eventKey, event);
+            }
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(SubNavItem, [{
+        key: 'render',
+        value: function render() {
+            var _cx2;
+
+            var _props = this.props,
+                Component = _props.componentClass,
+                active = _props.active,
+                disabled = _props.disabled,
+                eventKey = _props.eventKey,
+                header = _props.header,
+                onClick = _props.onClick,
+                onSelect = _props.onSelect,
+                className = _props.className,
+                style = _props.style,
+                children = _props.children,
+                props = _objectWithoutProperties(_props, ['componentClass', 'active', 'disabled', 'eventKey', 'header', 'onClick', 'onSelect', 'className', 'style', 'children']);
+
+            if (header) {
+                var _cx;
+
+                return _react2.default.createElement(
+                    Component,
+                    {
+                        role: 'heading',
+                        className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, (_cx = {}, _defineProperty(_cx, _index2.default.selected, active), _defineProperty(_cx, _index2.default.disabled, disabled), _cx)),
+                        style: style
+                    },
+                    children
+                );
+            }
+
+            return _react2.default.createElement(
+                Component,
+                {
+                    role: 'presentation',
+                    className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, (_cx2 = {}, _defineProperty(_cx2, _index2.default.selected, active), _defineProperty(_cx2, _index2.default.disabled, disabled), _cx2)),
+                    style: style
+                },
+                _react2.default.createElement(
+                    _reactAnchor2.default,
+                    _extends({}, props, {
+                        disabled: disabled,
+                        role: 'menuitem',
+                        tabIndex: '-1',
+                        onClick: (0, _chainedFunction2.default)(onClick, this.handleClick)
+                    }),
+                    children
+                )
+            );
+        }
+    }]);
+
+    return SubNavItem;
+}(_react.PureComponent), _class.propTypes = {
+    // A custom element for this component.
+    componentClass: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.func]),
+
+    // Highlight the nav item as active.
+    active: _propTypes2.default.bool,
+
+    // Disable the nav item, making it unselectable.
+    disabled: _propTypes2.default.bool,
+
+    // Value passed to the `onSelect` handler, useful for identifying the selected nav item.
+    eventKey: _propTypes2.default.any,
+
+    // Style the nav item as header label, useful for describing a group of nav items.
+    header: _propTypes2.default.bool,
+
+    // HTML `href` attribute corresponding to `a.href`.
+    href: _propTypes2.default.string,
+
+    // Callback fired when the nav item is clicked.
+    onClick: _propTypes2.default.func,
+
+    // Callback fired when the nav item is selected.
+    onSelect: _propTypes2.default.func
+}, _class.defaultProps = {
+    componentClass: 'li',
+    active: false,
+    disabled: false,
+    header: false
+}, _temp2);
+exports.default = SubNavItem;
 
 /***/ }),
 
@@ -21502,13 +21726,13 @@ var Toggle = (_temp = _class = function (_PureComponent) {
     // A custom element for this component.
     componentClass: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.func]),
 
-    // Sidenav
+    // Passing props from parent
     disabled: _propTypes2.default.bool,
     expanded: _propTypes2.default.bool
 }, _class.defaultProps = {
     componentClass: 'button',
 
-    // Sidenav
+    // Passing props from parent
     disabled: false,
     expanded: false
 }, _temp);
@@ -21521,6 +21745,47 @@ exports.default = Toggle;
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SubNavItem = exports.NavItem = exports.Nav = exports.Toggle = undefined;
+
+var _Toggle = __webpack_require__("../src/Toggle.jsx");
+
+Object.defineProperty(exports, 'Toggle', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Toggle).default;
+  }
+});
+
+var _Nav = __webpack_require__("../src/Nav.jsx");
+
+Object.defineProperty(exports, 'Nav', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Nav).default;
+  }
+});
+
+var _NavItem = __webpack_require__("../src/NavItem.jsx");
+
+Object.defineProperty(exports, 'NavItem', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_NavItem).default;
+  }
+});
+
+var _SubNavItem = __webpack_require__("../src/SubNavItem.jsx");
+
+Object.defineProperty(exports, 'SubNavItem', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_SubNavItem).default;
+  }
+});
 
 var _SideNav = __webpack_require__("../src/SideNav.jsx");
 
@@ -21737,7 +22002,7 @@ if(false) {
 
 /***/ }),
 
-/***/ "./SideNav.jsx":
+/***/ "./Navigation.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21746,6 +22011,8 @@ if(false) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__("../node_modules/react/index.js");
 
@@ -21757,76 +22024,178 @@ var _src2 = _interopRequireDefault(_src);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (_ref) {
-    var activeKey = _ref.activeKey,
-        onSelect = _ref.onSelect;
-    return _react2.default.createElement(
-        _src2.default,
-        {
-            onSelect: onSelect,
-            onToggle: function onToggle(expanded) {
-                console.log('expanded:', expanded);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Navigation = function (_PureComponent) {
+    _inherits(Navigation, _PureComponent);
+
+    function Navigation() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Navigation);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Navigation.__proto__ || Object.getPrototypeOf(Navigation)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            expanded: false,
+            activeNavItem: 'home',
+            activeSubNavItem: 'home'
+        }, _this.onSelect = function (key) {
+            if (!key) {
+                return;
             }
-        },
-        _react2.default.createElement(_src2.default.Toggle, null),
-        _react2.default.createElement(
-            _src2.default.Nav,
-            null,
-            _react2.default.createElement(
-                _src2.default.NavItem,
+
+            var keys = key.split('/');
+
+            if (keys.length === 1) {
+                _this.setState(function (state) {
+                    return {
+                        activeNavItem: key,
+                        activeSubNavItem: key
+                    };
+                });
+                return;
+            }
+
+            if (!keys[1]) {
+                if (_this.state.expanded) {
+                    _this.setState(function (state) {
+                        return {
+                            activeNavItem: key
+                        };
+                    });
+                }
+                return;
+            }
+
+            _this.setState(function (state) {
+                return {
+                    activeNavItem: keys[0] + '/',
+                    activeSubNavItem: key
+                };
+            });
+        }, _this.onToggle = function (expanded) {
+            _this.setState({ expanded: expanded });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Navigation, [{
+        key: 'render',
+        value: function render() {
+            var _state = this.state,
+                expanded = _state.expanded,
+                activeNavItem = _state.activeNavItem,
+                activeSubNavItem = _state.activeSubNavItem;
+
+
+            return _react2.default.createElement(
+                _src2.default,
                 {
-                    active: activeKey === 'home',
-                    eventKey: 'home'
+                    onSelect: this.onSelect,
+                    onToggle: this.onToggle
                 },
-                _react2.default.createElement('i', { className: 'fa fa-fw fa-home', style: { fontSize: '1.75em' } }),
+                _react2.default.createElement(_src.Toggle, null),
                 _react2.default.createElement(
-                    'span',
+                    _src.Nav,
                     null,
-                    'Home'
+                    _react2.default.createElement(_src.NavItem, {
+                        active: expanded && activeNavItem === 'home' || activeSubNavItem === 'home',
+                        eventKey: 'home',
+                        icon: _react2.default.createElement('i', { className: 'fa fa-fw fa-home', style: { fontSize: '1.75em' } }),
+                        title: 'Home'
+                    }),
+                    _react2.default.createElement(
+                        _src.NavItem,
+                        {
+                            active: expanded && activeNavItem === 'charts/' || activeSubNavItem.startsWith('charts/'),
+                            eventKey: 'charts/',
+                            icon: _react2.default.createElement('i', { className: 'fa fa-fw fa-line-chart', style: { fontSize: '1.5em' } }),
+                            title: 'Charts'
+                        },
+                        _react2.default.createElement(
+                            _src.SubNavItem,
+                            {
+                                eventKey: 'charts/1',
+                                active: activeSubNavItem === 'charts/1'
+                            },
+                            'Charts/1'
+                        ),
+                        _react2.default.createElement(
+                            _src.SubNavItem,
+                            {
+                                eventKey: 'charts/2',
+                                active: activeSubNavItem === 'charts/2'
+                            },
+                            'Charts/2'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _src.NavItem,
+                        {
+                            active: expanded && activeNavItem === 'forms/' || activeSubNavItem.startsWith('forms/'),
+                            eventKey: 'forms/',
+                            icon: _react2.default.createElement('i', { className: 'fa fa-fw fa-list-alt', style: { fontSize: '1.5em' } }),
+                            title: 'Forms'
+                        },
+                        _react2.default.createElement(
+                            _src.SubNavItem,
+                            {
+                                eventKey: 'forms/1',
+                                active: activeSubNavItem === 'forms/1'
+                            },
+                            'Forms/1'
+                        ),
+                        _react2.default.createElement(
+                            _src.SubNavItem,
+                            {
+                                eventKey: 'forms/2',
+                                active: activeSubNavItem === 'forms/2'
+                            },
+                            'Froms/2'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _src.NavItem,
+                        {
+                            active: expanded && activeNavItem === 'settings/' || activeSubNavItem.startsWith('settings/'),
+                            eventKey: 'settings/',
+                            icon: _react2.default.createElement('i', { className: 'fa fa-fw fa-cogs', style: { fontSize: '1.5em' } }),
+                            title: 'Settings'
+                        },
+                        _react2.default.createElement(
+                            _src.SubNavItem,
+                            {
+                                eventKey: 'settings/1',
+                                active: activeSubNavItem === 'settings/1'
+                            },
+                            'Settings/1'
+                        ),
+                        _react2.default.createElement(
+                            _src.SubNavItem,
+                            {
+                                eventKey: 'settings/2',
+                                active: activeSubNavItem === 'settings/2'
+                            },
+                            'Settings/2'
+                        )
+                    )
                 )
-            ),
-            _react2.default.createElement(
-                _src2.default.NavItem,
-                {
-                    active: activeKey === 'charts',
-                    eventKey: 'charts'
-                },
-                _react2.default.createElement('i', { className: 'fa fa-fw fa-line-chart', style: { fontSize: '1.5em' } }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Charts'
-                )
-            ),
-            _react2.default.createElement(
-                _src2.default.NavItem,
-                {
-                    active: activeKey === 'forms',
-                    eventKey: 'forms'
-                },
-                _react2.default.createElement('i', { className: 'fa fa-fw fa-list-alt', style: { fontSize: '1.5em' } }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Forms'
-                )
-            ),
-            _react2.default.createElement(
-                _src2.default.NavItem,
-                {
-                    active: activeKey === 'settings',
-                    eventKey: 'settings'
-                },
-                _react2.default.createElement('i', { className: 'fa fa-fw fa-cogs', style: { fontSize: '1.5em' } }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Settings'
-                )
-            )
-        )
-    );
-};
+            );
+        }
+    }]);
+
+    return Navigation;
+}(_react.PureComponent);
+
+exports.default = Navigation;
 
 /***/ }),
 
@@ -21854,9 +22223,9 @@ var _Navbar = __webpack_require__("./Navbar.jsx");
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
-var _SideNav = __webpack_require__("./SideNav.jsx");
+var _Navigation = __webpack_require__("./Navigation.jsx");
 
-var _SideNav2 = _interopRequireDefault(_SideNav);
+var _Navigation2 = _interopRequireDefault(_Navigation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21881,15 +22250,14 @@ var App = function (_React$Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            activeKey: 'home'
+            activeNavItem: 'home',
+            activeSubNavItem: 'home:1'
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(App, [{
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             var name = 'React SideNav';
             var url = 'https://github.com/trendmicro-frontend/react-sidenav';
 
@@ -21905,12 +22273,7 @@ var App = function (_React$Component) {
                             height: 'calc(100vh - 50px)'
                         }
                     },
-                    _react2.default.createElement(_SideNav2.default, {
-                        activeKey: this.state.activeKey,
-                        onSelect: function onSelect(key) {
-                            _this2.setState({ activeKey: key });
-                        }
-                    })
+                    _react2.default.createElement(_Navigation2.default, null)
                 )
             );
         }
@@ -21924,4 +22287,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?b8d45d425af60ecd35d2
+//# sourceMappingURL=bundle.js.map?a1071d0f86905b42f1dd

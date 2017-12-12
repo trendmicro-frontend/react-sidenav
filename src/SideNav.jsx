@@ -7,7 +7,6 @@ import warning from 'warning';
 import Toggle from './Toggle';
 import Nav from './Nav';
 import NavItem from './NavItem';
-import SubNav from './SubNav';
 import SubNavItem from './SubNavItem';
 import styles from './index.styl';
 
@@ -164,7 +163,6 @@ const UncontrollableSideNav = uncontrollable(SideNav, {
 UncontrollableSideNav.Toggle = Toggle;
 UncontrollableSideNav.Nav = Nav;
 UncontrollableSideNav.NavItem = NavItem;
-UncontrollableSideNav.SubNav = SubNav;
 UncontrollableSideNav.SubNavItem = SubNavItem;
 
 export default UncontrollableSideNav;
