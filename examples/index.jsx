@@ -3,11 +3,12 @@ import '@trendmicro/react-buttons/dist/react-buttons.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Navbar from './Navbar';
-import SideNav from './SideNav';
+import Navigation from './Navigation';
 
 class App extends React.Component {
     state = {
-        activeKey: 'home'
+        activeNavItem: 'home',
+        activeSubNavItem: 'home:1'
     };
 
     render() {
@@ -23,12 +24,7 @@ class App extends React.Component {
                         height: 'calc(100vh - 50px)'
                     }}
                 >
-                    <SideNav
-                        activeKey={this.state.activeKey}
-                        onSelect={(key) => {
-                            this.setState({ activeKey: key });
-                        }}
-                    />
+                    <Navigation />
                 </div>
             </div>
         );

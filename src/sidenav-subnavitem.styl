@@ -1,0 +1,33 @@
+.sidenav-subnav > .sidenav-subnavitem {
+    &:first-child {
+        margin: 0 24px;
+        line-height: 48px;
+        border-bottom: 1px #ccc solid;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    &:nth-child(2) {
+        margin-top: 8px;
+    }
+
+    &:last-child {
+        margin-bottom: 8px;
+    }
+
+    &.selected > a {
+        color: #db3d44;
+        font-weight: bold;
+        background: none;
+        cursor: default;
+    }
+
+    > a {
+        display: block;
+        text-decoration: none;
+        color: #222;
+        font-size: 13px;
+        line-height: 30px;
+        padding: 0 24px;
+    }
+}

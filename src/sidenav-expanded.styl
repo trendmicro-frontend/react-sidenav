@@ -1,11 +1,88 @@
 .sidenav.expanded {
     min-width: 240px;
 
-    .sidenav-nav {
-        > .sidenav-navitem {
-            i + span {
-                display: inline-block;
-            }
+    .sidenav-nav > .sidenav-navitem {
+        .sidenav-navitem-icon + .sidenav-navitem-title {
+            display: inline-block;
+        }
+    }
+
+    .sidenav-nav > .sidenav-navitem {
+        &.selected > a {
+            cursor: pointer;
+        }
+    }
+
+    .sidenav-subnav {
+        position: static;
+        border: none;
+        float: left;
+        clear: both;
+        width: 100%;
+        background: transparent;
+        overflow: hidden;
+        box-shadow: none;
+    }
+
+    .sidenav-nav > .sidenav-navitem.expanded .sidenav-subnav {
+        display: block;
+    }
+    .sidenav-subnav {
+        display: none;
+    }
+
+    .sidenav-subnav > .sidenav-subnavitem {
+        position: relative;
+    }
+    .sidenav-subnav > .sidenav-subnavitem::before {
+        content: " ";
+        width: 100%;
+        height: 28px;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+    .sidenav-subnav > .sidenav-subnavitem:first-child {
+        display: none;
+    }
+    .sidenav-subnav > .sidenav-subnavitem {
+        &:hover::before {
+            background: #ffffff;
+            opacity: 0.15;
+        }
+
+        &::before {
+            content: " ";
+            width: 100%;
+            height: 28px;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
+
+        &.selected > a {
+            color: #fff;
+        }
+
+        &.selected > a::before {
+            content: " ";
+            width: 2px;
+            height: 20px;
+            left: 10px;
+            top: 4px;
+            position: absolute;
+            border-left: 2px #ffffff solid;
+        }
+
+        &:hover > a {
+            background: transparent;
+            color: #fff;
+        }
+
+        > a {
+            color: #f9dcdd;
+            padding: 0 14px 0 20px;
+            line-height: 28px;
         }
     }
 }

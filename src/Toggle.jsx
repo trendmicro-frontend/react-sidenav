@@ -11,14 +11,14 @@ class Toggle extends PureComponent {
             PropTypes.func
         ]),
 
-        // Sidenav
+        // Passing props from parent
         disabled: PropTypes.bool,
         expanded: PropTypes.bool
     };
     static defaultProps = {
         componentClass: 'button',
 
-        // Sidenav
+        // Passing props from parent
         disabled: false,
         expanded: false
     };

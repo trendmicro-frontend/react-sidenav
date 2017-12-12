@@ -7,6 +7,8 @@ import warning from 'warning';
 import Toggle from './Toggle';
 import Nav from './Nav';
 import NavItem from './NavItem';
+import SubNav from './SubNav';
+import SubNavItem from './SubNavItem';
 import styles from './index.styl';
 
 class SideNav extends PureComponent {
@@ -125,7 +127,8 @@ class SideNav extends PureComponent {
                     styles.sidenav,
                     {
                         [styles.disabled]: disabled,
-                        [styles.expanded]: expanded
+                        [styles.expanded]: expanded,
+                        [styles.collapsed]: !expanded
                     }
                 )}
             >
@@ -142,7 +145,7 @@ class SideNav extends PureComponent {
 
                     if (child.type === Nav) {
                         return this.renderNav(child, {
-                            expanded, onSelect
+                            onSelect
                         });
                     }
 
@@ -161,5 +164,7 @@ const UncontrollableSideNav = uncontrollable(SideNav, {
 UncontrollableSideNav.Toggle = Toggle;
 UncontrollableSideNav.Nav = Nav;
 UncontrollableSideNav.NavItem = NavItem;
+UncontrollableSideNav.SubNav = SubNav;
+UncontrollableSideNav.SubNavItem = SubNavItem;
 
 export default UncontrollableSideNav;

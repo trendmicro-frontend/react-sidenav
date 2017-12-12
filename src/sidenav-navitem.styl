@@ -17,15 +17,15 @@
         opacity: .2;
     }
 
-    &:hover > a > i,
-    &.selected > a > i {
+    &:hover > a .sidenav-navitem-icon,
+    &.selected > a .sidenav-navitem-icon {
         opacity: 1;
     }
 
-    &:hover > a > i,
-    &:hover > a > span,
-    &.selected > a > i,
-    &.selected > a > span {
+    &:hover > a .sidenav-navitem-icon,
+    &:hover > a .sidenav-navitem-title,
+    &.selected > a .sidenav-navitem-icon,
+    &.selected > a .sidenav-navitem-title {
         color: #fff;
     }
 
@@ -53,7 +53,7 @@
         }
     }
 
-    > a > i {
+    > a .sidenav-navitem-icon {
         display: block;
         float: left;
         width: 64px;
@@ -64,14 +64,15 @@
         background-position: center center;
         background-color: transparent;
         opacity: .7;
-    }
-    > a > i {
-        color: #f9dcdd;
         line-height: 50px;
-    }
-    > a > i + span {
-        text-transform: uppercase;
-        display: none;
+        text-align: center;
+
         color: #f9dcdd;
+        > * {
+            color: #f9dcdd;
+        }
+    }
+    > a .sidenav-navitem-icon + .sidenav-navitem-title {
+        display: none;
     }
 }

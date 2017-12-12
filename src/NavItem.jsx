@@ -2,7 +2,8 @@ import Anchor from '@trendmicro/react-anchor';
 import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React, { PureComponent, cloneElement } from 'react';
+import SubNavItem from './SubNavItem';
 import styles from './index.styl';
 
 class NavItem extends PureComponent {
@@ -13,36 +14,39 @@ class NavItem extends PureComponent {
             PropTypes.func
         ]),
 
-        // Sidenav
-        // Highlight the nav item as active.
+        title: PropTypes.any,
+
+        icon: PropTypes.any,
+
+        // Highlight the navigation item as active.
         active: PropTypes.bool,
 
-        // Disable the nav item, making it unselectable.
+        // Disable the navigation item, making it unselectable.
         disabled: PropTypes.bool,
 
-        // Style the nav item as a horizontal rule, providing visual separation between groups of menu items.
-        divider: PropTypes.bool,
+        // Whether the navigation item is expanded or collapsed.
+        expanded: PropTypes.bool,
 
-        // Value passed to the `onSelect` handler, useful for identifying the selected nav item.
+        // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
         eventKey: PropTypes.any,
 
-        // Style the nav item as header label, useful for describing a group of nav items.
+        // Style the navigation item as header label, useful for describing a group of navigation items.
         header: PropTypes.bool,
 
         // HTML `href` attribute corresponding to `a.href`.
         href: PropTypes.string,
 
-        // Callback fired when the nav item is clicked.
+        // Callback fired when the navigation item is clicked.
         onClick: PropTypes.func,
 
-        // Callback fired when the nav item is selected.
+        // Callback fired when the navigation item is selected.
         onSelect: PropTypes.func
     };
     static defaultProps = {
         componentClass: 'li',
         active: false,
         disabled: false,
-        divider: false,
+        expanded: false,
         header: false
     };
 
@@ -65,49 +69,45 @@ class NavItem extends PureComponent {
     render() {
         const {
             componentClass: Component,
+            title,
+            icon,
             active,
             disabled,
-            divider,
-            header,
+            expanded,
+            eventKey, // eslint-disable-line
+            header, // eslint-disable-line
             onClick,
+            onSelect,
             className,
             style,
+            children,
             ...props
         } = this.props;
 
-        delete props.eventKey;
-        delete props.onSelect;
+        const activeNavItems = [];
+        const navItems = React.Children.map(children, child => {
+            if (!React.isValidElement(child)) {
+                return child;
+            }
 
-        if (divider) {
-            // Forcibly blank out the children; separators shouldn't render any.
-            props.children = undefined;
+            if (child.props.active) {
+                activeNavItems.push(child);
+            }
 
-            return (
-                <Component
-                    {...props}
-                    role="separator"
-                    className={cx(className, styles.sidenavNavitem, styles.divider)}
-                    style={style}
-                />
-            );
-        }
-
-        if (header) {
-            return (
-                <Component
-                    {...props}
-                    role="heading"
-                    className={cx(className, styles.sidenavNavitem, styles.header)}
-                    style={style}
-                />
-            );
-        }
+            return cloneElement(child, {
+                onSelect: chainedFunction(
+                    child.props.onSelect,
+                    onSelect
+                )
+            });
+        });
 
         return (
             <Component
                 role="presentation"
                 className={cx(className, styles.sidenavNavitem, {
-                    [styles.selected]: active,
+                    [styles.selected]: active || activeNavItems.length > 0,
+                    [styles.expanded]: expanded || active,
                     [styles.disabled]: disabled
                 })}
                 style={style}
@@ -121,7 +121,23 @@ class NavItem extends PureComponent {
                         onClick,
                         this.handleClick
                     )}
-                />
+                >
+                    <span className={styles.sidenavNavitemIcon}>{icon}</span>
+                    <span className={styles.sidenavNavitemTitle}>{title}</span>
+                </Anchor>
+                {navItems &&
+                    <ul
+                        {...props}
+                        role="menu"
+                        className={cx({
+                            [styles.sidenavSubnav]: true,
+                            [styles.sidenavSubnavSelected]: activeNavItems.length > 0
+                        })}
+                    >
+                        <SubNavItem header>{title}</SubNavItem>
+                        {navItems}
+                    </ul>
+                }
             </Component>
         );
     }
