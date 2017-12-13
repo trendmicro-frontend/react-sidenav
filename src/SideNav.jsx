@@ -19,7 +19,7 @@ class SideNav extends PureComponent {
             PropTypes.func
         ]),
 
-        // Whether the side navigation is disabled.
+        // Whether the navigation toggle is disabled.
         disabled: PropTypes.bool,
 
         // Whether the side navigation is expanded or collapsed.
