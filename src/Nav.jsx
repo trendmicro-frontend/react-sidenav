@@ -20,7 +20,7 @@ class Nav extends PureComponent {
 
         // The selected navigation item.
         selected: PropTypes.any,
-        
+
         // The initially selected navigation item.
         defaultSelected: PropTypes.any,
 
