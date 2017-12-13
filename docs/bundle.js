@@ -25377,7 +25377,6 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Nav.__proto__ || Object.getPrototypeOf(Nav)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             expandedNavItem: null,
-
             selected: _this.props.defaultSelected,
             defaultSelected: _this.props.defaultSelected
         }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -25462,6 +25461,8 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
 
     // The selected navigation item.
     selected: _propTypes2.default.any,
+
+    // The initially selected navigation item.
     defaultSelected: _propTypes2.default.any,
 
     //
@@ -25749,20 +25750,18 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
     // Callback fired when the navigation item is clicked.
     onClick: _propTypes2.default.func,
 
-    // Callback fired when the top-level navigation item is clicked.
-    onNavClick: _propTypes2.default.func,
+    // Callback fired when a navigation item is selected.
+    onSelect: _propTypes2.default.func,
 
     //
     // Nav props
     //
 
-    // Callback fired when a navigation item is selected.
-    onSelect: _propTypes2.default.func,
-
+    // The selected navigation item.
     selected: _propTypes2.default.any,
 
     //
-    // Sub navigation item (for internally used)
+    // Sub navigation item (internal use only)
     //
 
     // Whether it is a sub navigation item.
@@ -26000,7 +25999,7 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
     // A custom element for this component.
     componentClass: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.func]),
 
-    // Whether the side navigation is disabled.
+    // Whether the navigation toggle is disabled.
     disabled: _propTypes2.default.bool,
 
     // Whether the side navigation is expanded or collapsed.
@@ -26112,13 +26111,13 @@ var Toggle = (_temp = _class = function (_PureComponent) {
     // A custom element for this component.
     componentClass: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.func]),
 
-    // Passing props from parent
+    // Whether the navigation toggle is disabled.
     disabled: _propTypes2.default.bool,
+
+    // Whether the side navigation is expanded or collapsed.
     expanded: _propTypes2.default.bool
 }, _class.defaultProps = {
     componentClass: 'button',
-
-    // Passing props from parent
     disabled: false,
     expanded: false
 }, _temp);
@@ -26815,4 +26814,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?7691e3ea2ea27beee198
+//# sourceMappingURL=bundle.js.map?0cd965825df1576bb078
