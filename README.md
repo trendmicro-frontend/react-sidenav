@@ -70,7 +70,7 @@ Demo: https://trendmicro-frontend.github.io/react-sidenav
 Name | Type | Default | Description 
 :--- | :--- | :------ | :----------
 componentClass | element | 'nav' | A custom element for this component.
-disabled | boolean | | Whether the side navigation is disabled.
+disabled | boolean | | Whether the navigation toggle is disabled.
 expanded | boolean | | Whether the side navigation is expanded or collapsed.
 onToggle | function(boolean) | | Callback fired when toggling the side navigation between expanded and collapsed state.
 onSelect | function(eventKey, event) | | Callback fired when a navigation item is selected.
