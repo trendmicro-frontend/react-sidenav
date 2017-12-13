@@ -38,20 +38,18 @@ class NavItem extends PureComponent {
         // Callback fired when the navigation item is clicked.
         onClick: PropTypes.func,
 
-        // Callback fired when the top-level navigation item is clicked.
-        onNavClick: PropTypes.func,
+        // Callback fired when a navigation item is selected.
+        onSelect: PropTypes.func,
 
         //
         // Nav props
         //
 
-        // Callback fired when a navigation item is selected.
-        onSelect: PropTypes.func,
-
+        // The selected navigation item.
         selected: PropTypes.any,
 
         //
-        // Sub navigation item (for internally used)
+        // Sub navigation item (internal use only)
         //
 
         // Whether it is a sub navigation item.
@@ -88,9 +86,9 @@ class NavItem extends PureComponent {
             expanded,
             eventKey, // eslint-disable-line
             onClick,
+            onSelect,
 
             // Nav props
-            onSelect,
             selected,
 
             // Sub navigation item
