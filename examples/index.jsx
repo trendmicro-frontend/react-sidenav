@@ -1,16 +1,12 @@
 import 'trendmicro-ui/dist/css/trendmicro-ui.css';
 import '@trendmicro/react-buttons/dist/react-buttons.css';
+import '@trendmicro/react-breadcrumbs/dist/react-breadcrumbs.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Navbar from './Navbar';
 import Navigation from './Navigation';
 
 class App extends React.Component {
-    state = {
-        activeNavItem: 'home',
-        activeSubNavItem: 'home:1'
-    };
-
     render() {
         const name = 'React SideNav';
         const url = 'https://github.com/trendmicro-frontend/react-sidenav';
@@ -24,7 +20,7 @@ class App extends React.Component {
                         height: 'calc(100vh - 50px)'
                     }}
                 >
-                    <Navigation />
+                    <Navigation.Uncontrolled />
                 </div>
             </div>
         );

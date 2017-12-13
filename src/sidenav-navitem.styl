@@ -17,15 +17,15 @@
         opacity: .2;
     }
 
-    &:hover > a .sidenav-navitem-icon,
-    &.selected > a .sidenav-navitem-icon {
+    &:hover > a .sidenav-nav-icon,
+    &.selected > a .sidenav-nav-icon {
         opacity: 1;
     }
 
-    &:hover > a .sidenav-navitem-icon,
-    &:hover > a .sidenav-navitem-title,
-    &.selected > a .sidenav-navitem-icon,
-    &.selected > a .sidenav-navitem-title {
+    &:hover > a .sidenav-nav-icon,
+    &:hover > a .sidenav-nav-text,
+    &.selected > a .sidenav-nav-icon,
+    &.selected > a .sidenav-nav-text {
         color: #fff;
     }
 
@@ -53,7 +53,7 @@
         }
     }
 
-    > a .sidenav-navitem-icon {
+    > a .sidenav-nav-icon {
         display: block;
         float: left;
         width: 64px;
@@ -72,7 +72,7 @@
             color: #f9dcdd;
         }
     }
-    > a .sidenav-navitem-icon + .sidenav-navitem-title {
+    > a .sidenav-nav-icon + .sidenav-nav-text {
         display: none;
     }
 }

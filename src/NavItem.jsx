@@ -3,8 +3,14 @@ import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent, cloneElement } from 'react';
-import SubNavItem from './SubNavItem';
+import NavIcon from './NavIcon';
+import NavText from './NavText';
+import findComponent from './find-component';
 import styles from './index.styl';
+
+const noop = () => {};
+const findNavIcon = findComponent(NavIcon);
+const findNavText = findComponent(NavText);
 
 class NavItem extends PureComponent {
     static propTypes = {
@@ -13,10 +19,6 @@ class NavItem extends PureComponent {
             PropTypes.string,
             PropTypes.func
         ]),
-
-        title: PropTypes.any,
-
-        icon: PropTypes.any,
 
         // Highlight the navigation item as active.
         active: PropTypes.bool,
@@ -30,27 +32,39 @@ class NavItem extends PureComponent {
         // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
         eventKey: PropTypes.any,
 
-        // Style the navigation item as header label, useful for describing a group of navigation items.
-        header: PropTypes.bool,
-
         // HTML `href` attribute corresponding to `a.href`.
         href: PropTypes.string,
 
         // Callback fired when the navigation item is clicked.
         onClick: PropTypes.func,
 
-        // Callback fired when the navigation item is selected.
-        onSelect: PropTypes.func
+        // Callback fired when the top-level navigation item is clicked.
+        onNavClick: PropTypes.func,
+
+        //
+        // Nav props
+        //
+
+        // Callback fired when a navigation item is selected.
+        onSelect: PropTypes.func,
+
+        selected: PropTypes.any,
+
+        //
+        // Sub navigation item (for internally used)
+        //
+
+        // Whether it is a sub navigation item.
+        subnav: PropTypes.bool
     };
     static defaultProps = {
-        componentClass: 'li',
+        componentClass: 'div',
         active: false,
         disabled: false,
-        expanded: false,
-        header: false
+        expanded: false
     };
 
-    handleClick = (event) => {
+    handleSelect = (event) => {
         const { href, disabled, onSelect, eventKey } = this.props;
 
         if (!href || disabled) {
@@ -69,45 +83,100 @@ class NavItem extends PureComponent {
     render() {
         const {
             componentClass: Component,
-            title,
-            icon,
             active,
             disabled,
             expanded,
             eventKey, // eslint-disable-line
-            header, // eslint-disable-line
             onClick,
+
+            // Nav props
             onSelect,
+            selected,
+
+            // Sub navigation item
+            subnav,
+
+            // Default props
             className,
             style,
             children,
             ...props
         } = this.props;
 
+        const navIcon = findNavIcon(children);
+        const navText = findNavText(children);
+
+        if (subnav) {
+            const highlighted = active ||
+                (!!selected && selected === this.props.eventKey);
+
+            return (
+                <Component
+                    role="presentation"
+                    className={cx(className, styles.sidenavSubnavitem, {
+                        [styles.selected]: highlighted,
+                        [styles.disabled]: disabled
+                    })}
+                    style={style}
+                >
+                    <Anchor
+                        {...props}
+                        disabled={disabled}
+                        role="menuitem"
+                        tabIndex="-1"
+                        onClick={chainedFunction(
+                            onClick,
+                            this.handleSelect
+                        )}
+                    >
+                        <div className={styles.sidenavNavIcon}>
+                            {navIcon && navIcon.props ? navIcon.props.children : null}
+                        </div>
+                        <div className={styles.sidenavNavText}>
+                            {navText && navText.props ? navText.props.children : null}
+                        </div>
+                    </Anchor>
+                </Component>
+            );
+        }
+
         const activeNavItems = [];
-        const navItems = React.Children.map(children, child => {
-            if (!React.isValidElement(child)) {
-                return child;
-            }
+        const navItems = React.Children.toArray(children)
+            .filter(child => {
+                return React.isValidElement(child) && (child.type === NavItem);
+            })
+            .map(child => {
+                if (child.props.active || (!!selected && selected === child.props.eventKey)) {
+                    activeNavItems.push(child);
+                }
 
-            if (child.props.active) {
-                activeNavItems.push(child);
-            }
-
-            return cloneElement(child, {
-                onSelect: chainedFunction(
-                    child.props.onSelect,
-                    onSelect
-                )
+                return cloneElement(child, {
+                    subnav: true,
+                    selected,
+                    onSelect: chainedFunction(
+                        child.props.onSelect,
+                        onSelect
+                    )
+                });
             });
-        });
+        const others = React.Children.toArray(children)
+            .filter(child => {
+                if (React.isValidElement(child) && (child.type === NavIcon || child.type === NavText || child.type === NavItem)) {
+                    return false;
+                }
+                return true;
+            });
+
+        const highlighted = active || expanded ||
+            (activeNavItems.length > 0) ||
+            (!!selected && selected === this.props.eventKey);
 
         return (
             <Component
                 role="presentation"
                 className={cx(className, styles.sidenavNavitem, {
-                    [styles.selected]: active || activeNavItems.length > 0,
-                    [styles.expanded]: expanded || active,
+                    [styles.selected]: highlighted,
+                    [styles.expanded]: expanded,
                     [styles.disabled]: disabled
                 })}
                 style={style}
@@ -119,14 +188,19 @@ class NavItem extends PureComponent {
                     tabIndex="-1"
                     onClick={chainedFunction(
                         onClick,
-                        this.handleClick
+                        (navItems.length === 0) ? this.handleSelect : noop
                     )}
                 >
-                    <span className={styles.sidenavNavitemIcon}>{icon}</span>
-                    <span className={styles.sidenavNavitemTitle}>{title}</span>
+                    <div className={styles.sidenavNavIcon}>
+                        {navIcon && navIcon.props ? navIcon.props.children : null}
+                    </div>
+                    <div className={styles.sidenavNavText}>
+                        {navText && navText.props ? navText.props.children : null}
+                    </div>
                 </Anchor>
-                {navItems &&
-                    <ul
+                {others}
+                {(navItems.length > 0) &&
+                    <div
                         {...props}
                         role="menu"
                         className={cx({
@@ -134,9 +208,18 @@ class NavItem extends PureComponent {
                             [styles.sidenavSubnavSelected]: activeNavItems.length > 0
                         })}
                     >
-                        <SubNavItem header>{title}</SubNavItem>
+                        <Component
+                            role="heading"
+                            className={cx(className, styles.sidenavSubnavitem, {
+                                [styles.selected]: active,
+                                [styles.disabled]: disabled
+                            })}
+                            style={style}
+                        >
+                            {navText && navText.props ? navText.props.children : null}
+                        </Component>
                         {navItems}
-                    </ul>
+                    </div>
                 }
             </Component>
         );

@@ -7,7 +7,8 @@ import warning from 'warning';
 import Toggle from './Toggle';
 import Nav from './Nav';
 import NavItem from './NavItem';
-import SubNavItem from './SubNavItem';
+import NavIcon from './NavIcon';
+import NavText from './NavText';
 import styles from './index.styl';
 
 class SideNav extends PureComponent {
@@ -18,16 +19,16 @@ class SideNav extends PureComponent {
             PropTypes.func
         ]),
 
-        // Whether or not the sidenav is disabled.
+        // Whether the side navigation is disabled.
         disabled: PropTypes.bool,
 
-        // Whether or not the sidenav is expanded or collapsed.
+        // Whether the side navigation is expanded or collapsed.
         expanded: PropTypes.bool,
 
-        // A callback fired when the sidenav wishes to toggle between expanded and collapsed state.
+        // Callback fired when toggling the side navigation between expanded and collapsed state.
         onToggle: PropTypes.func,
 
-        // A callback fired when a navitem is selected.
+        // Callback fired when a navigation item is selected.
         onSelect: PropTypes.func
     };
     static defaultProps = {
@@ -144,7 +145,7 @@ class SideNav extends PureComponent {
 
                     if (child.type === Nav) {
                         return this.renderNav(child, {
-                            onSelect
+                            onSelect, expanded
                         });
                     }
 
@@ -163,6 +164,7 @@ const UncontrollableSideNav = uncontrollable(SideNav, {
 UncontrollableSideNav.Toggle = Toggle;
 UncontrollableSideNav.Nav = Nav;
 UncontrollableSideNav.NavItem = NavItem;
-UncontrollableSideNav.SubNavItem = SubNavItem;
+UncontrollableSideNav.NavIcon = NavIcon;
+UncontrollableSideNav.NavText = NavText;
 
 export default UncontrollableSideNav;
