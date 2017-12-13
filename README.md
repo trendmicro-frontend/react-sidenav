@@ -65,6 +65,59 @@ Demo: https://trendmicro-frontend.github.io/react-sidenav
 
 ### Properties
 
+#### SideNav
+
+Name | Type | Default | Description 
+:--- | :--- | :------ | :----------
+componentClass | element | 'nav' | A custom element for this component.
+disabled | boolean | | Whether the side navigation is disabled.
+expanded | boolean | | Whether the side navigation is expanded or collapsed.
+onToggle | function(boolean) | | Callback fired when toggling the side navigation between expanded and collapsed state.
+onSelect | function(eventKey, event) | | Callback fired when a navigation item is selected.
+
+#### Toggle
+
+Name | Type | Default | Description 
+:--- | :--- | :------ | :----------
+componentClass | element | 'button' | A custom element for this component.
+disabled | boolean | false | Whether the navigation toggle is disabled.
+expanded | boolean | false | Whether the side navigation is expanded or collapsed.
+
+#### Nav
+
+Name | Type | Default | Description 
+:--- | :--- | :------ | :----------
+componentClass | element | 'div' | A custom element for this component.
+onSelect | function(eventKey, event) | | Callback fired when a navigation item is selected.
+selected | any | | The selected navigation item.
+defaultSelected | any | | The initially selected navigation item.
+expanded | boolean | false | Whether the side navigation is expanded or collapsed.
+
+#### NavItem
+
+Name | Type | Default | Description 
+:--- | :--- | :------ | :----------
+componentClass | element | 'div' | A custom element for this component.
+active | boolean | false | Highlight the navigation item as active.
+disabled | boolean | false | Disable the navigation item, making it unselectable.
+expanded | boolean | false | Whether the navigation item is expanded or collapsed.
+eventKey | any | _(Required)_ | Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
+href | string | | HTML `href` attribute corresponding to `a.href`.
+onClick | function(event) | | Callback fired when the navigation item is clicked.
+onSelect | function(eventKey, event) | | Callback fired when a navigation item is selected.
+
+#### NavIcon
+
+Name | Type | Default | Description 
+:--- | :--- | :------ | :----------
+children | any | |
+
+#### NavText
+
+Name | Type | Default | Description 
+:--- | :--- | :------ | :----------
+children | any | |
+
 ## License
 
 MIT
