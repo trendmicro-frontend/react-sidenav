@@ -13,7 +13,7 @@ class Toggle extends PureComponent {
 
         // Whether the navigation toggle is disabled.
         disabled: PropTypes.bool,
-        
+
         // Whether the side navigation is expanded or collapsed.
         expanded: PropTypes.bool
     };
