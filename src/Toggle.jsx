@@ -11,14 +11,14 @@ class Toggle extends PureComponent {
             PropTypes.func
         ]),
 
-        // Passing props from parent
+        // Whether the navigation toggle is disabled.
         disabled: PropTypes.bool,
+        
+        // Whether the side navigation is expanded or collapsed.
         expanded: PropTypes.bool
     };
     static defaultProps = {
         componentClass: 'button',
-
-        // Passing props from parent
         disabled: false,
         expanded: false
     };
