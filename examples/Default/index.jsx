@@ -27,10 +27,8 @@ export default class extends PureComponent {
 
     pageTitle = {
         'home': 'Home',
-        'charts/barchart': ['Charts', 'Bar Chart'],
-        'charts/linechart': ['Charts', 'Line Chart'],
-        'forms/layout': ['Forms', 'Form Layout'],
-        'forms/validation': ['Forms', 'Form Validation'],
+        'devices': ['Devices'],
+        'reports': ['Reports'],
         'settings/policy': ['Settings', 'Policy'],
         'settings/network': ['Settings', 'Network']
     };
@@ -63,41 +61,21 @@ export default class extends PureComponent {
                                 Home
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="charts">
+                        <NavItem eventKey="devices">
                             <NavIcon>
                                 <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
-                                Charts
+                                Devices
                             </NavText>
-                            <NavItem eventKey="charts/linechart">
-                                <NavText>
-                                    Line Chart
-                                </NavText>
-                            </NavItem>
-                            <NavItem eventKey="charts/barchart">
-                                <NavText>
-                                    Bar Chart
-                                </NavText>
-                            </NavItem>
                         </NavItem>
-                        <NavItem eventKey="forms">
+                        <NavItem eventKey="reports">
                             <NavIcon>
                                 <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
-                                Forms
+                                Reports
                             </NavText>
-                            <NavItem eventKey="forms/layout">
-                                <NavText>
-                                    Form Layout
-                                </NavText>
-                            </NavItem>
-                            <NavItem eventKey="forms/validation">
-                                <NavText>
-                                    Form Validation
-                                </NavText>
-                            </NavItem>
                         </NavItem>
                         <NavItem eventKey="settings">
                             <NavIcon>

@@ -25345,11 +25345,17 @@ var _NavItem = __webpack_require__("../src/NavItem.jsx");
 
 var _NavItem2 = _interopRequireDefault(_NavItem);
 
+var _matchComponent = __webpack_require__("../src/match-component.js");
+
+var _matchComponent2 = _interopRequireDefault(_matchComponent);
+
 var _index = __webpack_require__("../src/index.styl");
 
 var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -25379,7 +25385,7 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
             expandedNavItem: null,
             selected: _this.props.defaultSelected,
             defaultSelected: _this.props.defaultSelected
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        }, _this.isNavItem = (0, _matchComponent2.default)(_NavItem2.default), _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Nav, [{
@@ -25419,6 +25425,7 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
             var _this3 = this;
 
             var _props = this.props,
+                componentType = _props.componentType,
                 Component = _props.componentClass,
                 onSelect = _props.onSelect,
                 selected = _props.selected,
@@ -25426,7 +25433,7 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
                 expanded = _props.expanded,
                 className = _props.className,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ['componentClass', 'onSelect', 'selected', 'defaultSelected', 'expanded', 'className', 'children']);
+                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'onSelect', 'selected', 'defaultSelected', 'expanded', 'className', 'children']);
 
             var currentSelected = this.state.defaultSelected ? this.state.selected : selected;
 
@@ -25434,10 +25441,10 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
                 Component,
                 _extends({}, props, {
                     role: 'menu',
-                    className: (0, _classnames2.default)(className, _index2.default.sidenavNav)
+                    className: (0, _classnames2.default)(className, _index2.default.sidenavNav, _defineProperty({}, _index2.default.expanded, expanded))
                 }),
                 _react2.default.Children.map(children, function (child) {
-                    if (_react2.default.isValidElement(child) && child.type === _NavItem2.default) {
+                    if (_react2.default.isValidElement(child) && _this3.isNavItem(child)) {
                         return _this3.renderNavItem(child, {
                             onSelect: onSelect,
                             selected: currentSelected,
@@ -25474,6 +25481,11 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
 }, _class.defaultProps = {
     componentClass: 'div'
 }, _temp2);
+
+// For component matching
+
+Nav.defaultProps.componentType = Nav;
+
 exports.default = Nav;
 
 /***/ }),
@@ -25487,9 +25499,17 @@ exports.default = Nav;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var NavIcon = function NavIcon() {
     throw new Error('should not render NavIcon component');
 };
+
+// For component matching
+NavIcon.defaultProps = _extends({}, NavIcon.defaultProps, {
+    componentType: NavIcon
+});
 
 exports.default = NavIcon;
 
@@ -25543,6 +25563,10 @@ var _findComponent = __webpack_require__("../src/find-component.js");
 
 var _findComponent2 = _interopRequireDefault(_findComponent);
 
+var _matchComponent = __webpack_require__("../src/match-component.js");
+
+var _matchComponent2 = _interopRequireDefault(_matchComponent);
+
 var _index = __webpack_require__("../src/index.styl");
 
 var _index2 = _interopRequireDefault(_index);
@@ -25560,8 +25584,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var noop = function noop() {};
-var findNavIcon = (0, _findComponent2.default)(_NavIcon2.default);
-var findNavText = (0, _findComponent2.default)(_NavText2.default);
 
 var NavItem = (_temp2 = _class = function (_PureComponent) {
     _inherits(NavItem, _PureComponent);
@@ -25577,7 +25599,7 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = NavItem.__proto__ || Object.getPrototypeOf(NavItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleSelect = function (event) {
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = NavItem.__proto__ || Object.getPrototypeOf(NavItem)).call.apply(_ref, [this].concat(args))), _this), _this.findNavIcon = (0, _findComponent2.default)(_NavIcon2.default), _this.findNavText = (0, _findComponent2.default)(_NavText2.default), _this.isNavItem = (0, _matchComponent2.default)(NavItem), _this.isNavIcon = (0, _matchComponent2.default)(_NavIcon2.default), _this.isNavText = (0, _matchComponent2.default)(_NavText2.default), _this.handleSelect = function (event) {
             var _this$props = _this.props,
                 href = _this$props.href,
                 disabled = _this$props.disabled,
@@ -25602,9 +25624,13 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
     _createClass(NavItem, [{
         key: 'render',
         value: function render() {
-            var _cx2, _cx3, _cx4;
+            var _this2 = this,
+                _cx2,
+                _cx3,
+                _cx4;
 
             var _props = this.props,
+                componentType = _props.componentType,
                 Component = _props.componentClass,
                 active = _props.active,
                 disabled = _props.disabled,
@@ -25617,10 +25643,10 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                 className = _props.className,
                 style = _props.style,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ['componentClass', 'active', 'disabled', 'expanded', 'eventKey', 'onClick', 'onSelect', 'selected', 'subnav', 'className', 'style', 'children']);
+                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'active', 'disabled', 'expanded', 'eventKey', 'onClick', 'onSelect', 'selected', 'subnav', 'className', 'style', 'children']);
 
-            var navIcon = findNavIcon(children);
-            var navText = findNavText(children);
+            var navIcon = this.findNavIcon(children);
+            var navText = this.findNavText(children);
 
             if (subnav) {
                 var _cx;
@@ -25658,7 +25684,7 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
 
             var activeNavItems = [];
             var navItems = _react2.default.Children.toArray(children).filter(function (child) {
-                return _react2.default.isValidElement(child) && child.type === NavItem;
+                return _react2.default.isValidElement(child) && _this2.isNavItem(child);
             }).map(function (child) {
                 if (child.props.active || !!selected && selected === child.props.eventKey) {
                     activeNavItems.push(child);
@@ -25671,7 +25697,7 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                 });
             });
             var others = _react2.default.Children.toArray(children).filter(function (child) {
-                if (_react2.default.isValidElement(child) && (child.type === _NavIcon2.default || child.type === _NavText2.default || child.type === NavItem)) {
+                if (_react2.default.isValidElement(child) && (_this2.isNavIcon(child) || _this2.isNavText(child) || _this2.isNavItem(child))) {
                     return false;
                 }
                 return true;
@@ -25772,6 +25798,11 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
     disabled: false,
     expanded: false
 }, _temp2);
+
+// For component matching
+
+NavItem.defaultProps.componentType = NavItem;
+
 exports.default = NavItem;
 
 /***/ }),
@@ -25785,9 +25816,17 @@ exports.default = NavItem;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var NavText = function NavText() {
     throw new Error('should not render NavText component');
 };
+
+// For component matching
+NavText.defaultProps = _extends({}, NavText.defaultProps, {
+    componentType: NavText
+});
 
 exports.default = NavText;
 
@@ -25857,6 +25896,10 @@ var _index = __webpack_require__("../src/index.styl");
 
 var _index2 = _interopRequireDefault(_index);
 
+var _matchComponent = __webpack_require__("../src/match-component.js");
+
+var _matchComponent2 = _interopRequireDefault(_matchComponent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -25883,10 +25926,10 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SideNav.__proto__ || Object.getPrototypeOf(SideNav)).call.apply(_ref, [this].concat(args))), _this), _this.c = {
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SideNav.__proto__ || Object.getPrototypeOf(SideNav)).call.apply(_ref, [this].concat(args))), _this), _this.isToggle = (0, _matchComponent2.default)(_Toggle2.default), _this.isNav = (0, _matchComponent2.default)(_Nav2.default), _this.child = {
             toggle: null,
             nav: null
-        }, _this.lastToggleEventType = null, _this.handleClick = function (event) {
+        }, _this.handleClick = function (event) {
             if (_this.props.disabled) {
                 return;
             }
@@ -25900,10 +25943,6 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
         value: function toggleExpanded(eventType) {
             var expanded = !this.props.expanded;
 
-            if (expanded) {
-                this.lastToggleEventType = eventType;
-            }
-
             if (this.props.onToggle) {
                 this.props.onToggle(expanded);
             }
@@ -25914,7 +25953,7 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
             var _this2 = this;
 
             var ref = function ref(c) {
-                _this2.c.toggle = c;
+                _this2.child.toggle = c;
             };
 
             if (typeof child.ref === 'string') {
@@ -25937,7 +25976,7 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
                 props = _objectWithoutProperties(_ref2, ['onSelect']);
 
             var ref = function ref(c) {
-                _this3.c.nav = c;
+                _this3.child.nav = c;
             };
 
             if (typeof child.ref === 'string') {
@@ -25958,13 +25997,14 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
                 _this4 = this;
 
             var _props = this.props,
+                componentType = _props.componentType,
                 Component = _props.componentClass,
                 disabled = _props.disabled,
                 expanded = _props.expanded,
                 onSelect = _props.onSelect,
                 className = _props.className,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ['componentClass', 'disabled', 'expanded', 'onSelect', 'className', 'children']);
+                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'disabled', 'expanded', 'onSelect', 'className', 'children']);
 
             return _react2.default.createElement(
                 Component,
@@ -25976,13 +26016,13 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
                         return child;
                     }
 
-                    if (child.type === _Toggle2.default) {
+                    if (_this4.isToggle(child)) {
                         return _this4.renderToggle(child, {
                             disabled: disabled, expanded: expanded
                         });
                     }
 
-                    if (child.type === _Nav2.default) {
+                    if (_this4.isNav(child)) {
                         return _this4.renderNav(child, {
                             onSelect: onSelect, expanded: expanded
                         });
@@ -26014,6 +26054,9 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
     componentClass: 'nav'
 }, _temp2);
 
+// For component matching
+
+SideNav.defaultProps.componentType = SideNav;
 
 var UncontrollableSideNav = (0, _uncontrollable2.default)(SideNav, {
     // Define the pairs of prop/handlers you want to be uncontrollable
@@ -26085,12 +26128,12 @@ var Toggle = (_temp = _class = function (_PureComponent) {
         key: 'render',
         value: function render() {
             var _props = this.props,
+                componentType = _props.componentType,
                 Component = _props.componentClass,
                 expanded = _props.expanded,
                 className = _props.className,
-                props = _objectWithoutProperties(_props, ['componentClass', 'expanded', 'className']);
-
-            delete props.children;
+                children = _props.children,
+                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'expanded', 'className', 'children']);
 
             return _react2.default.createElement(
                 Component,
@@ -26101,7 +26144,8 @@ var Toggle = (_temp = _class = function (_PureComponent) {
                 }),
                 _react2.default.createElement('span', { className: _index2.default.iconBar }),
                 _react2.default.createElement('span', { className: _index2.default.iconBar }),
-                _react2.default.createElement('span', { className: _index2.default.iconBar })
+                _react2.default.createElement('span', { className: _index2.default.iconBar }),
+                children
             );
         }
     }]);
@@ -26121,6 +26165,11 @@ var Toggle = (_temp = _class = function (_PureComponent) {
     disabled: false,
     expanded: false
 }, _temp);
+
+// For component matching
+
+Toggle.defaultProps.componentType = Toggle;
+
 exports.default = Toggle;
 
 /***/ }),
@@ -26139,12 +26188,18 @@ var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _matchComponent = __webpack_require__("../src/match-component.js");
+
+var _matchComponent2 = _interopRequireDefault(_matchComponent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var findComponent = function findComponent(component) {
     return function (children) {
+        var matchComponent = (0, _matchComponent2.default)(component);
+
         return _react2.default.Children.toArray(children).reduce(function (found, next) {
-            if (found === null && next !== null && next.type === component) {
+            if (found === null && next !== null && matchComponent(next)) {
                 return next;
             }
             return found;
@@ -26254,7 +26309,7 @@ if(false) {
 
 /***/ }),
 
-/***/ "./Navbar.jsx":
+/***/ "../src/match-component.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26263,171 +26318,27 @@ if(false) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _class, _temp2;
-
-var _classnames = __webpack_require__("../node_modules/classnames/index.js");
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = __webpack_require__("../node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactButtons = __webpack_require__("../node_modules/@trendmicro/react-buttons/lib/index.js");
-
-var _Navbar = __webpack_require__("./Navbar.styl");
-
-var _Navbar2 = _interopRequireDefault(_Navbar);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _default = (_temp2 = _class = function (_Component) {
-    _inherits(_default, _Component);
-
-    function _default() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
-        _classCallCheck(this, _default);
-
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
+var matchComponent = function matchComponent(Component) {
+    return function (c) {
+        // React Component
+        if (c.type === Component) {
+            return true;
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _default.__proto__ || Object.getPrototypeOf(_default)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            collapseIn: false
-        }, _temp), _possibleConstructorReturn(_this, _ret);
-    }
-
-    _createClass(_default, [{
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            var _props = this.props,
-                name = _props.name,
-                url = _props.url;
-
-
-            return _react2.default.createElement(
-                'nav',
-                {
-                    className: (0, _classnames2.default)(_Navbar2.default.navbar, _Navbar2.default.navbarDefault),
-                    style: { borderRadius: 0 }
-                },
-                _react2.default.createElement(
-                    'div',
-                    { className: _Navbar2.default.containerFluid },
-                    _react2.default.createElement(
-                        'div',
-                        { className: _Navbar2.default.navbarHeader },
-                        _react2.default.createElement(
-                            'button',
-                            {
-                                type: 'button',
-                                className: (0, _classnames2.default)(_Navbar2.default.navbarToggle, _Navbar2.default.collapsed),
-                                onClick: function onClick() {
-                                    _this2.setState({ collapseIn: !_this2.state.collapseIn });
-                                }
-                            },
-                            _react2.default.createElement(
-                                'span',
-                                { className: _Navbar2.default.srOnly },
-                                'Toggle navigation'
-                            ),
-                            _react2.default.createElement('span', { className: _Navbar2.default.iconBar }),
-                            _react2.default.createElement('span', { className: _Navbar2.default.iconBar }),
-                            _react2.default.createElement('span', { className: _Navbar2.default.iconBar })
-                        ),
-                        _react2.default.createElement(
-                            'a',
-                            { href: '#', className: _Navbar2.default.navbarBrand },
-                            name
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        {
-                            className: (0, _classnames2.default)(_Navbar2.default.collapse, _Navbar2.default.navbarCollapse, _defineProperty({}, _Navbar2.default.in, this.state.collapseIn))
-                        },
-                        _react2.default.createElement(
-                            _reactButtons.Button,
-                            {
-                                className: (0, _classnames2.default)(_Navbar2.default.navbarBtn, _Navbar2.default.navbarRight),
-                                btnStyle: 'flat',
-                                onClick: function onClick() {
-                                    window.location = url;
-                                }
-                            },
-                            _react2.default.createElement('i', { className: 'fa fa-github' }),
-                            'GitHub'
-                        )
-                    )
-                )
-            );
+        // Matching componentType for SideNav, Nav, NavItem, NavIcon, NavText
+        if (c.props && c.props.componentType === Component) {
+            return true;
         }
-    }]);
 
-    return _default;
-}(_react.Component), _class.propTypes = {
-    name: _propTypes2.default.string,
-    url: _propTypes2.default.string
-}, _temp2);
+        return false;
+    };
+};
 
-exports.default = _default;
+exports.default = matchComponent;
 
 /***/ }),
 
-/***/ "./Navbar.styl":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./Navbar.styl");
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__("../node_modules/style-loader/lib/addStyles.js")(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./Navbar.styl", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./Navbar.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ "./Navigation/Uncontrolled.jsx":
+/***/ "./Default/index.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26499,10 +26410,8 @@ var _default = function (_PureComponent) {
             _this.setState({ expanded: expanded });
         }, _this.pageTitle = {
             'home': 'Home',
-            'charts/barchart': ['Charts', 'Bar Chart'],
-            'charts/linechart': ['Charts', 'Line Chart'],
-            'forms/layout': ['Forms', 'Form Layout'],
-            'forms/validation': ['Forms', 'Form Validation'],
+            'devices': ['Devices'],
+            'reports': ['Reports'],
             'settings/policy': ['Settings', 'Policy'],
             'settings/network': ['Settings', 'Network']
         }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -26561,7 +26470,7 @@ var _default = function (_PureComponent) {
                         ),
                         _react2.default.createElement(
                             _SideNav.NavItem,
-                            { eventKey: 'charts' },
+                            { eventKey: 'devices' },
                             _react2.default.createElement(
                                 _SideNav.NavIcon,
                                 null,
@@ -26570,30 +26479,12 @@ var _default = function (_PureComponent) {
                             _react2.default.createElement(
                                 _SideNav.NavText,
                                 { style: { paddingRight: 32 } },
-                                'Charts'
-                            ),
-                            _react2.default.createElement(
-                                _SideNav.NavItem,
-                                { eventKey: 'charts/linechart' },
-                                _react2.default.createElement(
-                                    _SideNav.NavText,
-                                    null,
-                                    'Line Chart'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                _SideNav.NavItem,
-                                { eventKey: 'charts/barchart' },
-                                _react2.default.createElement(
-                                    _SideNav.NavText,
-                                    null,
-                                    'Bar Chart'
-                                )
+                                'Devices'
                             )
                         ),
                         _react2.default.createElement(
                             _SideNav.NavItem,
-                            { eventKey: 'forms' },
+                            { eventKey: 'reports' },
                             _react2.default.createElement(
                                 _SideNav.NavIcon,
                                 null,
@@ -26602,25 +26493,7 @@ var _default = function (_PureComponent) {
                             _react2.default.createElement(
                                 _SideNav.NavText,
                                 { style: { paddingRight: 32 } },
-                                'Forms'
-                            ),
-                            _react2.default.createElement(
-                                _SideNav.NavItem,
-                                { eventKey: 'forms/layout' },
-                                _react2.default.createElement(
-                                    _SideNav.NavText,
-                                    null,
-                                    'Form Layout'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                _SideNav.NavItem,
-                                { eventKey: 'forms/validation' },
-                                _react2.default.createElement(
-                                    _SideNav.NavText,
-                                    null,
-                                    'Form Validation'
-                                )
+                                'Reports'
                             )
                         ),
                         _react2.default.createElement(
@@ -26673,7 +26546,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./Navigation/index.js":
+/***/ "./Navbar.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26682,16 +26555,169 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.default = undefined;
 
-var _Uncontrolled = __webpack_require__("./Navigation/Uncontrolled.jsx");
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Uncontrolled2 = _interopRequireDefault(_Uncontrolled);
+var _class, _temp2;
+
+var _classnames = __webpack_require__("../node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = __webpack_require__("../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactButtons = __webpack_require__("../node_modules/@trendmicro/react-buttons/lib/index.js");
+
+var _Navbar = __webpack_require__("./Navbar.styl");
+
+var _Navbar2 = _interopRequireDefault(_Navbar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-    Uncontrolled: _Uncontrolled2.default
-};
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _default = (_temp2 = _class = function (_Component) {
+    _inherits(_default, _Component);
+
+    function _default() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, _default);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _default.__proto__ || Object.getPrototypeOf(_default)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            collapseIn: false
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(_default, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var _props = this.props,
+                name = _props.name,
+                url = _props.url,
+                children = _props.children;
+
+
+            return _react2.default.createElement(
+                'nav',
+                {
+                    className: (0, _classnames2.default)(_Navbar2.default.navbar, _Navbar2.default.navbarDefault),
+                    style: { borderRadius: 0 }
+                },
+                _react2.default.createElement(
+                    'div',
+                    { className: _Navbar2.default.containerFluid },
+                    _react2.default.createElement(
+                        'div',
+                        { className: _Navbar2.default.navbarHeader },
+                        _react2.default.createElement(
+                            'button',
+                            {
+                                type: 'button',
+                                className: (0, _classnames2.default)(_Navbar2.default.navbarToggle, _Navbar2.default.collapsed),
+                                onClick: function onClick() {
+                                    _this2.setState({ collapseIn: !_this2.state.collapseIn });
+                                }
+                            },
+                            _react2.default.createElement(
+                                'span',
+                                { className: _Navbar2.default.srOnly },
+                                'Toggle navigation'
+                            ),
+                            _react2.default.createElement('span', { className: _Navbar2.default.iconBar }),
+                            _react2.default.createElement('span', { className: _Navbar2.default.iconBar }),
+                            _react2.default.createElement('span', { className: _Navbar2.default.iconBar })
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { href: '#', className: _Navbar2.default.navbarBrand },
+                            name
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        {
+                            className: (0, _classnames2.default)(_Navbar2.default.collapse, _Navbar2.default.navbarCollapse, _defineProperty({}, _Navbar2.default.in, this.state.collapseIn))
+                        },
+                        children,
+                        _react2.default.createElement(
+                            _reactButtons.Button,
+                            {
+                                className: (0, _classnames2.default)(_Navbar2.default.navbarBtn, _Navbar2.default.navbarRight),
+                                btnStyle: 'flat',
+                                onClick: function onClick() {
+                                    window.location = url;
+                                }
+                            },
+                            _react2.default.createElement('i', { className: 'fa fa-github' }),
+                            'GitHub'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return _default;
+}(_react.Component), _class.propTypes = {
+    name: _propTypes2.default.string,
+    url: _propTypes2.default.string
+}, _temp2);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./Navbar.styl":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./Navbar.styl");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__("../node_modules/style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./Navbar.styl", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./Navbar.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ }),
 
@@ -26704,10 +26730,22 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.NavText = exports.NavIcon = exports.NavItem = undefined;
+exports.NavText = exports.NavIcon = exports.NavItem = exports.Nav = exports.Toggle = undefined;
 
 var _src = __webpack_require__("../src/index.js");
 
+Object.defineProperty(exports, 'Toggle', {
+  enumerable: true,
+  get: function get() {
+    return _src.Toggle;
+  }
+});
+Object.defineProperty(exports, 'Nav', {
+  enumerable: true,
+  get: function get() {
+    return _src.Nav;
+  }
+});
 Object.defineProperty(exports, 'NavItem', {
   enumerable: true,
   get: function get() {
@@ -26735,6 +26773,351 @@ exports.default = _src2.default;
 
 /***/ }),
 
+/***/ "./Styled/StyledSideNav.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.NavText = exports.NavIcon = exports.NavItem = exports.Nav = exports.Toggle = undefined;
+
+var _templateObject = _taggedTemplateLiteral(['\n    background-color: #fff;\n    border-right: 1px solid #ddd;\n'], ['\n    background-color: #fff;\n    border-right: 1px solid #ddd;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    background-color: #db3d44;\n'], ['\n    background-color: #db3d44;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    background-color: #fff;\n\n    &&[class*="expanded--"] {\n        [class*="sidenav-subnav--"] {\n            > [class*="sidenav-subnavitem--"],\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    color: #222;\n                }\n            }\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    background-color: #eee;\n                }\n            }\n            > [class*="sidenav-subnavitem--"][class*="selected--"] {\n                > a {\n                    color: #db3d44;\n                }\n                > a::before {\n                    border-left: 2px solid #db3d44;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"] {\n        > a {\n            background-color: inherit;\n            color: #222;\n        }\n    }\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            background-color: #eee;\n        }\n    }\n    && > [class*="sidenav-navitem--"],\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"] {\n                &, > * {\n                    color: #666;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #222;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"][class*="selected"],\n    && > [class*="sidenav-navitem--"][class*="selected"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"],\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #db3d44;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                font-weight: 700;\n            }\n        }\n    }\n'], ['\n    background-color: #fff;\n\n    &&[class*="expanded--"] {\n        [class*="sidenav-subnav--"] {\n            > [class*="sidenav-subnavitem--"],\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    color: #222;\n                }\n            }\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    background-color: #eee;\n                }\n            }\n            > [class*="sidenav-subnavitem--"][class*="selected--"] {\n                > a {\n                    color: #db3d44;\n                }\n                > a::before {\n                    border-left: 2px solid #db3d44;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"] {\n        > a {\n            background-color: inherit;\n            color: #222;\n        }\n    }\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            background-color: #eee;\n        }\n    }\n    && > [class*="sidenav-navitem--"],\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"] {\n                &, > * {\n                    color: #666;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #222;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"][class*="selected"],\n    && > [class*="sidenav-navitem--"][class*="selected"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"],\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #db3d44;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                font-weight: 700;\n            }\n        }\n    }\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n'], ['\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    color: #222;\n'], ['\n    color: #222;\n']);
+
+var _styledComponents = __webpack_require__("../node_modules/styled-components/dist/styled-components.es.js");
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _SideNav = __webpack_require__("./SideNav.js");
+
+var _SideNav2 = _interopRequireDefault(_SideNav);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+// SideNav
+var StyledSideNav = (0, _styledComponents2.default)(_SideNav2.default)(_templateObject);
+StyledSideNav.defaultProps = _SideNav2.default.defaultProps;
+
+// Toggle
+var StyledToggle = (0, _styledComponents2.default)(_SideNav.Toggle)(_templateObject2);
+StyledToggle.defaultProps = _SideNav.Toggle.defaultProps;
+
+// Nav
+var StyledNav = (0, _styledComponents2.default)(_SideNav.Nav)(_templateObject3);
+StyledNav.defaultProps = _SideNav.Nav.defaultProps;
+
+// NavItem
+var StyledNavItem = (0, _styledComponents2.default)(_SideNav.NavItem)(_templateObject4);
+StyledNavItem.defaultProps = _SideNav.NavItem.defaultProps;
+
+// NavIcon
+var StyledNavIcon = (0, _styledComponents2.default)(_SideNav.NavIcon)(_templateObject5);
+StyledNavIcon.defaultProps = _SideNav.NavIcon.defaultProps;
+
+// NavText
+var StyledNavText = (0, _styledComponents2.default)(_SideNav.NavText)(_templateObject5);
+StyledNavText.defaultProps = _SideNav.NavText.defaultProps;
+
+exports.Toggle = StyledToggle;
+exports.Nav = StyledNav;
+exports.NavItem = StyledNavItem;
+exports.NavIcon = StyledNavIcon;
+exports.NavText = StyledNavText;
+exports.default = StyledSideNav;
+
+/***/ }),
+
+/***/ "./Styled/index.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n    display: ', ';\n    white-space: nowrap;\n    background-color: #db3d44;\n    color: #fff;\n\n    > * {\n        color: inherit;\n        background-color: inherit;\n    }\n'], ['\n    display: ', ';\n    white-space: nowrap;\n    background-color: #db3d44;\n    color: #fff;\n\n    > * {\n        color: inherit;\n        background-color: inherit;\n    }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n    font-size: 2em;\n    line-height: 20px;\n    padding: 10px 0;\n'], ['\n    font-size: 2em;\n    line-height: 20px;\n    padding: 10px 0;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    font-size: 1em;\n    line-height: 20px;\n    padding-bottom: 4px;\n'], ['\n    font-size: 1em;\n    line-height: 20px;\n    padding-bottom: 4px;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n    float: left;\n    width: 100%;\n    padding: 10px 20px;\n    background-color: #eee;\n'], ['\n    float: left;\n    width: 100%;\n    padding: 10px 20px;\n    background-color: #eee;\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n    clear: both;\n    position: relative;\n    margin: .8rem 0;\n    background-color: #ddd;\n    height: 1px;\n'], ['\n    clear: both;\n    position: relative;\n    margin: .8rem 0;\n    background-color: #ddd;\n    height: 1px;\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: ', 'px;\n    overflow: hidden;\n    transition: all .15s;\n    padding: 0 20px;\n    background: ', ';\n    transition: background-color .35s cubic-bezier(.4, 0, .2, 1);\n'], ['\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: ', 'px;\n    overflow: hidden;\n    transition: all .15s;\n    padding: 0 20px;\n    background: ', ';\n    transition: background-color .35s cubic-bezier(.4, 0, .2, 1);\n']);
+
+var _reactBreadcrumbs = __webpack_require__("../node_modules/@trendmicro/react-breadcrumbs/lib/index.js");
+
+var _reactBreadcrumbs2 = _interopRequireDefault(_reactBreadcrumbs);
+
+var _ensureArray = __webpack_require__("../node_modules/ensure-array/ensure-array.js");
+
+var _ensureArray2 = _interopRequireDefault(_ensureArray);
+
+var _react = __webpack_require__("../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = __webpack_require__("../node_modules/styled-components/dist/styled-components.es.js");
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _StyledSideNav = __webpack_require__("./Styled/StyledSideNav.jsx");
+
+var _StyledSideNav2 = _interopRequireDefault(_StyledSideNav);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var navWidthCollapsed = 64;
+var navWidthExpanded = 280;
+
+var NavHeader = _styledComponents2.default.div(_templateObject, function (props) {
+    return props.expanded ? 'block' : 'none';
+});
+
+// height: 20px + 10px + 10px = 40px
+var NavTitle = _styledComponents2.default.div(_templateObject2);
+
+// height: 20px + 4px = 24px;
+var NavSubTitle = _styledComponents2.default.div(_templateObject3);
+
+var NavInfoPane = _styledComponents2.default.div(_templateObject4);
+
+var Separator = _styledComponents2.default.div(_templateObject5);
+
+var Main = _styledComponents2.default.main(_templateObject6, navWidthCollapsed, function (props) {
+    return props.expanded ? 'rgba(0, 0, 0, .6)' : 'inherit';
+});
+
+var _default = function (_PureComponent) {
+    _inherits(_default, _PureComponent);
+
+    function _default() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, _default);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _default.__proto__ || Object.getPrototypeOf(_default)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            selected: 'home',
+            expanded: false
+        }, _this.lastUpdateTime = new Date().toISOString(), _this.onSelect = function (selected) {
+            _this.setState({ selected: selected });
+        }, _this.onToggle = function (expanded) {
+            _this.setState({ expanded: expanded });
+        }, _this.pageTitle = {
+            'home': 'Home',
+            'devices': ['Devices'],
+            'reports': ['Reports'],
+            'settings/policy': ['Settings', 'Policy'],
+            'settings/network': ['Settings', 'Network']
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(_default, [{
+        key: 'renderBreadcrumbs',
+        value: function renderBreadcrumbs() {
+            var selected = this.state.selected;
+
+            var list = (0, _ensureArray2.default)(this.pageTitle[selected]);
+
+            return _react2.default.createElement(
+                _reactBreadcrumbs2.default,
+                null,
+                list.map(function (item, index) {
+                    return _react2.default.createElement(
+                        _reactBreadcrumbs2.default.Item,
+                        {
+                            active: index === list.length - 1,
+                            key: selected + '_' + index
+                        },
+                        item
+                    );
+                })
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _state = this.state,
+                expanded = _state.expanded,
+                selected = _state.selected;
+
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    _StyledSideNav2.default,
+                    {
+                        style: { minWidth: expanded ? navWidthExpanded : navWidthCollapsed },
+                        onSelect: this.onSelect,
+                        onToggle: this.onToggle
+                    },
+                    _react2.default.createElement(_StyledSideNav.Toggle, null),
+                    _react2.default.createElement(
+                        NavHeader,
+                        { expanded: expanded },
+                        _react2.default.createElement(
+                            NavTitle,
+                            null,
+                            'Side Navigation'
+                        ),
+                        _react2.default.createElement(
+                            NavSubTitle,
+                            null,
+                            'Styled Side Navigation'
+                        )
+                    ),
+                    expanded && _react2.default.createElement(
+                        NavInfoPane,
+                        null,
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            'Time: ',
+                            this.lastUpdateTime
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            'User: admin'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _StyledSideNav.Nav,
+                        {
+                            defaultSelected: selected
+                        },
+                        _react2.default.createElement(
+                            _StyledSideNav.NavItem,
+                            { eventKey: 'home' },
+                            _react2.default.createElement(
+                                _StyledSideNav.NavIcon,
+                                null,
+                                _react2.default.createElement('i', { className: 'fa fa-fw fa-home', style: { fontSize: '1.75em' } })
+                            ),
+                            _react2.default.createElement(
+                                _StyledSideNav.NavText,
+                                { style: { paddingRight: 32 } },
+                                'HOME'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            _StyledSideNav.NavItem,
+                            { eventKey: 'devices' },
+                            _react2.default.createElement(
+                                _StyledSideNav.NavIcon,
+                                null,
+                                _react2.default.createElement('i', { className: 'fa fa-fw fa-line-chart', style: { fontSize: '1.75em' } })
+                            ),
+                            _react2.default.createElement(
+                                _StyledSideNav.NavText,
+                                { style: { paddingRight: 32 } },
+                                'DEVICES'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            _StyledSideNav.NavItem,
+                            { eventKey: 'reports' },
+                            _react2.default.createElement(
+                                _StyledSideNav.NavIcon,
+                                null,
+                                _react2.default.createElement('i', { className: 'fa fa-fw fa-list-alt', style: { fontSize: '1.75em' } })
+                            ),
+                            _react2.default.createElement(
+                                _StyledSideNav.NavText,
+                                { style: { paddingRight: 32 } },
+                                'REPORTS'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            _StyledSideNav.NavItem,
+                            { eventKey: 'settings' },
+                            _react2.default.createElement(
+                                _StyledSideNav.NavIcon,
+                                null,
+                                _react2.default.createElement('i', { className: 'fa fa-fw fa-cogs', style: { fontSize: '1.5em' } })
+                            ),
+                            _react2.default.createElement(
+                                _StyledSideNav.NavText,
+                                { style: { paddingRight: 32 } },
+                                'SETTINGS'
+                            ),
+                            _react2.default.createElement(
+                                _StyledSideNav.NavItem,
+                                { eventKey: 'settings/policy' },
+                                _react2.default.createElement(
+                                    _StyledSideNav.NavText,
+                                    null,
+                                    'POLICY'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                _StyledSideNav.NavItem,
+                                { eventKey: 'settings/network' },
+                                _react2.default.createElement(
+                                    _StyledSideNav.NavText,
+                                    null,
+                                    'NETWORK'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(Separator, null),
+                        _react2.default.createElement(
+                            _StyledSideNav.NavItem,
+                            { eventKey: 'logout' },
+                            _react2.default.createElement(
+                                _StyledSideNav.NavIcon,
+                                null,
+                                _react2.default.createElement('i', { className: 'fa fa-fw fa-power-off', style: { fontSize: '1.5em' } })
+                            ),
+                            _react2.default.createElement(
+                                _StyledSideNav.NavText,
+                                { style: { paddingRight: 32 } },
+                                'SIGN OUT'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    Main,
+                    { expanded: expanded },
+                    this.renderBreadcrumbs()
+                )
+            );
+        }
+    }]);
+
+    return _default;
+}(_react.PureComponent);
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./index.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26749,6 +27132,8 @@ __webpack_require__("../node_modules/@trendmicro/react-buttons/dist/react-button
 
 __webpack_require__("../node_modules/@trendmicro/react-breadcrumbs/dist/react-breadcrumbs.css");
 
+var _reactButtons = __webpack_require__("../node_modules/@trendmicro/react-buttons/lib/index.js");
+
 var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
@@ -26761,9 +27146,17 @@ var _Navbar = __webpack_require__("./Navbar.jsx");
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
-var _Navigation = __webpack_require__("./Navigation/index.js");
+var _Default = __webpack_require__("./Default/index.jsx");
 
-var _Navigation2 = _interopRequireDefault(_Navigation);
+var _Default2 = _interopRequireDefault(_Default);
+
+var _Styled = __webpack_require__("./Styled/index.jsx");
+
+var _Styled2 = _interopRequireDefault(_Styled);
+
+var _Navbar3 = __webpack_require__("./Navbar.styl");
+
+var _Navbar4 = _interopRequireDefault(_Navbar3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26777,21 +27170,58 @@ var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
     function App() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            theme: 'default'
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(App, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             var name = 'React SideNav';
             var url = 'https://github.com/trendmicro-frontend/react-sidenav';
 
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_Navbar2.default, { name: name, url: url }),
+                _react2.default.createElement(
+                    _Navbar2.default,
+                    { name: name, url: url },
+                    _react2.default.createElement(
+                        _reactButtons.Button,
+                        {
+                            btnStyle: this.state.theme === 'default' ? 'primary' : 'flat',
+                            className: _Navbar4.default.navbarBtn,
+                            onClick: function onClick() {
+                                _this2.setState({ theme: 'default' });
+                            }
+                        },
+                        'Default Theme'
+                    ),
+                    _react2.default.createElement(
+                        _reactButtons.Button,
+                        {
+                            btnStyle: this.state.theme === 'styled' ? 'primary' : 'flat',
+                            className: _Navbar4.default.navbarBtn,
+                            onClick: function onClick() {
+                                _this2.setState({ theme: 'styled' });
+                            }
+                        },
+                        'Styled Component'
+                    )
+                ),
                 _react2.default.createElement(
                     'div',
                     {
@@ -26800,7 +27230,8 @@ var App = function (_React$Component) {
                             height: 'calc(100vh - 50px)'
                         }
                     },
-                    _react2.default.createElement(_Navigation2.default.Uncontrolled, null)
+                    this.state.theme === 'default' && _react2.default.createElement(_Default2.default, null),
+                    this.state.theme === 'styled' && _react2.default.createElement(_Styled2.default, null)
                 )
             );
         }
@@ -26814,4 +27245,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?0cd965825df1576bb078
+//# sourceMappingURL=bundle.js.map?8aa69aed34de22e44d91

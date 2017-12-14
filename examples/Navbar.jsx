@@ -15,7 +15,7 @@ export default class extends Component {
     };
 
     render() {
-        const { name, url } = this.props;
+        const { name, url, children } = this.props;
 
         return (
             <nav
@@ -45,6 +45,7 @@ export default class extends Component {
                             { [styles.in]: this.state.collapseIn }
                         )}
                     >
+                        {children}
                         <Button
                             className={classNames(styles.navbarBtn, styles.navbarRight)}
                             btnStyle="flat"
