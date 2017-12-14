@@ -25,13 +25,13 @@ class Toggle extends PureComponent {
 
     render() {
         const {
+            componentType, // eslint-disable-line
             componentClass: Component,
             expanded,
             className,
+            children,
             ...props
         } = this.props;
-
-        delete props.children;
 
         return (
             <Component
@@ -46,9 +46,13 @@ class Toggle extends PureComponent {
                 <span className={styles.iconBar} />
                 <span className={styles.iconBar} />
                 <span className={styles.iconBar} />
+                {children}
             </Component>
         );
     }
 }
+
+// For component matching
+Toggle.defaultProps.componentType = Toggle;
 
 export default Toggle;

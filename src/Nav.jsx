@@ -3,6 +3,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent, cloneElement } from 'react';
 import NavItem from './NavItem';
+import match from './match-component';
 import styles from './index.styl';
 
 const noop = () => {};
@@ -41,6 +42,8 @@ class Nav extends PureComponent {
         defaultSelected: this.props.defaultSelected
     };
 
+    isNavItem = match(NavItem);
+
     handleClickOnExpanded(eventKey, event) {
         if (this.props.expanded) {
             this.setState(state => ({
@@ -71,6 +74,7 @@ class Nav extends PureComponent {
     }
     render() {
         const {
+            componentType, // eslint-disable-line
             componentClass: Component,
             onSelect,
             selected,
@@ -92,10 +96,14 @@ class Nav extends PureComponent {
             <Component
                 {...props}
                 role="menu"
-                className={cx(className, styles.sidenavNav)}
+                className={cx(
+                    className,
+                    styles.sidenavNav,
+                    { [styles.expanded]: expanded }
+                )}
             >
                 {React.Children.map(children, child => {
-                    if (React.isValidElement(child) && (child.type === NavItem)) {
+                    if (React.isValidElement(child) && this.isNavItem(child)) {
                         return this.renderNavItem(child, {
                             onSelect,
                             selected: currentSelected,
@@ -110,5 +118,8 @@ class Nav extends PureComponent {
         );
     }
 }
+
+// For component matching
+Nav.defaultProps.componentType = Nav;
 
 export default Nav;

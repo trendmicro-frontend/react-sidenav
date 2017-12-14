@@ -10,6 +10,7 @@ import NavItem from './NavItem';
 import NavIcon from './NavIcon';
 import NavText from './NavText';
 import styles from './index.styl';
+import match from './match-component';
 
 class SideNav extends PureComponent {
     static propTypes = {
@@ -35,11 +36,13 @@ class SideNav extends PureComponent {
         componentClass: 'nav'
     };
 
-    c = {
+    isToggle = match(Toggle);
+    isNav = match(Nav);
+
+    child = {
         toggle: null,
         nav: null
     };
-    lastToggleEventType = null;
 
     handleClick = (event) => {
         if (this.props.disabled) {
@@ -52,17 +55,13 @@ class SideNav extends PureComponent {
     toggleExpanded(eventType) {
         const expanded = !this.props.expanded;
 
-        if (expanded) {
-            this.lastToggleEventType = eventType;
-        }
-
         if (this.props.onToggle) {
             this.props.onToggle(expanded);
         }
     }
     renderToggle(child, props) {
         let ref = c => {
-            this.c.toggle = c;
+            this.child.toggle = c;
         };
 
         if (typeof child.ref === 'string') {
@@ -86,7 +85,7 @@ class SideNav extends PureComponent {
     }
     renderNav(child, { onSelect, ...props }) {
         let ref = c => {
-            this.c.nav = c;
+            this.child.nav = c;
         };
 
         if (typeof child.ref === 'string') {
@@ -110,6 +109,7 @@ class SideNav extends PureComponent {
     }
     render() {
         const {
+            componentType, // eslint-disable-line
             componentClass: Component,
             disabled,
             expanded,
@@ -137,13 +137,13 @@ class SideNav extends PureComponent {
                         return child;
                     }
 
-                    if (child.type === Toggle) {
+                    if (this.isToggle(child)) {
                         return this.renderToggle(child, {
                             disabled, expanded
                         });
                     }
 
-                    if (child.type === Nav) {
+                    if (this.isNav(child)) {
                         return this.renderNav(child, {
                             onSelect, expanded
                         });
@@ -155,6 +155,9 @@ class SideNav extends PureComponent {
         );
     }
 }
+
+// For component matching
+SideNav.defaultProps.componentType = SideNav;
 
 const UncontrollableSideNav = uncontrollable(SideNav, {
     // Define the pairs of prop/handlers you want to be uncontrollable

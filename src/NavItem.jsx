@@ -6,11 +6,10 @@ import React, { PureComponent, cloneElement } from 'react';
 import NavIcon from './NavIcon';
 import NavText from './NavText';
 import findComponent from './find-component';
+import match from './match-component';
 import styles from './index.styl';
 
 const noop = () => {};
-const findNavIcon = findComponent(NavIcon);
-const findNavText = findComponent(NavText);
 
 class NavItem extends PureComponent {
     static propTypes = {
@@ -62,6 +61,12 @@ class NavItem extends PureComponent {
         expanded: false
     };
 
+    findNavIcon = findComponent(NavIcon);
+    findNavText = findComponent(NavText);
+    isNavItem = match(NavItem);
+    isNavIcon = match(NavIcon);
+    isNavText = match(NavText);
+
     handleSelect = (event) => {
         const { href, disabled, onSelect, eventKey } = this.props;
 
@@ -80,6 +85,7 @@ class NavItem extends PureComponent {
 
     render() {
         const {
+            componentType, // eslint-disable-line
             componentClass: Component,
             active,
             disabled,
@@ -101,8 +107,8 @@ class NavItem extends PureComponent {
             ...props
         } = this.props;
 
-        const navIcon = findNavIcon(children);
-        const navText = findNavText(children);
+        const navIcon = this.findNavIcon(children);
+        const navText = this.findNavText(children);
 
         if (subnav) {
             const highlighted = active ||
@@ -141,7 +147,7 @@ class NavItem extends PureComponent {
         const activeNavItems = [];
         const navItems = React.Children.toArray(children)
             .filter(child => {
-                return React.isValidElement(child) && (child.type === NavItem);
+                return React.isValidElement(child) && this.isNavItem(child);
             })
             .map(child => {
                 if (child.props.active || (!!selected && selected === child.props.eventKey)) {
@@ -159,7 +165,7 @@ class NavItem extends PureComponent {
             });
         const others = React.Children.toArray(children)
             .filter(child => {
-                if (React.isValidElement(child) && (child.type === NavIcon || child.type === NavText || child.type === NavItem)) {
+                if (React.isValidElement(child) && (this.isNavIcon(child) || this.isNavText(child) || this.isNavItem(child))) {
                     return false;
                 }
                 return true;
@@ -223,5 +229,8 @@ class NavItem extends PureComponent {
         );
     }
 }
+
+// For component matching
+NavItem.defaultProps.componentType = NavItem;
 
 export default NavItem;
