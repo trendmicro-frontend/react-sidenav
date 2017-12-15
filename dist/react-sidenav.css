@@ -1,4 +1,4 @@
-/*! react-sidenav v0.2.0 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
+/*! react-sidenav v0.2.1 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sidenav---sidenav---_2tBP {
   position: absolute;
   top: 0;
@@ -179,6 +179,13 @@
   opacity: 0.2;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20);
+}
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---expanded---1KdUL > a::after,
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover.sidenav---selected---1EK3y.sidenav---expanded---1KdUL > a::after {
+  background: #000;
+  opacity: 0.25;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+  filter: alpha(opacity=25);
 }
 .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-:hover > a .sidenav---sidenav-nav-icon---2Pjcn,
 .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y > a .sidenav---sidenav-nav-icon---2Pjcn {
