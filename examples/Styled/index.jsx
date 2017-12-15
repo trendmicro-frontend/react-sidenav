@@ -127,7 +127,7 @@ export default class extends PureComponent {
                     >
                         <NavItem eventKey="home">
                             <NavIcon>
-                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
                                 HOME
@@ -135,7 +135,7 @@ export default class extends PureComponent {
                         </NavItem>
                         <NavItem eventKey="devices">
                             <NavIcon>
-                                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
                                 DEVICES
@@ -143,7 +143,7 @@ export default class extends PureComponent {
                         </NavItem>
                         <NavItem eventKey="reports">
                             <NavIcon>
-                                <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em' }} />
+                                <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
                                 REPORTS

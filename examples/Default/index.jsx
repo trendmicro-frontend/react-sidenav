@@ -55,7 +55,7 @@ export default class extends PureComponent {
                     <SideNav.Nav defaultSelected={selected}>
                         <NavItem eventKey="home">
                             <NavIcon>
-                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
                                 Home
@@ -63,7 +63,7 @@ export default class extends PureComponent {
                         </NavItem>
                         <NavItem eventKey="devices">
                             <NavIcon>
-                                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
                                 Devices
@@ -71,7 +71,7 @@ export default class extends PureComponent {
                         </NavItem>
                         <NavItem eventKey="reports">
                             <NavIcon>
-                                <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em' }} />
+                                <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
                                 Reports
@@ -79,7 +79,7 @@ export default class extends PureComponent {
                         </NavItem>
                         <NavItem eventKey="settings">
                             <NavIcon>
-                                <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em' }} />
+                                <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }}>
                                 Settings
