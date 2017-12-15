@@ -17,6 +17,12 @@
         opacity: .2;
     }
 
+    &.selected.expanded > a::after,
+    &:hover.selected.expanded > a::after {
+        background: #000;
+        opacity: .25;
+    }
+
     &:hover > a .sidenav-nav-icon,
     &.selected > a .sidenav-nav-icon {
         opacity: 1;
