@@ -208,8 +208,7 @@ class NavItem extends PureComponent {
                         {...props}
                         role="menu"
                         className={cx({
-                            [styles.sidenavSubnav]: true,
-                            [styles.sidenavSubnavSelected]: activeNavItems.length > 0
+                            [styles.sidenavSubnav]: true
                         })}
                     >
                         <Component
