@@ -40,7 +40,12 @@ export default class extends PureComponent {
         return (
             <Breadcrumbs>
                 {list.map((item, index) => (
-                    <Breadcrumbs.Item active={index === list.length - 1}>{item}</Breadcrumbs.Item>
+                    <Breadcrumbs.Item
+                        active={index === list.length - 1}
+                        key={`${selected}_${index}`}
+                    >
+                        {item}
+                    </Breadcrumbs.Item>
                 ))}
             </Breadcrumbs>
         );
