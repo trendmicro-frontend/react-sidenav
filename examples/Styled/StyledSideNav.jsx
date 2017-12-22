@@ -75,8 +75,8 @@ const StyledNav = styled(Nav)`
         }
     }
 
-    && > [class*="sidenav-navitem--"][class*="selected"],
-    && > [class*="sidenav-navitem--"][class*="selected"]:hover {
+    && > [class*="sidenav-navitem--"][class*="highlighted--"],
+    && > [class*="sidenav-navitem--"][class*="highlighted--"]:hover {
         > a {
             [class*="sidenav-nav-icon--"],
             [class*="sidenav-nav-text--"] {

@@ -13,6 +13,8 @@ const noop = () => {};
 
 class NavItem extends PureComponent {
     static propTypes = {
+        componentType: PropTypes.any,
+
         // A custom element for this component.
         componentClass: PropTypes.oneOfType([
             PropTypes.string,
@@ -68,7 +70,9 @@ class NavItem extends PureComponent {
     isNavText = match(NavText);
 
     handleSelect = (event) => {
-        const { href, disabled, onSelect, eventKey } = this.props;
+        const {
+            href, disabled, onSelect, eventKey
+        } = this.props;
 
         if (!href || disabled) {
             event.preventDefault();
@@ -111,14 +115,13 @@ class NavItem extends PureComponent {
         const navText = this.findNavText(children);
 
         if (subnav) {
-            const highlighted = active ||
-                (!!selected && selected === this.props.eventKey);
+            const isNavItemSelected = active || (!!selected && selected === this.props.eventKey);
 
             return (
                 <Component
                     role="presentation"
                     className={cx(className, styles.sidenavSubnavitem, {
-                        [styles.selected]: highlighted,
+                        [styles.selected]: isNavItemSelected,
                         [styles.disabled]: disabled
                     })}
                     style={style}
@@ -171,16 +174,19 @@ class NavItem extends PureComponent {
                 return true;
             });
 
-        const highlighted = active || expanded ||
-            (activeNavItems.length > 0) ||
-            (!!selected && selected === this.props.eventKey);
+        const isNavItemSelected = active || (!!selected && selected === this.props.eventKey) || (activeNavItems.length > 0);
+        const isNavItemHighlighted = expanded || isNavItemSelected;
+        const isNavItemExpandable = (navItems.length > 0);
+        const isNavItemExpanded = isNavItemExpandable && expanded;
 
         return (
             <Component
                 role="presentation"
                 className={cx(className, styles.sidenavNavitem, {
-                    [styles.selected]: highlighted,
-                    [styles.expanded]: expanded,
+                    [styles.selected]: isNavItemSelected,
+                    [styles.highlighted]: isNavItemHighlighted,
+                    [styles.expandable]: isNavItemExpandable,
+                    [styles.expanded]: isNavItemExpanded,
                     [styles.disabled]: disabled
                 })}
                 style={style}
@@ -214,7 +220,7 @@ class NavItem extends PureComponent {
                         <Component
                             role="heading"
                             className={cx(className, styles.sidenavSubnavitem, {
-                                [styles.selected]: active,
+                                [styles.highlighted]: active,
                                 [styles.disabled]: disabled
                             })}
                             style={style}

@@ -2,7 +2,7 @@
     clear: both;
     position: relative;
 
-    &.selected > a {
+    &.highlighted > a {
         cursor: default;
     }
 
@@ -11,27 +11,33 @@
         opacity: .15;
     }
 
-    &.selected > a::after,
-    &:hover.selected > a::after {
+    &.highlighted > a::after,
+    &:hover.highlighted > a::after {
         background: #000;
         opacity: .2;
     }
 
-    &.selected.expanded > a::after,
-    &:hover.selected.expanded > a::after {
+    &.highlighted.expanded > a::after,
+    &:hover.highlighted.expanded > a::after {
         background: #000;
         opacity: .25;
     }
 
+    &.highlighted.selected.expanded > a::after,
+    &:hover.highlighted.selected.expanded > a::after {
+        background: #000;
+        opacity: .2;
+    }
+
     &:hover > a .sidenav-nav-icon,
-    &.selected > a .sidenav-nav-icon {
+    &.highlighted > a .sidenav-nav-icon {
         opacity: 1;
     }
 
     &:hover > a .sidenav-nav-icon,
     &:hover > a .sidenav-nav-text,
-    &.selected > a .sidenav-nav-icon,
-    &.selected > a .sidenav-nav-text {
+    &.highlighted > a .sidenav-nav-icon,
+    &.highlighted > a .sidenav-nav-text {
         color: #fff;
     }
 

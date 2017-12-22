@@ -5,6 +5,8 @@ import styles from './index.styl';
 
 class Toggle extends PureComponent {
     static propTypes = {
+        componentType: PropTypes.any,
+
         // A custom element for this component.
         componentClass: PropTypes.oneOfType([
             PropTypes.string,

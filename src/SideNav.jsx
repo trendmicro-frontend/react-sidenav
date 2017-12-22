@@ -14,6 +14,8 @@ import match from './match-component';
 
 class SideNav extends PureComponent {
     static propTypes = {
+        componentType: PropTypes.any,
+
         // A custom element for this component.
         componentClass: PropTypes.oneOfType([
             PropTypes.string,
@@ -65,7 +67,8 @@ class SideNav extends PureComponent {
         };
 
         if (typeof child.ref === 'string') {
-            warning(false,
+            warning(
+                false,
                 'String refs are not supported on `<SideNav.Toggle>` component. ' +
                 'To apply a ref to the component use the callback signature:\n\n ' +
                 'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute'
@@ -89,7 +92,8 @@ class SideNav extends PureComponent {
         };
 
         if (typeof child.ref === 'string') {
-            warning(false,
+            warning(
+                false,
                 'String refs are not supported on `<SideNav.Nav>` component. ' +
                 'To apply a ref to the component use the callback signature:\n\n ' +
                 'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute'
