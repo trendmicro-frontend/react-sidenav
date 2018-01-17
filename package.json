@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-sidenav",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React SideNav",
   "main": "lib/index.js",
   "files": [

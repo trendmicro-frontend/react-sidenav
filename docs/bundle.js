@@ -25473,10 +25473,11 @@ var SideNav = (_temp2 = _class = function (_PureComponent) {
                 Component = _props.componentClass,
                 disabled = _props.disabled,
                 expanded = _props.expanded,
+                onToggle = _props.onToggle,
                 onSelect = _props.onSelect,
                 className = _props.className,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'disabled', 'expanded', 'onSelect', 'className', 'children']);
+                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'disabled', 'expanded', 'onToggle', 'onSelect', 'className', 'children']);
 
             return _react2.default.createElement(
                 Component,
@@ -26724,4 +26725,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?1c894eebbf989118f9dc
+//# sourceMappingURL=bundle.js.map?040d4ccfe573d7496e18
