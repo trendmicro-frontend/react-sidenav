@@ -117,6 +117,7 @@ class SideNav extends PureComponent {
             componentClass: Component,
             disabled,
             expanded,
+            onToggle, // eslint-disable-line
             onSelect,
             className,
             children,
