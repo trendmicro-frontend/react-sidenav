@@ -65,149 +65,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "../node_modules/@trendmicro/react-anchor/lib/Anchor.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _class, _temp2;
-
-var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = __webpack_require__("../node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var isTrivialHref = function isTrivialHref(href) {
-    return !href || href.trim() === '#';
-};
-
-var Anchor = (_temp2 = _class = function (_PureComponent) {
-    _inherits(Anchor, _PureComponent);
-
-    function Anchor() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
-        _classCallCheck(this, Anchor);
-
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Anchor.__proto__ || Object.getPrototypeOf(Anchor)).call.apply(_ref, [this].concat(args))), _this), _this.actions = {
-            handleClick: function handleClick(event) {
-                var _this$props = _this.props,
-                    disabled = _this$props.disabled,
-                    href = _this$props.href,
-                    onClick = _this$props.onClick;
-
-
-                if (disabled || isTrivialHref(href)) {
-                    event.preventDefault();
-                }
-
-                if (disabled) {
-                    event.stopPropagation();
-                    return;
-                }
-
-                if (onClick) {
-                    onClick(event);
-                }
-            }
-        }, _temp), _possibleConstructorReturn(_this, _ret);
-    }
-
-    _createClass(Anchor, [{
-        key: 'render',
-        value: function render() {
-            var _props = this.props,
-                href = _props.href,
-                role = _props.role,
-                tabIndex = _props.tabIndex,
-                componentClass = _props.componentClass,
-                style = _props.style,
-                props = _objectWithoutProperties(_props, ['href', 'role', 'tabIndex', 'componentClass', 'style']);
-
-            var Component = componentClass || 'a';
-
-            if (isTrivialHref(href)) {
-                role = role || 'button';
-                href = href || '';
-            }
-
-            if (this.props.disabled) {
-                tabIndex = -1;
-                style = _extends({
-                    pointerEvents: 'none'
-                }, style);
-            }
-
-            return _react2.default.createElement(Component, _extends({}, props, {
-                role: role,
-                href: href,
-                style: style,
-                tabIndex: tabIndex,
-                onClick: this.actions.handleClick
-            }));
-        }
-    }]);
-
-    return Anchor;
-}(_react.PureComponent), _class.propTypes = {
-    componentClass: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
-    disabled: _propTypes2.default.bool,
-    href: _propTypes2.default.string,
-    onClick: _propTypes2.default.func,
-    role: _propTypes2.default.string,
-    style: _propTypes2.default.object,
-    tabIndex: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string])
-}, _class.defaultProps = {
-    componentClass: 'a'
-}, _temp2);
-exports.default = Anchor;
-
-/***/ }),
-
-/***/ "../node_modules/@trendmicro/react-anchor/lib/index.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _Anchor = __webpack_require__("../node_modules/@trendmicro/react-anchor/lib/Anchor.js");
-
-var _Anchor2 = _interopRequireDefault(_Anchor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = _Anchor2.default;
-
-/***/ }),
-
 /***/ "../node_modules/@trendmicro/react-breadcrumbs/dist/react-breadcrumbs.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1134,7 +991,7 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, ".sidenav---_u0En {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1006;\n  min-width: 64px;\n  background: #db3d44;\n  -webkit-transition: min-width 0.15s;\n  -moz-transition: min-width 0.15s;\n  -o-transition: min-width 0.15s;\n  -ms-transition: min-width 0.15s;\n  transition: min-width 0.15s;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER:hover > .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja {\n  min-width: 240px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER .sidenav-nav-icon---3G9Ox + .sidenav-nav-text---3ixVn {\n  display: inline-block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expandable---2ZpGQ > a {\n  cursor: pointer;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  position: static;\n  border: none;\n  float: left;\n  clear: both;\n  width: 100%;\n  background: transparent;\n  overflow: hidden;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo {\n  position: relative;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover::before {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > a {\n  color: #fff;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > a::before {\n  content: \" \";\n  width: 2px;\n  height: 20px;\n  left: 10px;\n  top: 4px;\n  position: absolute;\n  border-left: 2px #fff solid;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover > a {\n  background: transparent;\n  color: #fff;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > a {\n  color: #f9dcdd;\n  padding: 0 14px 0 20px;\n  line-height: 28px;\n}\n.sidenav-toggle---23_Hl {\n  position: relative;\n  float: left;\n  width: 64px;\n  height: 64px;\n  padding: 0;\n  margin: 0;\n  background-color: transparent;\n  background-image: none;\n  border: 0;\n  border-radius: 0;\n  cursor: pointer;\n}\n.sidenav-toggle---23_Hl:focus {\n  outline: none;\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  display: block;\n  width: 20px;\n  height: 2px;\n  margin: 0 auto;\n  background-color: #fff;\n  border-radius: 1px;\n  -webkit-transition: all 0.15s;\n  -moz-transition: all 0.15s;\n  -o-transition: all 0.15s;\n  -ms-transition: all 0.15s;\n  transition: all 0.15s;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ + .icon-bar---2jamJ {\n  margin-top: 4px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  width: 25px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(1) {\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(2) {\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(3) {\n  margin-top: -8px;\n  -webkit-transform: rotate(-45deg);\n  -moz-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.sidenav-nav---uvKqK {\n  float: left;\n  padding: 0;\n  margin: 0;\n  clear: both;\n  list-style: none;\n  width: 100%;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER {\n  clear: both;\n  position: relative;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > a {\n  cursor: default;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a::after {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > a::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y > a::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.expanded---262ja > a::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.expanded---262ja > a::after {\n  background: #000;\n  opacity: 0.25;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)\";\n  filter: alpha(opacity=25);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.selected---91VwC.expanded---262ja > a::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.selected---91VwC.expanded---262ja > a::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a .sidenav-nav-icon---3G9Ox,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > a .sidenav-nav-icon---3G9Ox {\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a .sidenav-nav-icon---3G9Ox,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > a .sidenav-nav-text---3ixVn,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > a .sidenav-nav-icon---3G9Ox,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > a .sidenav-nav-text---3ixVn {\n  color: #fff;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a {\n  position: relative;\n  display: block;\n  line-height: 50px;\n  height: 50px;\n  white-space: nowrap;\n  text-decoration: none;\n  color: #fff;\n  font-size: 14px;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a::after {\n  content: '';\n  position: absolute;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  background: #fff;\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n  z-index: -1;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a .sidenav-nav-icon---3G9Ox {\n  display: block;\n  float: left;\n  width: 64px;\n  height: 50px;\n  margin-right: -6px;\n  vertical-align: top;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-color: transparent;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n  line-height: 50px;\n  text-align: center;\n  color: #f9dcdd;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a .sidenav-nav-icon---3G9Ox > * {\n  color: #f9dcdd;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > a .sidenav-nav-icon---3G9Ox + .sidenav-nav-text---3ixVn {\n  display: none;\n}\n.sidenav-subnav---3Hr7K {\n  min-width: 200px;\n  position: absolute;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  top: 0;\n  left: 64px;\n  background: #fff;\n  border: 1px #bbb solid;\n  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  margin: 0 24px;\n  line-height: 48px;\n  border-bottom: 1px #ccc solid;\n  font-size: 14px;\n  font-weight: normal;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:nth-child(2) {\n  margin-top: 8px;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:last-child {\n  margin-bottom: 8px;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > a {\n  color: #db3d44;\n  font-weight: bold;\n  background: none;\n  cursor: default;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > a {\n  display: block;\n  text-decoration: none;\n  color: #222;\n  font-size: 13px;\n  line-height: 30px;\n  padding: 0 24px;\n}\n.sidenav---_u0En {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n}\n.sidenav---_u0En *,\n.sidenav---_u0En *:before,\n.sidenav---_u0En *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n", ""]);
+exports.push([module.i, ".sidenav---_u0En {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1006;\n  min-width: 64px;\n  background: #db3d44;\n  -webkit-transition: min-width 0.15s;\n  -moz-transition: min-width 0.15s;\n  -o-transition: min-width 0.15s;\n  -ms-transition: min-width 0.15s;\n  transition: min-width 0.15s;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER:hover > .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja {\n  min-width: 240px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER .navicon---d-E_g + .navtext---2Ylza {\n  display: inline-block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expandable---2ZpGQ > .navitem---3LFxv {\n  cursor: pointer;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  position: static;\n  border: none;\n  float: left;\n  clear: both;\n  width: 100%;\n  background: transparent;\n  overflow: hidden;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo {\n  position: relative;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover::before {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv {\n  color: #fff;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv::before {\n  content: \" \";\n  width: 2px;\n  height: 20px;\n  left: 10px;\n  top: 4px;\n  position: absolute;\n  border-left: 2px #fff solid;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover > .navitem---3LFxv {\n  background: transparent;\n  color: #fff;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv {\n  color: #f9dcdd;\n  padding: 0 14px 0 20px;\n  line-height: 28px;\n}\n.sidenav-toggle---23_Hl {\n  position: relative;\n  float: left;\n  width: 64px;\n  height: 64px;\n  padding: 0;\n  margin: 0;\n  background-color: transparent;\n  background-image: none;\n  border: 0;\n  border-radius: 0;\n  cursor: pointer;\n}\n.sidenav-toggle---23_Hl:focus {\n  outline: none;\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  display: block;\n  width: 20px;\n  height: 2px;\n  margin: 0 auto;\n  background-color: #fff;\n  border-radius: 1px;\n  -webkit-transition: all 0.15s;\n  -moz-transition: all 0.15s;\n  -o-transition: all 0.15s;\n  -ms-transition: all 0.15s;\n  transition: all 0.15s;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n}\n.sidenav-toggle---23_Hl .icon-bar---2jamJ + .icon-bar---2jamJ {\n  margin-top: 4px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ {\n  width: 25px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(1) {\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(2) {\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-toggle---23_Hl .icon-bar---2jamJ:nth-child(3) {\n  margin-top: -8px;\n  -webkit-transform: rotate(-45deg);\n  -moz-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.sidenav-nav---uvKqK {\n  float: left;\n  padding: 0;\n  margin: 0;\n  clear: both;\n  list-style: none;\n  width: 100%;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER {\n  clear: both;\n  position: relative;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv {\n  cursor: default;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv::after {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y > .navitem---3LFxv::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after {\n  background: #000;\n  opacity: 0.25;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)\";\n  filter: alpha(opacity=25);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g {\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navtext---2Ylza,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navtext---2Ylza {\n  color: #fff;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv {\n  position: relative;\n  display: block;\n  line-height: 50px;\n  height: 50px;\n  white-space: nowrap;\n  text-decoration: none;\n  color: #fff;\n  font-size: 14px;\n  cursor: pointer;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv:focus {\n  outline: 0;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv::after {\n  content: '';\n  position: absolute;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  background: #fff;\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n  z-index: -1;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g {\n  display: block;\n  float: left;\n  width: 64px;\n  height: 50px;\n  margin-right: -6px;\n  vertical-align: top;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-color: transparent;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n  line-height: 50px;\n  text-align: center;\n  color: #f9dcdd;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g > * {\n  color: #f9dcdd;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g + .navtext---2Ylza {\n  display: none;\n}\n.sidenav-subnav---3Hr7K {\n  min-width: 200px;\n  position: absolute;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  top: 0;\n  left: 64px;\n  background: #fff;\n  border: 1px #bbb solid;\n  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  margin: 0 24px;\n  line-height: 48px;\n  border-bottom: 1px #ccc solid;\n  font-size: 14px;\n  font-weight: normal;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:nth-child(2) {\n  margin-top: 8px;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:last-child {\n  margin-bottom: 8px;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv {\n  color: #db3d44;\n  font-weight: bold;\n  background: none;\n  cursor: default;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv {\n  display: block;\n  text-decoration: none;\n  color: #222;\n  font-size: 13px;\n  line-height: 30px;\n  padding: 0 24px;\n  cursor: pointer;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv:focus {\n  outline: 0;\n}\n.sidenav---_u0En {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n}\n.sidenav---_u0En *,\n.sidenav---_u0En *:before,\n.sidenav---_u0En *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -1147,11 +1004,10 @@ exports.locals = {
 	"sidenav-subnav": "sidenav-subnav---3Hr7K",
 	"sidenavSubnav": "sidenav-subnav---3Hr7K",
 	"expanded": "expanded---262ja",
-	"sidenav-nav-icon": "sidenav-nav-icon---3G9Ox",
-	"sidenavNavIcon": "sidenav-nav-icon---3G9Ox",
-	"sidenav-nav-text": "sidenav-nav-text---3ixVn",
-	"sidenavNavText": "sidenav-nav-text---3ixVn",
+	"navicon": "navicon---d-E_g",
+	"navtext": "navtext---2Ylza",
 	"expandable": "expandable---2ZpGQ",
+	"navitem": "navitem---3LFxv",
 	"sidenav-subnavitem": "sidenav-subnavitem---3Rbfo",
 	"sidenavSubnavitem": "sidenav-subnavitem---3Rbfo",
 	"selected": "selected---91VwC",
@@ -24997,11 +24853,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _class, _temp2;
+var _class, _temp2; /* eslint jsx-a11y/click-events-have-key-events: 0 */
 
-var _reactAnchor = __webpack_require__("../node_modules/@trendmicro/react-anchor/lib/index.js");
-
-var _reactAnchor2 = _interopRequireDefault(_reactAnchor);
 
 var _chainedFunction = __webpack_require__("../node_modules/chained-function/lib/index.js");
 
@@ -25069,17 +24922,13 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = NavItem.__proto__ || Object.getPrototypeOf(NavItem)).call.apply(_ref, [this].concat(args))), _this), _this.findNavIcon = (0, _findComponent2.default)(_NavIcon2.default), _this.findNavText = (0, _findComponent2.default)(_NavText2.default), _this.isNavItem = (0, _matchComponent2.default)(NavItem), _this.isNavIcon = (0, _matchComponent2.default)(_NavIcon2.default), _this.isNavText = (0, _matchComponent2.default)(_NavText2.default), _this.handleSelect = function (event) {
             var _this$props = _this.props,
-                href = _this$props.href,
                 disabled = _this$props.disabled,
                 onSelect = _this$props.onSelect,
                 eventKey = _this$props.eventKey;
 
 
-            if (!href || disabled) {
-                event.preventDefault();
-            }
-
             if (disabled) {
+                event.preventDefault();
                 return;
             }
 
@@ -25128,8 +24977,9 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                         style: style
                     },
                     _react2.default.createElement(
-                        _reactAnchor2.default,
+                        'div',
                         _extends({}, props, {
+                            className: _index2.default.navitem,
                             disabled: disabled,
                             role: 'menuitem',
                             tabIndex: '-1',
@@ -25137,12 +24987,12 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                         }),
                         _react2.default.createElement(
                             'div',
-                            { className: _index2.default.sidenavNavIcon },
+                            { className: _index2.default.navicon },
                             navIcon && navIcon.props ? navIcon.props.children : null
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: _index2.default.sidenavNavText },
+                            { className: _index2.default.navtext },
                             navText && navText.props ? navText.props.children : null
                         )
                     )
@@ -25183,8 +25033,9 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                     style: style
                 },
                 _react2.default.createElement(
-                    _reactAnchor2.default,
+                    'div',
                     _extends({}, props, {
+                        className: _index2.default.navitem,
                         disabled: disabled,
                         role: 'menuitem',
                         tabIndex: '-1',
@@ -25192,16 +25043,16 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                     }),
                     _react2.default.createElement(
                         'div',
-                        { className: _index2.default.sidenavNavIcon },
+                        { className: _index2.default.navicon },
                         navIcon && navIcon.props ? navIcon.props.children : null
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: _index2.default.sidenavNavText },
+                        { className: _index2.default.navtext },
                         navText && navText.props ? navText.props.children : null
-                    )
+                    ),
+                    others
                 ),
-                others,
                 navItems.length > 0 && _react2.default.createElement(
                     'div',
                     _extends({}, props, {
@@ -25241,9 +25092,6 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
 
     // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
     eventKey: _propTypes2.default.any,
-
-    // HTML `href` attribute corresponding to `a.href`.
-    href: _propTypes2.default.string,
 
     // Callback fired when the navigation item is clicked.
     onClick: _propTypes2.default.func,
@@ -26266,7 +26114,7 @@ exports.NavText = exports.NavIcon = exports.NavItem = exports.Nav = exports.Togg
 
 var _templateObject = _taggedTemplateLiteral(['\n    background-color: #fff;\n    border-right: 1px solid #ddd;\n'], ['\n    background-color: #fff;\n    border-right: 1px solid #ddd;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    background-color: #db3d44;\n'], ['\n    background-color: #db3d44;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n    background-color: #fff;\n\n    &&[class*="expanded--"] {\n        [class*="sidenav-subnav--"] {\n            > [class*="sidenav-subnavitem--"],\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    color: #222;\n                }\n            }\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    background-color: #eee;\n                }\n            }\n            > [class*="sidenav-subnavitem--"][class*="selected--"] {\n                > a {\n                    color: #db3d44;\n                }\n                > a::before {\n                    border-left: 2px solid #db3d44;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"] {\n        > a {\n            background-color: inherit;\n            color: #222;\n        }\n    }\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            background-color: #eee;\n        }\n    }\n    && > [class*="sidenav-navitem--"],\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"] {\n                &, > * {\n                    color: #666;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #222;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"][class*="highlighted--"],\n    && > [class*="sidenav-navitem--"][class*="highlighted--"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"],\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #db3d44;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                font-weight: 700;\n            }\n        }\n    }\n'], ['\n    background-color: #fff;\n\n    &&[class*="expanded--"] {\n        [class*="sidenav-subnav--"] {\n            > [class*="sidenav-subnavitem--"],\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    color: #222;\n                }\n            }\n            > [class*="sidenav-subnavitem--"]:hover {\n                > a {\n                    background-color: #eee;\n                }\n            }\n            > [class*="sidenav-subnavitem--"][class*="selected--"] {\n                > a {\n                    color: #db3d44;\n                }\n                > a::before {\n                    border-left: 2px solid #db3d44;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"] {\n        > a {\n            background-color: inherit;\n            color: #222;\n        }\n    }\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            background-color: #eee;\n        }\n    }\n    && > [class*="sidenav-navitem--"],\n    && > [class*="sidenav-navitem--"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"] {\n                &, > * {\n                    color: #666;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #222;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"][class*="highlighted--"],\n    && > [class*="sidenav-navitem--"][class*="highlighted--"]:hover {\n        > a {\n            [class*="sidenav-nav-icon--"],\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #db3d44;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                font-weight: 700;\n            }\n        }\n    }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n    background-color: #fff;\n\n    &&[class*="expanded--"] {\n        [class*="sidenav-subnav--"] {\n            > [class*="sidenav-subnavitem--"],\n            > [class*="sidenav-subnavitem--"]:hover {\n                > [class*="navitem--"] {\n                    color: #222;\n                }\n            }\n            > [class*="sidenav-subnavitem--"]:hover {\n                > [class*="navitem--"] {\n                    background-color: #eee;\n                }\n            }\n            > [class*="sidenav-subnavitem--"][class*="selected--"] {\n                > [class*="navitem--"] {\n                    color: #db3d44;\n                }\n                > [class*="navitem--"]::before {\n                    border-left: 2px solid #db3d44;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"] {\n        > [class*="navitem--"] {\n            background-color: inherit;\n            color: #222;\n        }\n    }\n    && > [class*="sidenav-navitem--"]:hover {\n        > [class*="navitem--"] {\n            background-color: #eee;\n        }\n    }\n    && > [class*="sidenav-navitem--"],\n    && > [class*="sidenav-navitem--"]:hover {\n        > [class*="navitem--"] {\n            [class*="navicon--"] {\n                &, > * {\n                    color: #666;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #222;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"][class*="highlighted--"],\n    && > [class*="sidenav-navitem--"][class*="highlighted--"]:hover {\n        > [class*="navitem--"] {\n            [class*="navicon--"],\n            [class*="navtext--"] {\n                &, > * {\n                    color: #db3d44;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                font-weight: 700;\n            }\n        }\n    }\n'], ['\n    background-color: #fff;\n\n    &&[class*="expanded--"] {\n        [class*="sidenav-subnav--"] {\n            > [class*="sidenav-subnavitem--"],\n            > [class*="sidenav-subnavitem--"]:hover {\n                > [class*="navitem--"] {\n                    color: #222;\n                }\n            }\n            > [class*="sidenav-subnavitem--"]:hover {\n                > [class*="navitem--"] {\n                    background-color: #eee;\n                }\n            }\n            > [class*="sidenav-subnavitem--"][class*="selected--"] {\n                > [class*="navitem--"] {\n                    color: #db3d44;\n                }\n                > [class*="navitem--"]::before {\n                    border-left: 2px solid #db3d44;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"] {\n        > [class*="navitem--"] {\n            background-color: inherit;\n            color: #222;\n        }\n    }\n    && > [class*="sidenav-navitem--"]:hover {\n        > [class*="navitem--"] {\n            background-color: #eee;\n        }\n    }\n    && > [class*="sidenav-navitem--"],\n    && > [class*="sidenav-navitem--"]:hover {\n        > [class*="navitem--"] {\n            [class*="navicon--"] {\n                &, > * {\n                    color: #666;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                &, > * {\n                    color: #222;\n                }\n            }\n        }\n    }\n\n    && > [class*="sidenav-navitem--"][class*="highlighted--"],\n    && > [class*="sidenav-navitem--"][class*="highlighted--"]:hover {\n        > [class*="navitem--"] {\n            [class*="navicon--"],\n            [class*="navtext--"] {\n                &, > * {\n                    color: #db3d44;\n                }\n            }\n            [class*="sidenav-nav-text--"] {\n                font-weight: 700;\n            }\n        }\n    }\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n'], ['\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n    color: #222;\n'], ['\n    color: #222;\n']);
 
@@ -26725,4 +26573,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?040d4ccfe573d7496e18
+//# sourceMappingURL=bundle.js.map?90281f3d0839e508dbcb
