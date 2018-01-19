@@ -15,19 +15,24 @@
         margin-bottom: 8px;
     }
 
-    &.selected > a {
+    &.selected > .navitem {
         color: #db3d44;
         font-weight: bold;
         background: none;
         cursor: default;
     }
 
-    > a {
+    > .navitem {
         display: block;
         text-decoration: none;
         color: #222;
         font-size: 13px;
         line-height: 30px;
         padding: 0 24px;
+        cursor: pointer;
+
+        &:focus {
+            outline: 0;
+        }
     }
 }

@@ -28,20 +28,20 @@ const StyledNav = styled(Nav)`
         [class*="sidenav-subnav--"] {
             > [class*="sidenav-subnavitem--"],
             > [class*="sidenav-subnavitem--"]:hover {
-                > a {
+                > [class*="navitem--"] {
                     color: #222;
                 }
             }
             > [class*="sidenav-subnavitem--"]:hover {
-                > a {
+                > [class*="navitem--"] {
                     background-color: #eee;
                 }
             }
             > [class*="sidenav-subnavitem--"][class*="selected--"] {
-                > a {
+                > [class*="navitem--"] {
                     color: #db3d44;
                 }
-                > a::before {
+                > [class*="navitem--"]::before {
                     border-left: 2px solid #db3d44;
                 }
             }
@@ -49,20 +49,20 @@ const StyledNav = styled(Nav)`
     }
 
     && > [class*="sidenav-navitem--"] {
-        > a {
+        > [class*="navitem--"] {
             background-color: inherit;
             color: #222;
         }
     }
     && > [class*="sidenav-navitem--"]:hover {
-        > a {
+        > [class*="navitem--"] {
             background-color: #eee;
         }
     }
     && > [class*="sidenav-navitem--"],
     && > [class*="sidenav-navitem--"]:hover {
-        > a {
-            [class*="sidenav-nav-icon--"] {
+        > [class*="navitem--"] {
+            [class*="navicon--"] {
                 &, > * {
                     color: #666;
                 }
@@ -77,9 +77,9 @@ const StyledNav = styled(Nav)`
 
     && > [class*="sidenav-navitem--"][class*="highlighted--"],
     && > [class*="sidenav-navitem--"][class*="highlighted--"]:hover {
-        > a {
-            [class*="sidenav-nav-icon--"],
-            [class*="sidenav-nav-text--"] {
+        > [class*="navitem--"] {
+            [class*="navicon--"],
+            [class*="navtext--"] {
                 &, > * {
                     color: #db3d44;
                 }

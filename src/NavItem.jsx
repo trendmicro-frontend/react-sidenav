@@ -1,4 +1,4 @@
-import Anchor from '@trendmicro/react-anchor';
+/* eslint jsx-a11y/click-events-have-key-events: 0 */
 import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
@@ -32,9 +32,6 @@ class NavItem extends PureComponent {
 
         // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
         eventKey: PropTypes.any,
-
-        // HTML `href` attribute corresponding to `a.href`.
-        href: PropTypes.string,
 
         // Callback fired when the navigation item is clicked.
         onClick: PropTypes.func,
@@ -71,14 +68,11 @@ class NavItem extends PureComponent {
 
     handleSelect = (event) => {
         const {
-            href, disabled, onSelect, eventKey
+            disabled, onSelect, eventKey
         } = this.props;
 
-        if (!href || disabled) {
-            event.preventDefault();
-        }
-
         if (disabled) {
+            event.preventDefault();
             return;
         }
 
@@ -126,8 +120,9 @@ class NavItem extends PureComponent {
                     })}
                     style={style}
                 >
-                    <Anchor
+                    <div
                         {...props}
+                        className={styles.navitem}
                         disabled={disabled}
                         role="menuitem"
                         tabIndex="-1"
@@ -136,13 +131,13 @@ class NavItem extends PureComponent {
                             this.handleSelect
                         )}
                     >
-                        <div className={styles.sidenavNavIcon}>
+                        <div className={styles.navicon}>
                             {navIcon && navIcon.props ? navIcon.props.children : null}
                         </div>
-                        <div className={styles.sidenavNavText}>
+                        <div className={styles.navtext}>
                             {navText && navText.props ? navText.props.children : null}
                         </div>
-                    </Anchor>
+                    </div>
                 </Component>
             );
         }
@@ -191,8 +186,9 @@ class NavItem extends PureComponent {
                 })}
                 style={style}
             >
-                <Anchor
+                <div
                     {...props}
+                    className={styles.navitem}
                     disabled={disabled}
                     role="menuitem"
                     tabIndex="-1"
@@ -201,14 +197,14 @@ class NavItem extends PureComponent {
                         (navItems.length === 0) ? this.handleSelect : noop
                     )}
                 >
-                    <div className={styles.sidenavNavIcon}>
+                    <div className={styles.navicon}>
                         {navIcon && navIcon.props ? navIcon.props.children : null}
                     </div>
-                    <div className={styles.sidenavNavText}>
+                    <div className={styles.navtext}>
                         {navText && navText.props ? navText.props.children : null}
                     </div>
-                </Anchor>
-                {others}
+                    {others}
+                </div>
                 {(navItems.length > 0) &&
                     <div
                         {...props}

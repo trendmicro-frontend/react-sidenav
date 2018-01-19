@@ -104,7 +104,6 @@ active | boolean | false | Highlight the navigation item as active.
 disabled | boolean | false | Disable the navigation item, making it unselectable.
 expanded | boolean | false | Whether the navigation item is expanded or collapsed.
 eventKey | any | _(required)_ | Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
-href | string | | HTML `href` attribute corresponding to `a.href`.
 onClick | function(event) | | Callback fired when the navigation item is clicked.
 onSelect | function(eventKey, event) | | Callback fired when a navigation item is selected.
 

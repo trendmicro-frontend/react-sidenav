@@ -2,13 +2,13 @@
     min-width: 240px;
 
     .sidenav-nav > .sidenav-navitem {
-        .sidenav-nav-icon + .sidenav-nav-text {
+        .navicon + .navtext {
             display: inline-block;
         }
     }
 
     .sidenav-nav > .sidenav-navitem {
-        &.expandable > a {
+        &.expandable > .navitem {
             cursor: pointer;
         }
     }
@@ -60,11 +60,11 @@
             z-index: -1;
         }
 
-        &.selected > a {
+        &.selected > .navitem {
             color: #fff;
         }
 
-        &.selected > a::before {
+        &.selected > .navitem::before {
             content: " ";
             width: 2px;
             height: 20px;
@@ -74,12 +74,12 @@
             border-left: 2px #ffffff solid;
         }
 
-        &:hover > a {
+        &:hover > .navitem {
             background: transparent;
             color: #fff;
         }
 
-        > a {
+        > .navitem {
             color: #f9dcdd;
             padding: 0 14px 0 20px;
             line-height: 28px;

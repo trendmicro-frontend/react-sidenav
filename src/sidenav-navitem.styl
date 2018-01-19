@@ -2,46 +2,46 @@
     clear: both;
     position: relative;
 
-    &.highlighted > a {
+    &.highlighted > .navitem {
         cursor: default;
     }
 
-    &:hover > a::after {
+    &:hover > .navitem::after {
         background: #fff;
         opacity: .15;
     }
 
-    &.highlighted > a::after,
-    &:hover.highlighted > a::after {
+    &.highlighted > .navitem::after,
+    &:hover.highlighted > .navitem::after {
         background: #000;
         opacity: .2;
     }
 
-    &.highlighted.expanded > a::after,
-    &:hover.highlighted.expanded > a::after {
+    &.highlighted.expanded > .navitem::after,
+    &:hover.highlighted.expanded > .navitem::after {
         background: #000;
         opacity: .25;
     }
 
-    &.highlighted.selected.expanded > a::after,
-    &:hover.highlighted.selected.expanded > a::after {
+    &.highlighted.selected.expanded > .navitem::after,
+    &:hover.highlighted.selected.expanded > .navitem::after {
         background: #000;
         opacity: .2;
     }
 
-    &:hover > a .sidenav-nav-icon,
-    &.highlighted > a .sidenav-nav-icon {
+    &:hover > .navitem .navicon,
+    &.highlighted > .navitem .navicon {
         opacity: 1;
     }
 
-    &:hover > a .sidenav-nav-icon,
-    &:hover > a .sidenav-nav-text,
-    &.highlighted > a .sidenav-nav-icon,
-    &.highlighted > a .sidenav-nav-text {
+    &:hover > .navitem .navicon,
+    &:hover > .navitem .navtext,
+    &.highlighted > .navitem .navicon,
+    &.highlighted > .navitem .navtext {
         color: #fff;
     }
 
-    > a {
+    > .navitem {
         position: relative;
         display: block;
         line-height: 50px;
@@ -50,6 +50,11 @@
         text-decoration: none;
         color: #fff;
         font-size: 14px;
+        cursor: pointer;
+
+        &:focus {
+            outline: 0;
+        }
 
         // Background layer
         &::after {
@@ -65,7 +70,7 @@
         }
     }
 
-    > a .sidenav-nav-icon {
+    > .navitem .navicon {
         display: block;
         float: left;
         width: 64px;
@@ -84,7 +89,7 @@
             color: #f9dcdd;
         }
     }
-    > a .sidenav-nav-icon + .sidenav-nav-text {
+    > .navitem .navicon + .navtext {
         display: none;
     }
 }
