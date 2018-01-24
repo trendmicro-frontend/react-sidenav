@@ -151,6 +151,10 @@ expanded | boolean | false | Whether the navigation item is expanded or collapse
 eventKey | any | _(required)_ | Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
 onClick | function(event) | | Callback fired when the navigation item is clicked.
 onSelect | function(eventKey, event) | | Callback fired when a navigation item is selected.
+navitemClassName | | |
+navitemStyle | | |
+subnavClassName | | |
+subnavStyle | | |
 
 #### NavIcon
 

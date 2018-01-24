@@ -98,6 +98,12 @@ class NavItem extends PureComponent {
             // Sub navigation item
             subnav,
 
+            // Override className and style
+            navitemClassName,
+            navitemStyle,
+            subnavClassName,
+            subnavStyle,
+
             // Default props
             className,
             style,
@@ -122,7 +128,8 @@ class NavItem extends PureComponent {
                 >
                     <div
                         {...props}
-                        className={styles.navitem}
+                        className={cx(navitemClassName, styles.navitem)}
+                        style={navitemStyle}
                         disabled={disabled}
                         role="menuitem"
                         tabIndex="-1"
@@ -131,12 +138,16 @@ class NavItem extends PureComponent {
                             this.handleSelect
                         )}
                     >
+                        {navIcon && navIcon.props &&
                         <div className={styles.navicon}>
-                            {navIcon && navIcon.props ? navIcon.props.children : null}
+                            {navIcon.props.children}
                         </div>
+                        }
+                        {navText && navText.props &&
                         <div className={styles.navtext}>
-                            {navText && navText.props ? navText.props.children : null}
+                            {navText.props.children}
                         </div>
+                        }
                     </div>
                 </Component>
             );
@@ -188,7 +199,8 @@ class NavItem extends PureComponent {
             >
                 <div
                     {...props}
-                    className={styles.navitem}
+                    className={cx(navitemClassName, styles.navitem)}
+                    style={navitemStyle}
                     disabled={disabled}
                     role="menuitem"
                     tabIndex="-1"
@@ -197,25 +209,27 @@ class NavItem extends PureComponent {
                         (navItems.length === 0) ? this.handleSelect : noop
                     )}
                 >
+                    {navIcon && navIcon.props &&
                     <div className={styles.navicon}>
-                        {navIcon && navIcon.props ? navIcon.props.children : null}
+                        {navIcon.props.children}
                     </div>
+                    }
+                    {navText && navText.props &&
                     <div className={styles.navtext}>
-                        {navText && navText.props ? navText.props.children : null}
+                        {navText.props.children}
                     </div>
+                    }
                     {others}
                 </div>
                 {(navItems.length > 0) &&
                     <div
-                        {...props}
                         role="menu"
-                        className={cx({
-                            [styles.sidenavSubnav]: true
-                        })}
+                        className={cx(subnavClassName, styles.sidenavSubnav)}
+                        style={subnavStyle}
                     >
                         <Component
                             role="heading"
-                            className={cx(className, styles.sidenavSubnavitem, {
+                            className={cx(styles.sidenavSubnavitem, {
                                 [styles.highlighted]: active,
                                 [styles.disabled]: disabled
                             })}
