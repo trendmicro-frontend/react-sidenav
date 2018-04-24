@@ -51,7 +51,12 @@ class NavItem extends PureComponent {
         //
 
         // Whether it is a sub navigation item.
-        subnav: PropTypes.bool
+        subnav: PropTypes.bool,
+
+        navitemClassName: PropTypes.string,
+        navitemStyle: PropTypes.object,
+        subnavClassName: PropTypes.string,
+        subnavStyle: PropTypes.object
     };
     static defaultProps = {
         componentClass: 'div',
@@ -113,6 +118,16 @@ class NavItem extends PureComponent {
 
         const navIcon = this.findNavIcon(children);
         const navText = this.findNavText(children);
+        const {
+            componentType: navIconComponentType, // eslint-disable-line
+            navIconClassName,
+            ...navIconProps
+        } = navIcon ? { ...navIcon.props } : {};
+        const {
+            componentType: navTextComponentType, // eslint-disable-line
+            navTextClassName,
+            ...navTextProps
+        } = navText ? { ...navText.props } : {};
 
         if (subnav) {
             const isNavItemSelected = active || (!!selected && selected === this.props.eventKey);
@@ -138,15 +153,11 @@ class NavItem extends PureComponent {
                             this.handleSelect
                         )}
                     >
-                        {navIcon && navIcon.props &&
-                        <div className={styles.navicon}>
-                            {navIcon.props.children}
-                        </div>
+                        {navIcon &&
+                        <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
                         }
-                        {navText && navText.props &&
-                        <div className={styles.navtext}>
-                            {navText.props.children}
-                        </div>
+                        {navText &&
+                        <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
                         }
                     </div>
                 </Component>
@@ -209,15 +220,11 @@ class NavItem extends PureComponent {
                         (navItems.length === 0) ? this.handleSelect : noop
                     )}
                 >
-                    {navIcon && navIcon.props &&
-                    <div className={styles.navicon}>
-                        {navIcon.props.children}
-                    </div>
+                    {navIcon &&
+                    <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
                     }
-                    {navText && navText.props &&
-                    <div className={styles.navtext}>
-                        {navText.props.children}
-                    </div>
+                    {navText &&
+                    <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
                     }
                     {others}
                 </div>

@@ -62,7 +62,7 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="Home">
                                 Home
                             </NavText>
                         </NavItem>
@@ -70,7 +70,7 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="Devices">
                                 Devices
                             </NavText>
                         </NavItem>
@@ -78,7 +78,7 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="Reports">
                                 Reports
                             </NavText>
                         </NavItem>
@@ -86,16 +86,16 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em', verticalAlign: 'middle' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="Settings">
                                 Settings
                             </NavText>
                             <NavItem eventKey="settings/policy">
-                                <NavText>
-                                    Policy
+                                <NavText title="Policies">
+                                    Policies
                                 </NavText>
                             </NavItem>
                             <NavItem eventKey="settings/network">
-                                <NavText>
+                                <NavText title="Network">
                                     Network
                                 </NavText>
                             </NavItem>

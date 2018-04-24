@@ -129,7 +129,7 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="HOME">
                                 HOME
                             </NavText>
                         </NavItem>
@@ -137,7 +137,7 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="DEVICES">
                                 DEVICES
                             </NavText>
                         </NavItem>
@@ -145,7 +145,7 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="REPORTS">
                                 REPORTS
                             </NavText>
                         </NavItem>
@@ -153,16 +153,16 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="SETTINGS">
                                 SETTINGS
                             </NavText>
                             <NavItem eventKey="settings/policy">
-                                <NavText>
-                                    POLICY
+                                <NavText title="POLICIES">
+                                    POLICIES
                                 </NavText>
                             </NavItem>
                             <NavItem eventKey="settings/network">
-                                <NavText>
+                                <NavText title="NETWORK">
                                     NETWORK
                                 </NavText>
                             </NavItem>
@@ -172,7 +172,7 @@ export default class extends PureComponent {
                             <NavIcon>
                                 <i className="fa fa-fw fa-power-off" style={{ fontSize: '1.5em' }} />
                             </NavIcon>
-                            <NavText style={{ paddingRight: 32 }}>
+                            <NavText style={{ paddingRight: 32 }} title="SIGN OUT">
                                 SIGN OUT
                             </NavText>
                         </NavItem>

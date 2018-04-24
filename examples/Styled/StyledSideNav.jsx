@@ -94,6 +94,11 @@ StyledNav.defaultProps = Nav.defaultProps;
 
 // NavItem
 const StyledNavItem = styled(NavItem)`
+    &&&:hover {
+        [class*="navtext--"] {
+            color: #222;
+        }
+    }
 `;
 StyledNavItem.defaultProps = NavItem.defaultProps;
 
