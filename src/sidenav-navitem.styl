@@ -39,6 +39,9 @@
     &.highlighted > .navitem .navicon,
     &.highlighted > .navitem .navtext {
         color: #fff;
+        > * {
+            color: #fff;
+        }
     }
 
     > .navitem {
@@ -70,6 +73,14 @@
         }
     }
 
+    > .navitem .navicon,
+    > .navitem .navtext {
+        color: #f9dcdd;
+        > * {
+            color: #f9dcdd;
+        }
+    }
+
     > .navitem .navicon {
         display: block;
         float: left;
@@ -83,12 +94,8 @@
         opacity: .7;
         line-height: 50px;
         text-align: center;
-
-        color: #f9dcdd;
-        > * {
-            color: #f9dcdd;
-        }
     }
+
     > .navitem .navicon + .navtext {
         display: none;
     }
