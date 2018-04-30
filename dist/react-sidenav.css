@@ -1,4 +1,4 @@
-/*! react-sidenav v0.4.3 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
+/*! react-sidenav v0.4.4 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sidenav---sidenav---_2tBP {
   position: absolute;
   top: 0;
@@ -298,6 +298,9 @@
   background: none;
   cursor: default;
 }
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47.sidenav---selected---1EK3y > .sidenav---navitem---9uL5T:hover {
+  background: #fff;
+}
 .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T {
   display: block;
   text-decoration: none;
@@ -306,6 +309,9 @@
   line-height: 30px;
   padding: 0 24px;
   cursor: pointer;
+}
+.sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T:hover {
+  background: #eee;
 }
 .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T:focus {
   outline: 0;
