@@ -192,9 +192,9 @@ class NavItem extends PureComponent {
             });
 
         const isNavItemSelected = active || (!!selected && selected === this.props.eventKey) || (activeNavItems.length > 0);
-        const isNavItemHighlighted = expanded || isNavItemSelected;
         const isNavItemExpandable = (navItems.length > 0);
         const isNavItemExpanded = isNavItemExpandable && expanded;
+        const isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
 
         return (
             <Component
