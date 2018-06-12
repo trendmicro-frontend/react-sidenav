@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-sidenav",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "React SideNav",
   "main": "lib/index.js",
   "files": [
@@ -54,6 +54,7 @@
   "devDependencies": {
     "@trendmicro/react-breadcrumbs": "~0.5.5",
     "@trendmicro/react-buttons": "~1.2.1",
+    "@trendmicro/react-dropdown": "~1.2.3",
     "babel-cli": "~6.26.0",
     "babel-core": "~6.26.0",
     "babel-eslint": "~8.0.3",
