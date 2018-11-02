@@ -63,7 +63,7 @@ Demo: https://trendmicro-frontend.github.io/react-sidenav
 </SideNav>
 ```
 
-## React Router v4 with React v16
+### React Router v4 with React v16
 
 ```jsx
 <Router>
@@ -106,6 +106,37 @@ Demo: https://trendmicro-frontend.github.io/react-sidenav
     )}
     />
 </Router>
+```
+
+### Close the side navigation menu when clicking outside
+
+You can find a click-outside React component (https://github.com/tj/react-click-outside/blob/master/index.js) and do something below:
+
+```jsx
+<ClickOutside
+    onClickOutside={() => {
+        this.setState({ expanded: false });
+    }}
+>
+    <SideNav
+        expanded={this.state.expanded}
+        onToggle={(expanded) => {
+            this.setState({ expanded });
+        }}
+    >
+        <SideNav.Toggle />
+        <SideNav.Nav defaultSelected="home">
+            <NavItem eventKey="home">
+                <NavIcon>
+                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText>
+                    Home
+                </NavText>
+            </NavItem>
+        </SideNav.Nav>
+    </SideNav>
+</ClickOutside>
 ```
 
 ## API
