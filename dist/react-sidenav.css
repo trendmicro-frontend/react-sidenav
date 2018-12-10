@@ -13,6 +13,12 @@
   -ms-transition: min-width 0.15s;
   transition: min-width 0.15s;
 }
+.sidenav---sub-menu-open---2kVAr {
+  display: block;
+}
+.sidenav---sub-menu-close---1bj8B {
+  display: none;
+}
 .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ- .sidenav---sidenav-subnav---1EN61 {
   display: none;
 }

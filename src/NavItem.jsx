@@ -12,6 +12,9 @@ import styles from './index.styl';
 const noop = () => {};
 
 class NavItem extends PureComponent {
+    state = {
+        subOpen: false
+    }
     static propTypes = {
         componentType: PropTypes.any,
 
@@ -86,6 +89,11 @@ class NavItem extends PureComponent {
         }
     };
 
+    onToggle = () => {
+        console.log('here');
+        this.setState(() => ({ subOpen: !this.state.subOpen }));
+    }
+
     render() {
         const {
             componentType, // eslint-disable-line
@@ -130,7 +138,55 @@ class NavItem extends PureComponent {
         } = navText ? { ...navText.props } : {};
 
         if (subnav) {
+            const { subOpen } = this.state;
             const isNavItemSelected = active || (!!selected && selected === this.props.eventKey);
+
+            if (children.length > 0) {
+                const navItems = React.Children.toArray(children)
+                    .filter(child => {
+                        return React.isValidElement(child) && this.isNavItem(child);
+                    }).map(child => {
+                        return cloneElement(child, {
+                            subnav: true,
+                            selected,
+                            onSelect: chainedFunction(
+                                child.props.onSelect,
+                                onSelect
+                            )
+                        });
+                    });
+
+                return (
+                    <Component
+                        role="presentation"
+                        className={cx(className, styles.sidenavSubnavitem, {
+                            [styles.selected]: isNavItemSelected,
+                            [styles.disabled]: disabled
+                        })}
+                        style={style}
+                    >
+                        <div
+                            {...props}
+                            className={cx(navitemClassName, styles.navitem)}
+                            style={navitemStyle}
+                            disabled={disabled}
+                            role="menuitem"
+                            tabIndex="-1"
+                            onClick={this.onToggle}
+                        >
+                            {navIcon &&
+                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                            }
+                            {navText &&
+                            <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
+                            }
+                        </div>
+                        <div className={cx({ [styles.subMenuOpen]: subOpen, [styles.subMenuClose]: !subOpen })}>
+                            {navItems}
+                        </div>
+                    </Component>
+                );
+            }
 
             return (
                 <Component

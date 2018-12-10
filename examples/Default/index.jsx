@@ -125,17 +125,42 @@ export default class extends PureComponent {
                                 <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em', verticalAlign: 'middle' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="Settings">
-                                Settings
+                                Sub menu
                             </NavText>
                             <NavItem eventKey="settings/policies">
                                 <NavText title="Policies">
                                     Policies
                                 </NavText>
+                                <NavItem eventKey="Sub menu 1">
+                                    <NavText title="SUB1">
+                                        Sub menu 1
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="SUB1">
+                                    <NavText title="Sub menu 2">
+                                        Sub menu 2
+                                    </NavText>
+                                </NavItem>
                             </NavItem>
                             <NavItem eventKey="settings/network">
                                 <NavText title="Network">
                                     Network
                                 </NavText>
+                                <NavItem eventKey="Sub menu 3">
+                                    <NavText title="SUB3">
+                                       Sub menu 3
+                                    </NavText>
+                                    <NavItem eventKey="Sub menu 4">
+                                        <NavText title="SUB4">
+                                       Sub menu 4
+                                        </NavText>
+                                    </NavItem>
+                                </NavItem>
+                                <NavItem eventKey="SUB3">
+                                    <NavText title="Sub menu 3">
+                                        Sub menu 3
+                                    </NavText>
+                                </NavItem>
                             </NavItem>
                         </NavItem>
                     </SideNav.Nav>
