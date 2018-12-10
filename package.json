@@ -1,5 +1,5 @@
 {
-  "name": "@trendmicro/react-sidenav",
+  "name": "react-sub-sidenav",
   "version": "0.4.5",
   "description": "React SideNav",
   "main": "lib/index.js",
