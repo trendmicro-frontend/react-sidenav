@@ -114,13 +114,17 @@ export default class extends PureComponent {
                         </Dropdown>
                     </ButtonGroup>
                 </div>
-                <SideNav onSelect={this.onSelect} onToggle={this.onToggle}>
+                <SideNav onSelect={this.onSelect} onToggle={this.onToggle} expanded={this.state.expanded}>
                     <SideNav.Toggle />
                     <NavHeader expanded={expanded}>
                         <NavTitle>Side Navigation</NavTitle>
                     </NavHeader>
                     <SideNav.Nav selected={selected}>
-                        <NavItem eventKey="home">
+                        <NavItem
+                            toggleExpanded={this.onToggle}
+                            isSideNavExpanded={expanded}
+                            eventKey="home"
+                        >
                             <NavIcon>
                                 <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
@@ -144,7 +148,11 @@ export default class extends PureComponent {
                                 </NavText>
                             </NavItem>
                         </NavItem>
-                        <NavItem eventKey="devices">
+                        <NavItem
+                            toggleExpanded={this.onToggle}
+                            isSideNavExpanded={expanded}
+                            eventKey="devices"
+                        >
                             <NavIcon>
                                 <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
@@ -152,7 +160,11 @@ export default class extends PureComponent {
                                 Devices
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="reports">
+                        <NavItem
+                            toggleExpanded={this.onToggle}
+                            isSideNavExpanded={expanded}
+                            eventKey="reports"
+                        >
                             <NavIcon>
                                 <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
@@ -165,23 +177,39 @@ export default class extends PureComponent {
                                 </NavText>
                             </NavItem>
                         </NavItem>
-                        <NavItem eventKey="settings">
+                        <NavItem
+                            toggleExpanded={this.onToggle}
+                            isSideNavExpanded={expanded}
+                            eventKey="settings"
+                        >
                             <NavIcon>
                                 <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="Settings">
                                 Sub menu
                             </NavText>
-                            <NavItem eventKey="settings/policies">
+                            <NavItem
+                                toggleExpanded={this.onToggle}
+                                isSideNavExpanded={expanded}
+                                eventKey="settings/policies"
+                            >
                                 <NavText title="Policies">
                                     Policies
                                 </NavText>
-                                <NavItem eventKey="Sub menu 1">
+                                <NavItem
+                                    toggleExpanded={this.onToggle}
+                                    isSideNavExpanded={expanded}
+                                    eventKey="Sub menu 1"
+                                >
                                     <NavText title="SUB1">
                                         Sub menu 1
                                     </NavText>
                                 </NavItem>
-                                <NavItem eventKey="SUB1">
+                                <NavItem
+                                    toggleExpanded={this.onToggle}
+                                    isSideNavExpanded={expanded}
+                                    eventKey="SUB1"
+                                >
                                     <NavText title="Sub menu 2">
                                         Sub menu 2
                                     </NavText>
@@ -192,19 +220,40 @@ export default class extends PureComponent {
                                     </NavItem>
                                 </NavItem>
                             </NavItem>
-                            <NavItem eventKey="settings/network">
+                            <NavItem
+                                toggleExpanded={this.onToggle}
+                                isSideNavExpanded={expanded}
+                                eventKey="settings/network"
+                            >
                                 <NavText title="Network">
                                     Network
                                 </NavText>
-                                <NavItem eventKey="Sub menu 3">
+                                <NavItem
+                                    toggleExpanded={this.onToggle}
+                                    isSideNavExpanded={expanded}
+                                    eventKey="Sub menu 3"
+                                >
                                     <NavText title="SUB3">
                                        Sub menu 3
                                     </NavText>
-                                    <NavItem eventKey="Sub menu 4">
+                                    <NavItem
+                                        toggleExpanded={this.onToggle}
+                                        isSideNavExpanded={expanded}
+                                        eventKey="Sub menu 4"
+                                    >
                                         <NavText title="SUB4">
                                         Sub menu 4
                                         </NavText>
                                     </NavItem>
+                                </NavItem>
+                                <NavItem
+                                    toggleExpanded={this.onToggle}
+                                    isSideNavExpanded={expanded}
+                                    eventKey="SUB3"
+                                >
+                                    <NavText title="Sub menu 3">
+                                        Sub menu 3
+                                    </NavText>
                                 </NavItem>
                             </NavItem>
                         </NavItem>

@@ -9,8 +9,6 @@ import findComponent from './find-component';
 import match from './match-component';
 import styles from './index.styl';
 
-const noop = () => {};
-
 class NavItem extends PureComponent {
     state = {
         subOpen: false
@@ -281,8 +279,9 @@ class NavItem extends PureComponent {
                     role="menuitem"
                     tabIndex="-1"
                     onClick={chainedFunction(
+                        navItems.length > 0 && this.props.toggleExpanded,
                         onClick,
-                        (navItems.length === 0) ? this.handleSelect : noop
+                        navItems.length === 0 && this.handleSelect
                     )}
                 >
                     {navIcon &&
