@@ -51,6 +51,10 @@ class Nav extends PureComponent {
             this.setState(state => ({
                 expandedNavItem: state.expandedNavItem !== eventKey ? eventKey : ''
             }));
+        } else {
+            this.setState(state => ({
+                expandedNavItem: eventKey
+            }));
         }
     }
     renderNavItem(child, { onSelect, ...props }) {
