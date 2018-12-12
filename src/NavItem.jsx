@@ -90,7 +90,6 @@ class NavItem extends PureComponent {
     };
 
     onToggle = () => {
-        console.log('here');
         this.setState(() => ({ subOpen: !this.state.subOpen }));
     }
 
@@ -146,8 +145,18 @@ class NavItem extends PureComponent {
                     .filter(child => {
                         return React.isValidElement(child) && this.isNavItem(child);
                     }).map(child => {
+                        if (child.props.children.length > 0) {
+                            return cloneElement(child, {
+                                subnav: true,
+                                selected,
+                                onSelect: chainedFunction(
+                                    child.props.onSelect,
+                                    onSelect
+                                )
+                            });
+                        }
                         return cloneElement(child, {
-                            subnav: true,
+                            subnav: false,
                             selected,
                             onSelect: chainedFunction(
                                 child.props.onSelect,

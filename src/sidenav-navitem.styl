@@ -7,6 +7,110 @@
     }
 
     &:hover > .navitem::after {
+        background: #f8f8f9;
+        opacity: 1;
+    }
+
+    &.highlighted > .navitem::after,
+    &:hover.highlighted > .navitem::after {
+        background:#f8f8f9;
+        opacity: 1;
+    }
+
+    &.highlighted.expanded > .navitem::after,
+    &:hover.highlighted.expanded > .navitem::after {
+        background: #f8f8f9;
+        opacity: 1;
+    }
+
+    &.highlighted.selected.expanded > .navitem::after,
+    &:hover.highlighted.selected.expanded > .navitem::after {
+        background: #f8f8f9;
+        opacity: 1;
+    }
+
+    &:hover > .navitem .navicon,
+    &.highlighted > .navitem .navicon {
+        opacity: 1;
+    }
+
+    &:hover > .navitem .navicon,
+    &:hover > .navitem .navtext,
+    &.highlighted > .navitem .navicon,
+    &.highlighted > .navitem .navtext {
+        color: #09091A;
+        > * {
+            color: #09091A;
+        }
+    }
+
+    > .navitem {
+        position: relative;
+        display: block;
+        line-height: 50px;
+        height: 50px;
+        white-space: nowrap;
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+
+        &:focus {
+            outline: 0;
+        }
+
+        // Background layer
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+
+    > .navitem .navicon,
+    > .navitem .navtext {
+        color: #09091A;
+        font-size: 16px;
+        > * {
+            color: #09091A;
+        }
+    }
+
+    > .navitem .navicon {
+        display: block;
+        float: left;
+        width: 64px;
+        height: 50px;
+        margin-right: -6px;
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: transparent;
+        opacity: .7;
+        line-height: 50px;
+        text-align: center;
+    }
+
+    > .navitem .navicon + .navtext {
+        display: none;
+    }
+}
+
+.sub-menu-open > .sidenav-nav > .sidenav-navitem {
+    clear: both;
+    position: relative;
+
+    &.highlighted > .navitem {
+        cursor: default;
+    }
+
+    &:hover > .navitem::after {
         background: #fff;
         opacity: .15;
     }
@@ -75,9 +179,9 @@
 
     > .navitem .navicon,
     > .navitem .navtext {
-        color: #f9dcdd;
+        color: #09091A;
         > * {
-            color: #f9dcdd;
+            color: #09091A;
         }
     }
 

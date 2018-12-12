@@ -47,7 +47,7 @@
     }
     .sidenav-subnav > .sidenav-subnavitem {
         &:hover::before {
-            background: #ffffff;
+            background: #F8F8F9;
             opacity: 0.15;
         }
 
@@ -58,6 +58,17 @@
             position: absolute;
             top: 0;
             z-index: -1;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 15%;
+            width: 80%;
+            height: 1px;
+            background: #E5E5E4;
         }
 
         &.selected > .navitem {
@@ -75,14 +86,21 @@
         }
 
         &:hover > .navitem {
-            background: transparent;
-            color: #fff;
+            background: #F8F8F9;
+            color: #09091A;
         }
 
         > .navitem {
-            color: #f9dcdd;
-            padding: 0 14px 0 20px;
+            display: flex;
+            color: #09091A;
+            padding: 7px 14px 7px 20px;
             line-height: 28px;
+            font-size: 14px;
+            background: #F8F8F9;
+        }
+
+        > .navitem > .navicon {
+            margin-left: 10px;
         }
     }
 }

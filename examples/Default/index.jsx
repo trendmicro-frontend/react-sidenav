@@ -14,6 +14,26 @@ const Main = styled.main`
     margin-left: ${props => (props.expanded ? 240 : 64)}px;
 `;
 
+const NavHeader = styled.div`
+    display: ${props => (props.expanded ? 'block' : 'none')};
+    white-space: nowrap;
+    background: #FFFFFF;
+    color: #fff;
+
+    > * {
+        color: inherit;
+        background-color: inherit;
+    }
+`;
+
+// height: 20px + 10px + 10px = 40px
+const NavTitle = styled.div`
+    line-height: 44px;
+    padding: 10px 0;
+    color: #09091A;
+    font-size: 16px;
+`;
+
 export default class extends PureComponent {
     state = {
         selected: 'home',
@@ -21,6 +41,7 @@ export default class extends PureComponent {
     };
 
     onSelect = (selected) => {
+        console.log(selected);
         this.setState({ selected: selected });
     };
     onToggle = (expanded) => {
@@ -95,18 +116,37 @@ export default class extends PureComponent {
                 </div>
                 <SideNav onSelect={this.onSelect} onToggle={this.onToggle}>
                     <SideNav.Toggle />
+                    <NavHeader expanded={expanded}>
+                        <NavTitle>Side Navigation</NavTitle>
+                    </NavHeader>
                     <SideNav.Nav selected={selected}>
                         <NavItem eventKey="home">
                             <NavIcon>
-                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
+                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="Home">
                                 Home
                             </NavText>
+                            <NavItem eventKey="first">
+                                <NavIcon>
+                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
+                                </NavIcon>
+                                <NavText style={{ paddingRight: 32 }} title="First child">
+                                 First child
+                                </NavText>
+                            </NavItem>
+                            <NavItem eventKey="second">
+                                <NavIcon>
+                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
+                                </NavIcon>
+                                <NavText style={{ paddingRight: 32 }} title="Second child">
+                               Second child
+                                </NavText>
+                            </NavItem>
                         </NavItem>
                         <NavItem eventKey="devices">
                             <NavIcon>
-                                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
+                                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="Devices">
                                 Devices
@@ -114,15 +154,20 @@ export default class extends PureComponent {
                         </NavItem>
                         <NavItem eventKey="reports">
                             <NavIcon>
-                                <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle' }} />
+                                <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="Reports">
                                 Reports
                             </NavText>
+                            <NavItem eventKey="4124">
+                                <NavText title="1424">
+                                   test
+                                </NavText>
+                            </NavItem>
                         </NavItem>
                         <NavItem eventKey="settings">
                             <NavIcon>
-                                <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em', verticalAlign: 'middle' }} />
+                                <i className="fa fa-fw fa-cogs" style={{ fontSize: '1.5em', verticalAlign: 'middle', color: '#09091A' }} />
                             </NavIcon>
                             <NavText style={{ paddingRight: 32 }} title="Settings">
                                 Sub menu
@@ -140,6 +185,11 @@ export default class extends PureComponent {
                                     <NavText title="Sub menu 2">
                                         Sub menu 2
                                     </NavText>
+                                    <NavItem eventKey="SUB4124">
+                                        <NavText title="Sub menu fasdfdsf">
+                                            After Sub menu 2
+                                        </NavText>
+                                    </NavItem>
                                 </NavItem>
                             </NavItem>
                             <NavItem eventKey="settings/network">
@@ -152,14 +202,9 @@ export default class extends PureComponent {
                                     </NavText>
                                     <NavItem eventKey="Sub menu 4">
                                         <NavText title="SUB4">
-                                       Sub menu 4
+                                        Sub menu 4
                                         </NavText>
                                     </NavItem>
-                                </NavItem>
-                                <NavItem eventKey="SUB3">
-                                    <NavText title="Sub menu 3">
-                                        Sub menu 3
-                                    </NavText>
                                 </NavItem>
                             </NavItem>
                         </NavItem>

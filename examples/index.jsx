@@ -44,7 +44,8 @@ class App extends React.Component {
                 <div
                     style={{
                         position: 'relative',
-                        height: 'calc(100vh - 50px)'
+                        height: 'calc(100vh - 50px)',
+                        backgroundColor: '#F2F2F4'
                     }}
                 >
                     {this.state.theme === 'default' &&
