@@ -289,7 +289,8 @@ class NavItem extends PureComponent {
                                 ...navitemStyle,
                                 display: 'flex',
                                 justifyContent: 'space-between',
-                                background: '#f8f8f9'
+                                background: '#f8f8f9',
+                                paddingLeft: '58px'
                             }}
                         >
                             <div style={{ display: 'flex' }}>

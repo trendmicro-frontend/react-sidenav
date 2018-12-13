@@ -444,13 +444,6 @@
 .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47 > .sub-sidenav---navitem---9uL5T:focus {
   outline: 0;
 }
-.sub-sidenav---expanded-icon---1Zdcm {
-  float: right;
-  width: 1em;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  padding-right: 5px;
-}
 .sub-sidenav---expanded-icon-rotate---3qzXU {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -462,7 +455,18 @@
   -o-transition: -o-transform 0.3s;
   -ms-transition: -ms-transform 0.3s;
   transition: transform 0.3s;
-  padding: 18px;
+}
+.sub-sidenav---second-expanded-icon-rotate---1Za0N {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  -o-transition: -o-transform 0.3s;
+  -ms-transition: -ms-transform 0.3s;
+  transition: transform 0.3s;
 }
 .sub-sidenav---sidenav---_2tBP {
   -webkit-box-sizing: border-box;

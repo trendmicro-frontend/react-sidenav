@@ -2,6 +2,8 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import styles from './index.styl';
+import CollapseIcon from '../docs/collapse-icon.svg';
+import ExpandIcon from '../docs/expand-icon.svg';
 
 class Toggle extends PureComponent {
     static propTypes = {
@@ -45,9 +47,7 @@ class Toggle extends PureComponent {
                 )}
                 aria-expanded={expanded}
             >
-                <span className={styles.iconBar} />
-                <span className={styles.iconBar} />
-                <span className={styles.iconBar} />
+                <img src={expanded ? CollapseIcon : ExpandIcon} alt="error" />
                 {children}
             </Component>
         );

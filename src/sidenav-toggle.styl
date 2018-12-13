@@ -2,7 +2,7 @@
     position: relative;
     float: left;
     width: 64px;
-    height: 64px;
+    height: 50px;
     padding: 0;
     margin: 0;
     background-color: transparent;
@@ -10,37 +10,9 @@
     border: 0;
     border-radius: 0;
     cursor: pointer;
+    margin-right: -6px;
 
     &:focus {
         outline: none;
-    }
-
-    .icon-bar {
-        display: block;
-        width: 20px;
-        height: 2px;
-        margin: 0 auto;
-        background-color: #09091A;
-        border-radius: 1px;
-        transition: all .15s;
-        opacity: .7;
-
-        + .icon-bar {
-            margin-top: 4px;
-        }
-
-        .sidenav.expanded & {
-            width: 25px;
-        }
-        .sidenav.expanded &:nth-child(1) {
-            transform: rotate(45deg);
-        }
-        .sidenav.expanded &:nth-child(2) {
-            opacity: 0;
-        }
-        .sidenav.expanded &:nth-child(3) {
-            margin-top: -8px;
-            transform: rotate(-45deg);
-        }
     }
 }

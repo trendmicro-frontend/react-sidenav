@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="48px" viewBox="0 0 56 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>BC59B35F-CC05-41E6-A267-8D7F1E9D93B6</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <filter x="-11.9%" y="-3.2%" width="123.8%" height="106.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0352941176   0 0 0 0 0.0352941176   0 0 0 0 0.101960784  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Navigation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01.Nav-Default" transform="translate(-2.000000, -61.000000)">
+            <g id="Sidebar" filter="url(#filter-1)" transform="translate(0.000000, 59.000000)">
+                <g id="Nav" transform="translate(0.000000, 1.000000)">
+                    <g id="nav/Buttons/Level1">
+                        <g id="icon-svg" transform="translate(14.000000, 9.000000)">
+                            <g id="Icons/bar-collapse-g">
+                                <rect id="box" x="0" y="0" width="32" height="32"></rect>
+                                <path d="M6,8 L26,8 C27.1045695,8 28,8.8954305 28,10 L28,22 C28,23.1045695 27.1045695,24 26,24 L6,24 C4.8954305,24 4,23.1045695 4,22 L4,10 C4,8.8954305 4.8954305,8 6,8 Z M8,10 L8,22 L26,22 L26,10 L8,10 Z M10.4981687,15.7537315 L14.1291254,12.1227748 C14.2928251,11.9590751 14.5582348,11.9590751 14.7219346,12.1227748 L15.0183392,12.4191794 C15.182039,12.5828792 15.182039,12.848289 15.0183392,13.0119887 L12.054293,15.976035 L15.1072606,19.0290027 C15.2218504,19.1435926 15.2152152,19.3360146 15.0924404,19.4587894 L14.6478334,19.9033964 C14.5250586,20.0261712 14.3326366,20.0328064 14.2180467,19.9182166 L10.4833485,16.1835183 C10.3687586,16.0689284 10.3753939,15.8765064 10.4981687,15.7537315 Z" id="Combined-Shape" fill="#6B6B76" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
