@@ -132,37 +132,38 @@ export default class extends PureComponent {
                                 Home
                             </NavText>
                             <NavItem eventKey="first">
-                                <NavIcon>
-                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
-                                </NavIcon>
-                                <NavText style={{ paddingRight: 32 }} title="First child">
+                                <NavText title="First child">
                                   First child
                                 </NavText>
                                 <NavItem eventKey="childoffirstchild">
-                                    <NavIcon>
-                                        <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
-                                    </NavIcon>
-                                    <NavText style={{ paddingRight: 32 }} title="child of first child">
-                                        child of first child
+                                    <NavText title="child of first child">
+                                        Child of first
+                                    </NavText>
+                                    <NavItem eventKey="childoffirstchild">
+                                        <NavText title="child of first child">
+                                        Child of first sub nav
+                                        </NavText>
+                                    </NavItem>
+                                </NavItem>
+                                <NavItem eventKey="fadsfdas">
+                                    <NavText title="child of first child">
+                                        Second child of first
                                     </NavText>
                                 </NavItem>
                             </NavItem>
                             <NavItem eventKey="second child">
-                                <NavText style={{ paddingRight: 32 }} title="First child">
+                                <NavText title="Third child">
                                   Second child
                                 </NavText>
                                 <NavItem eventKey="childoffirstchild">
-                                    <NavText style={{ paddingRight: 32 }} title="child of first child">
-                                        child of first child
+                                    <NavText title="child of first child">
+                                        Child of second
                                     </NavText>
                                 </NavItem>
                             </NavItem>
                             <NavItem eventKey="second">
-                                <NavIcon>
-                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
-                                </NavIcon>
-                                <NavText style={{ paddingRight: 32 }} title="Second child">
-                                    Second child
+                                <NavText title="Second child">
+                                Third child
                                 </NavText>
                             </NavItem>
                         </NavItem>

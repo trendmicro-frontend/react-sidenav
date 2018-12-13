@@ -11,7 +11,8 @@ import styles from './index.styl';
 
 class NavItem extends PureComponent {
     state = {
-        subOpen: false
+        subOpen: false,
+        secondSubNavOpen: false
     }
     static propTypes = {
         componentType: PropTypes.any,
@@ -91,6 +92,11 @@ class NavItem extends PureComponent {
         this.setState(() => ({ subOpen: !this.state.subOpen }));
     }
 
+    onToggleSecondSubNav = () => {
+        this.setState(() => ({ secondSubNavOpen: !this.state.secondSubNavOpen }));
+    }
+
+
     render() {
         const {
             componentType, // eslint-disable-line
@@ -107,6 +113,8 @@ class NavItem extends PureComponent {
 
             // Sub navigation item
             subnav,
+            secondSubNav,
+            secondSubNavChild,
 
             // Override className and style
             navitemClassName,
@@ -134,6 +142,101 @@ class NavItem extends PureComponent {
             ...navTextProps
         } = navText ? { ...navText.props } : {};
 
+        if (secondSubNav) {
+            const { secondSubNavOpen } = this.state;
+            const navItems = React.Children.toArray(children)
+                .filter(child => {
+                    return React.isValidElement(child) && this.isNavItem(child);
+                });
+
+            return (
+                <Component
+                    role="presentation"
+                    className={cx(className, styles.sidenavSubnavitem, {
+                        [styles.selected]: isNavItemSelected,
+                        [styles.disabled]: disabled
+                    })}
+                    style={style}
+                >
+                    <div
+                        {...props}
+                        className={cx(navitemClassName, styles.secondSubNavItem, styles.borderBottom)}
+                        disabled={disabled}
+                        role="menuitem"
+                        tabIndex="-1"
+                        onClick={this.onToggleSecondSubNav}
+                        style={{
+                            ...navitemStyle,
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            background: '#f8f8f9'
+                        }}
+                    >
+                        <div style={{ display: 'flex' }}>
+                            {navIcon ?
+                                <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                                : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
+                            }
+                            {navText &&
+                                <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
+                            }
+                        </div>
+                        <div>
+                            {(navItems.length > 0) &&
+                                <i className={cx('fa-angle-right fw fa fa-caret-right', styles.secondExpandedIcon, {
+                                    [styles.secondExpandedIconRotate]: secondSubNavOpen
+                                })}
+                                />
+                            }
+                        </div>
+                    </div>
+                    <div style={{ background: '#F8F8F9' }}>
+                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
+                    </div>
+                    <div className={cx({ [styles.secondSubMenuOpen]: secondSubNavOpen, [styles.secondSubMenuClose]: !secondSubNavOpen })}>
+                        {navItems}
+                    </div>
+                </Component>
+            );
+        }
+
+        if (secondSubNavChild) {
+            return (
+                <Component
+                    role="presentation"
+                    className={cx(className, styles.secondSubNavChild, {
+                        [styles.selected]: isNavItemSelected,
+                        [styles.disabled]: disabled
+                    })}
+                    style={style}
+                >
+                    <div
+                        {...props}
+                        className={cx(navitemClassName, styles.navitem)}
+                        style={navitemStyle}
+                        disabled={disabled}
+                        role="menuitem"
+                        tabIndex="-1"
+                        onClick={chainedFunction(
+                            onClick,
+                            this.handleSelect
+                        )}
+                    >
+                        {navIcon ?
+                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                            : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
+                        }
+                        {navText &&
+                        <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
+                        }
+                    </div>
+                    <div style={{ background: '#F8F8F9' }}>
+                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
+                    </div>
+                </Component>
+            );
+        }
+
         if (subnav) {
             const { subOpen } = this.state;
 
@@ -141,9 +244,13 @@ class NavItem extends PureComponent {
                 .filter(child => {
                     return React.isValidElement(child) && this.isNavItem(child);
                 }).map(child => {
-                    if (child.props.children.length > 0) {
+                    const secondSubNavItems = React.Children.toArray(child.props.children).filter(secondChild => {
+                        return React.isValidElement(secondChild) && this.isNavItem(secondChild);
+                    });
+
+                    if (secondSubNavItems.length > 0) {
                         return cloneElement(child, {
-                            subnav: true,
+                            secondSubNav: true,
                             selected,
                             onSelect: chainedFunction(
                                 child.props.onSelect,
@@ -152,7 +259,7 @@ class NavItem extends PureComponent {
                         });
                     }
                     return cloneElement(child, {
-                        subnav: false,
+                        secondSubNavChild: true,
                         selected,
                         onSelect: chainedFunction(
                             child.props.onSelect,
@@ -160,9 +267,6 @@ class NavItem extends PureComponent {
                         )
                     });
                 });
-
-            const isNavItemExpandable = (navItems.length > 0);
-            console.log(isNavItemExpandable);
 
             if (navItems.length > 0) {
                 return (
@@ -176,7 +280,7 @@ class NavItem extends PureComponent {
                     >
                         <div
                             {...props}
-                            className={cx(navitemClassName, styles.navitem)}
+                            className={cx(navitemClassName, styles.navitem, styles.borderBottom)}
                             disabled={disabled}
                             role="menuitem"
                             tabIndex="-1"
@@ -184,26 +288,28 @@ class NavItem extends PureComponent {
                             style={{
                                 ...navitemStyle,
                                 display: 'flex',
-                                justifyContent: 'space-between'
+                                justifyContent: 'space-between',
+                                background: '#f8f8f9'
                             }}
                         >
                             <div style={{ display: 'flex' }}>
                                 {navIcon ?
                                     <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                                    : <i className="fa fa-fw" style={{ fontSize: '1.75em' }} />
+                                    : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
                                 }
                                 {navText &&
                                 <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
                                 }
                             </div>
-                            <div>
-                                {(navItems.length > 0) &&
-                                    <i className={cx('fa-angle-right fw fa fa-caret-right', styles.secondExpandedIcon, {
-                                        [styles.secondExpandedIconRotate]: subOpen
-                                    })}
-                                    />
-                                }
-                            </div>
+                            {(navItems.length > 0) &&
+                            <i className={cx('fa-angle-right fw fa fa-caret-right', styles.secondExpandedIcon, {
+                                [styles.secondExpandedIconRotate]: subOpen
+                            })}
+                            />
+                            }
+                        </div>
+                        <div style={{ background: '#F8F8F9' }}>
+                            <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
                         </div>
                         <div className={cx({ [styles.subMenuOpen]: subOpen, [styles.subMenuClose]: !subOpen })}>
                             {navItems}
@@ -233,12 +339,16 @@ class NavItem extends PureComponent {
                             this.handleSelect
                         )}
                     >
-                        {navIcon &&
-                        <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                        {navIcon ?
+                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                            : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
                         }
                         {navText &&
                         <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
                         }
+                    </div>
+                    <div style={{ background: '#F8F8F9' }}>
+                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
                     </div>
                 </Component>
             );
@@ -309,8 +419,9 @@ class NavItem extends PureComponent {
                         }}
                     >
                         <div>
-                            {navIcon &&
-                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                            {navIcon ?
+                                <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                                : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
                             }
                             {navText &&
                             <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
@@ -325,6 +436,9 @@ class NavItem extends PureComponent {
                         </div>
                         }
                         {others}
+                    </div>
+                    <div style={{ background: '#F8F8F9' }}>
+                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
                     </div>
                 </div>
                 {(navItems.length > 0) &&
