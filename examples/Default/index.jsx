@@ -136,15 +136,33 @@ export default class extends PureComponent {
                                     <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                                 </NavIcon>
                                 <NavText style={{ paddingRight: 32 }} title="First child">
-                                 First child
+                                  First child
                                 </NavText>
+                                <NavItem eventKey="childoffirstchild">
+                                    <NavIcon>
+                                        <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
+                                    </NavIcon>
+                                    <NavText style={{ paddingRight: 32 }} title="child of first child">
+                                        child of first child
+                                    </NavText>
+                                </NavItem>
+                            </NavItem>
+                            <NavItem eventKey="second child">
+                                <NavText style={{ paddingRight: 32 }} title="First child">
+                                  Second child
+                                </NavText>
+                                <NavItem eventKey="childoffirstchild">
+                                    <NavText style={{ paddingRight: 32 }} title="child of first child">
+                                        child of first child
+                                    </NavText>
+                                </NavItem>
                             </NavItem>
                             <NavItem eventKey="second">
                                 <NavIcon>
                                     <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
                                 </NavIcon>
                                 <NavText style={{ paddingRight: 32 }} title="Second child">
-                               Second child
+                                    Second child
                                 </NavText>
                             </NavItem>
                         </NavItem>
@@ -174,6 +192,14 @@ export default class extends PureComponent {
                             <NavItem eventKey="4124">
                                 <NavText title="1424">
                                    test
+                                </NavText>
+                            </NavItem>
+                            <NavItem eventKey="fadsfs">
+                                <NavIcon>
+                                    <i className="fa fa-fw fa-list-alt" style={{ fontSize: '1.75em', verticalAlign: 'middle', color: '#09091A' }} />
+                                </NavIcon>
+                                <NavText title="fadsf">
+                                   test 2
                                 </NavText>
                             </NavItem>
                         </NavItem>

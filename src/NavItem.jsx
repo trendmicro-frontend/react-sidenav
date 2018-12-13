@@ -136,33 +136,35 @@ class NavItem extends PureComponent {
 
         if (subnav) {
             const { subOpen } = this.state;
-            const isNavItemSelected = active || (!!selected && selected === this.props.eventKey);
 
-            if (children.length > 0) {
-                const navItems = React.Children.toArray(children)
-                    .filter(child => {
-                        return React.isValidElement(child) && this.isNavItem(child);
-                    }).map(child => {
-                        if (child.props.children.length > 0) {
-                            return cloneElement(child, {
-                                subnav: true,
-                                selected,
-                                onSelect: chainedFunction(
-                                    child.props.onSelect,
-                                    onSelect
-                                )
-                            });
-                        }
+            const navItems = React.Children.toArray(children)
+                .filter(child => {
+                    return React.isValidElement(child) && this.isNavItem(child);
+                }).map(child => {
+                    if (child.props.children.length > 0) {
                         return cloneElement(child, {
-                            subnav: false,
+                            subnav: true,
                             selected,
                             onSelect: chainedFunction(
                                 child.props.onSelect,
                                 onSelect
                             )
                         });
+                    }
+                    return cloneElement(child, {
+                        subnav: false,
+                        selected,
+                        onSelect: chainedFunction(
+                            child.props.onSelect,
+                            onSelect
+                        )
                     });
+                });
 
+            const isNavItemExpandable = (navItems.length > 0);
+            console.log(isNavItemExpandable);
+
+            if (navItems.length > 0) {
                 return (
                     <Component
                         role="presentation"
@@ -175,18 +177,33 @@ class NavItem extends PureComponent {
                         <div
                             {...props}
                             className={cx(navitemClassName, styles.navitem)}
-                            style={navitemStyle}
                             disabled={disabled}
                             role="menuitem"
                             tabIndex="-1"
                             onClick={this.onToggle}
+                            style={{
+                                ...navitemStyle,
+                                display: 'flex',
+                                justifyContent: 'space-between'
+                            }}
                         >
-                            {navIcon &&
-                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                            }
-                            {navText &&
-                            <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                            }
+                            <div style={{ display: 'flex' }}>
+                                {navIcon ?
+                                    <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                                    : <i className="fa fa-fw" style={{ fontSize: '1.75em' }} />
+                                }
+                                {navText &&
+                                <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
+                                }
+                            </div>
+                            <div>
+                                {(navItems.length > 0) &&
+                                    <i className={cx('fa-angle-right fw fa fa-caret-right', styles.secondExpandedIcon, {
+                                        [styles.secondExpandedIconRotate]: subOpen
+                                    })}
+                                    />
+                                }
+                            </div>
                         </div>
                         <div className={cx({ [styles.subMenuOpen]: subOpen, [styles.subMenuClose]: !subOpen })}>
                             {navItems}
@@ -284,13 +301,31 @@ class NavItem extends PureComponent {
                         navItems.length === 0 && this.handleSelect
                     )}
                 >
-                    {navIcon &&
-                    <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                    }
-                    {navText &&
-                    <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                    }
-                    {others}
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            paddingRight: '14px'
+                        }}
+                    >
+                        <div>
+                            {navIcon &&
+                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                            }
+                            {navText &&
+                            <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
+                            }
+                        </div>
+                        {(navItems.length > 0) &&
+                        <div>
+                            <i className={cx('fa-angle-right fw fa fa-caret-right', styles.expandedIcon, {
+                                [styles.expandedIconRotate]: isNavItemExpanded
+                            })}
+                            />
+                        </div>
+                        }
+                        {others}
+                    </div>
                 </div>
                 {(navItems.length > 0) &&
                     <div
