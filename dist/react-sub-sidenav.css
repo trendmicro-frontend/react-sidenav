@@ -209,7 +209,7 @@
   display: box;
   display: flex;
   color: #09091a;
-  padding: 7px 14px 7px 35px;
+  padding: 7px 14px 7px 50px;
   line-height: 28px;
   font-size: 14px;
   background: #f8f8f9;
@@ -228,7 +228,7 @@
   display: -ms-flexbox;
   display: box;
   display: flex;
-  padding: 7px 14px 7px 35px;
+  padding: 7px 14px 7px 50px;
   line-height: 28px;
   font-size: 14px;
   outline: none;
