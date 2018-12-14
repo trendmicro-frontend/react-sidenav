@@ -19,6 +19,12 @@
 .sub-sidenav---sub-menu-close---1bj8B {
   display: none;
 }
+.sub-sidenav---second-sub-menu-open---3iRz5 {
+  display: block;
+}
+.sub-sidenav---second-sub-menu-close---8KGYc {
+  display: none;
+}
 .sub-sidenav---sidenav---_2tBP.sub-sidenav---collapsed---LQDEv .sub-sidenav---sidenav-nav---3tvij .sub-sidenav---sidenav-navitem---uwIJ- .sub-sidenav---sidenav-subnav---1EN61 {
   display: none;
 }
@@ -50,6 +56,7 @@
 }
 .sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47 {
   position: relative;
+  background: #f00;
 }
 .sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47::before {
   content: " ";
@@ -76,16 +83,6 @@
   top: 0;
   z-index: -1;
 }
-.sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 15%;
-  width: 80%;
-  height: 1px;
-  background: #e5e5e4;
-}
 .sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T {
   color: #fff;
 }
@@ -110,19 +107,138 @@
   display: box;
   display: flex;
   color: #09091a;
-  padding: 7px 14px 7px 20px;
+  padding: 7px 14px 7px 35px;
   line-height: 28px;
   font-size: 14px;
   background: #f8f8f9;
 }
-.sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47 > .sub-sidenav---navitem---9uL5T > .sub-sidenav---navicon---3gCRo {
+.sub-sidenav---sub-menu-open---2kVAr {
+  min-width: 240px;
+  background: #f8f8f9;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ- .sub-sidenav---navicon---3gCRo + .sub-sidenav---navtext---1AE_f {
+  display: inline-block;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---expandable---3_dr7 > .sub-sidenav---navitem---9uL5T {
+  cursor: pointer;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 {
+  position: static;
+  border: none;
+  float: left;
+  clear: both;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-subnav---1EN61 {
+  display: block;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 {
+  display: none;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47 {
+  position: relative;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47::before {
+  content: " ";
+  width: 100%;
+  height: 28px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47:first-child {
+  display: none;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47:hover::before {
+  background: #f8f8f9;
+  opacity: 0.15;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+  filter: alpha(opacity=15);
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47::before {
+  content: " ";
+  width: 100%;
+  height: 28px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T {
+  color: #fff;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T::before {
+  content: " ";
+  width: 2px;
+  height: 20px;
+  left: 10px;
+  top: 4px;
+  position: absolute;
+  border-left: 2px #fff solid;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47:hover > .sub-sidenav---navitem---9uL5T {
+  background: #f8f8f9;
+  color: #09091a;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47 > .sub-sidenav---navitem---9uL5T {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  color: #09091a;
+  padding: 7px 14px 7px 35px;
+  line-height: 28px;
+  font-size: 14px;
+  background: #f8f8f9;
+  padding: 14px 20px !important;
+}
+.sub-sidenav---sub-menu-open---2kVAr .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47 > .sub-sidenav---navitem---9uL5T > .sub-sidenav---navicon---3gCRo {
   margin-left: 10px;
+  margin-right: 5px;
+}
+.sub-sidenav---second-sub-nav-item---7J_xR {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  color: #09091a;
+  padding: 7px 14px 7px 35px;
+  line-height: 28px;
+  font-size: 14px;
+  background: #f8f8f9;
+  outline: none;
+  cursor: pointer;
+}
+.sub-sidenav---second-sub-menu-open---3iRz5 > .sub-sidenav---sidenav-navitem---uwIJ- > .sub-sidenav---navitem---9uL5T {
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.sub-sidenav---second-sub-nav-child---EYJAh > .sub-sidenav---navitem---9uL5T {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  padding: 7px 14px 7px 35px;
+  line-height: 28px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
 }
 .sub-sidenav---sidenav-toggle---1KRjR {
   position: relative;
   float: left;
   width: 64px;
-  height: 64px;
+  height: 50px;
   padding: 0;
   margin: 0;
   background-color: transparent;
@@ -130,51 +246,10 @@
   border: 0;
   border-radius: 0;
   cursor: pointer;
+  margin-right: -6px;
 }
 .sub-sidenav---sidenav-toggle---1KRjR:focus {
   outline: none;
-}
-.sub-sidenav---sidenav-toggle---1KRjR .sub-sidenav---icon-bar---u1f02 {
-  display: block;
-  width: 20px;
-  height: 2px;
-  margin: 0 auto;
-  background-color: #09091a;
-  border-radius: 1px;
-  -webkit-transition: all 0.15s;
-  -moz-transition: all 0.15s;
-  -o-transition: all 0.15s;
-  -ms-transition: all 0.15s;
-  transition: all 0.15s;
-  opacity: 0.7;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-  filter: alpha(opacity=70);
-}
-.sub-sidenav---sidenav-toggle---1KRjR .sub-sidenav---icon-bar---u1f02 + .sub-sidenav---icon-bar---u1f02 {
-  margin-top: 4px;
-}
-.sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-toggle---1KRjR .sub-sidenav---icon-bar---u1f02 {
-  width: 25px;
-}
-.sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-toggle---1KRjR .sub-sidenav---icon-bar---u1f02:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-toggle---1KRjR .sub-sidenav---icon-bar---u1f02:nth-child(2) {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-}
-.sub-sidenav---sidenav---_2tBP.sub-sidenav---expanded---1KdUL .sub-sidenav---sidenav-toggle---1KRjR .sub-sidenav---icon-bar---u1f02:nth-child(3) {
-  margin-top: -8px;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
 }
 .sub-sidenav---sidenav-nav---3tvij {
   float: left;

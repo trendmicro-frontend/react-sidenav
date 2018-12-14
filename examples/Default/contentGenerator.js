@@ -9,10 +9,12 @@ const generateSubNav = (subArray) => {
                 key={subItem.id}
                 eventKey={subItem.id}
             >
+                {subItem.icon &&
                 <NavIcon>
                     <i className={`fa fa-${subItem.icon}`} style={{ fontSize: '14px', verticalAlign: 'middle', color: '#09091A' }} />
                 </NavIcon>
-                <NavText style={{ paddingRight: 32, fontSize: '16px' }} title={subItem.label}>
+                }
+                <NavText title={subItem.label}>
                     {subItem.label}
                 </NavText>
                 {subItem.hasOwnProperty('content') && generateSubNav(subItem.content)}
