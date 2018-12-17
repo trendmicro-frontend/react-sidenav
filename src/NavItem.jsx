@@ -375,6 +375,8 @@ class NavItem extends PureComponent {
         }
 
         if (secondSubNavChild) {
+            const isNavItemSelected = !!selected && selected === this.props.eventKey;
+            console.log(isNavItemSelected);
             return (
                 <Component
                     role="presentation"
@@ -414,6 +416,8 @@ class NavItem extends PureComponent {
         if (subnav) {
             const { subOpen } = this.state;
 
+            const activeNavItems = [];
+
             const navItems = React.Children.toArray(children)
                 .filter(child => {
                     return React.isValidElement(child) && this.isNavItem(child);
@@ -421,6 +425,10 @@ class NavItem extends PureComponent {
                     const secondSubNavItems = React.Children.toArray(child.props.children).filter(secondChild => {
                         return React.isValidElement(secondChild) && this.isNavItem(secondChild);
                     });
+
+                    if (child.props.active || (!!selected && selected === child.props.eventKey)) {
+                        activeNavItems.push(child);
+                    }
 
                     if (secondSubNavItems.length > 0) {
                         return cloneElement(child, {
@@ -443,6 +451,8 @@ class NavItem extends PureComponent {
                 });
 
             if (navItems.length > 0) {
+                const isNavItemSelected = (!!selected && selected === this.props.eventKey) || (activeNavItems.length > 0);
+
                 return (
                     <Component
                         role="presentation"
@@ -495,12 +505,12 @@ class NavItem extends PureComponent {
                 );
             }
 
+            const isNavItemSelected = !!selected && selected === this.props.eventKey;
             return (
                 <Component
                     role="presentation"
                     className={cx(className, styles.sidenavSubnavitem, {
-                        [styles.selected]: isNavItemSelected,
-                        [styles.disabled]: disabled
+                        [styles.selected]: isNavItemSelected
                     })}
                     style={style}
                 >

@@ -1,5 +1,5 @@
 .sidenav.expanded {
-    min-width: 240px;
+    min-width: 260px;
 
     .sidenav-nav > .sidenav-navitem {
         .navicon + .navtext {
@@ -33,7 +33,6 @@
 
     .sidenav-subnav > .sidenav-subnavitem {
         position: relative;
-        background: red;
     }
     .sidenav-subnav > .sidenav-subnavitem::before {
         content: " ";
@@ -47,39 +46,8 @@
         display: none;
     }
     .sidenav-subnav > .sidenav-subnavitem {
-        &:hover::before {
-            background: #F8F8F9;
-            opacity: 0.15;
-        }
-
-        &::before {
-            content: " ";
-            width: 100%;
-            height: 28px;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-        }
-
-
-
         &.selected > .navitem {
-            color: #fff;
-        }
-
-        &.selected > .navitem::before {
-            content: " ";
-            width: 2px;
-            height: 20px;
-            left: 10px;
-            top: 4px;
-            position: absolute;
-            border-left: 2px #ffffff solid;
-        }
-
-        &:hover > .navitem {
-            background: #F8F8F9;
-            color: #09091A;
+            color: #2078E4;
         }
 
         > .navitem {
@@ -92,107 +60,6 @@
         }
 
         > .navitem > .navicon {
-        }
-    }
-}
-
-.sub-menu-open {
-    min-width: 240px;
-    background: #F8F8F9;
-    .sidenav-nav > .sidenav-navitem {
-        .navicon + .navtext {
-            display: inline-block;
-        }
-    }
-
-    .sidenav-nav > .sidenav-navitem {
-        &.expandable > .navitem {
-            cursor: pointer;
-        }
-    }
-
-    .sidenav-subnav {
-        position: static;
-        border: none;
-        float: left;
-        clear: both;
-        width: 100%;
-        background: transparent;
-        overflow: hidden;
-        box-shadow: none;
-    }
-    
-
-    .sidenav-nav > .sidenav-navitem.expanded .sidenav-subnav {
-        display: block;
-    }
-    .sidenav-subnav {
-        display: none;
-    }
-
-    .sidenav-subnav > .sidenav-subnavitem {
-        position: relative;
-    }
-    .sidenav-subnav > .sidenav-subnavitem::before {
-        content: " ";
-        width: 100%;
-        height: 28px;
-        position: absolute;
-        top: 0;
-        z-index: -1;
-    }
-    .sidenav-subnav > .sidenav-subnavitem:first-child {
-        display: none;
-    }
-    .sidenav-subnav > .sidenav-subnavitem {
-        &:hover::before {
-            background: #F8F8F9;
-            opacity: 0.15;
-        }
-
-        &::before {
-            content: " ";
-            width: 100%;
-            height: 28px;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-        }
-
-
-
-        &.selected > .navitem {
-            color: #fff;
-        }
-
-        &.selected > .navitem::before {
-            content: " ";
-            width: 2px;
-            height: 20px;
-            left: 10px;
-            top: 4px;
-            position: absolute;
-            border-left: 2px #ffffff solid;
-        }
-
-        &:hover > .navitem {
-            background: #F8F8F9;
-            color: #09091A;
-        }
-
-        > .navitem {
-            display: flex;
-            color: #09091A;
-            padding: 7px 14px 7px 35px;
-            line-height: 28px;
-            font-size: 14px;
-            background: #F8F8F9;
-            padding: 14px 20px !important;
-        }
-
-        > .navitem > .navicon {
-            margin-left: 10px;
-            margin-right: 5px;
         }
     }
 }
@@ -214,6 +81,15 @@
   font-size: 14px;
 }
     
+.second-sub-nav-child {
+  &.selected > .navitem {
+    color: #2078E4;
+ }
+ &.selected > .navitem > .navicon > i {
+     color: #2078E4;
+ }
+}
+        
 
 .second-sub-nav-child > .navitem {
   display: flex;
@@ -221,5 +97,10 @@
   line-height: 28px;
   font-size: 14px;
   outline: none;
+  background: #F8F8F9;
   cursor: pointer;
+
+  &.selected {
+      color: red;
+  }
 }
