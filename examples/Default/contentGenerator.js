@@ -34,7 +34,7 @@ const generateMenu = (content, props) => {
                 <NavIcon>
                     <i className={`fa fa-${item.icon}`} style={{ fontSize: '20px', verticalAlign: 'middle', color: '#09091A' }} />
                 </NavIcon>
-                <NavText style={{ paddingRight: 32, fontSize: '16px' }} title={item.label}>
+                <NavText style={{ fontSize: '16px' }} title={item.label}>
                     {item.label}
                 </NavText>
                 {item.hasOwnProperty('content') && generateSubNav(item.content)}
