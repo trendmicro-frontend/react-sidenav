@@ -77,7 +77,7 @@ class NavItem extends PureComponent {
 
     handleSelect = (event) => {
         const {
-            disabled, onSelect, path
+            disabled, onSelect, parentEventKey, eventKey
         } = this.props;
 
         if (disabled) {
@@ -86,7 +86,7 @@ class NavItem extends PureComponent {
         }
 
         if (onSelect) {
-            onSelect(path);
+            onSelect(parentEventKey, eventKey);
         }
     };
 
@@ -141,6 +141,12 @@ class NavItem extends PureComponent {
             ...navTextProps
         } = navText ? { ...navText.props } : {};
 
+        //console.log(this.props.eventKey);
+
+        if (this.props.eventKey === '/last-mile/tools/bm-india/eats/channel-overview') {
+            console.log(this.props);
+        }
+
         if (subNav || subChild) {
             // const { subOpen } = this.state;
 
@@ -151,9 +157,6 @@ class NavItem extends PureComponent {
                     const secondSubNavItems = React.Children.toArray(child.props.children).filter(secondChild => {
                         return React.isValidElement(secondChild) && this.isNavItem(secondChild);
                     });
-
-                    this.props.path.push(this.props.eventKey);
-
                     if (secondSubNavItems.length > 0) {
                         return cloneElement(child, {
                             subNav: true,
@@ -168,8 +171,7 @@ class NavItem extends PureComponent {
                             },
                             subOpen: this.state.subOpen,
                             subLevel: this.props.subLevel + 1,
-                            parentEventKey: this.props.parentEventKey,
-                            path: this.props.path
+                            parentEventKey: this.props.parentEventKey
                         });
                     }
                     return cloneElement(child, {
@@ -184,8 +186,7 @@ class NavItem extends PureComponent {
                             this.onToggle(child.props.eventKey);
                         },
                         subLevel: this.props.subLevel + 1,
-                        parentEventKey: this.props.parentEventKey,
-                        path: this.props.path
+                        parentEventKey: this.props.parentEventKey
                     });
                 });
 
@@ -287,9 +288,6 @@ class NavItem extends PureComponent {
                 return React.isValidElement(child) && this.isNavItem(child);
             })
             .map((child) => {
-                const path = [];
-                path.push(this.props.eventKey);
-
                 return cloneElement(child, {
                     subNav: true,
                     selectedParent,
@@ -303,8 +301,7 @@ class NavItem extends PureComponent {
                     },
                     subOpen: this.state.subOpen,
                     subLevel: this.props.subLevel + 1,
-                    parentEventKey: this.props.eventKey,
-                    path
+                    parentEventKey: this.props.eventKey
                 });
             });
         const others = React.Children.toArray(children)
@@ -314,8 +311,6 @@ class NavItem extends PureComponent {
                 }
                 return true;
             });
-
-        console.log(this.props);
 
         const isNavItemSelected = !!selectedParent && selectedParent === this.props.eventKey;
         const isNavItemExpandable = (navItems.length > 0);

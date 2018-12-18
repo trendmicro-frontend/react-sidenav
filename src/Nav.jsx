@@ -38,7 +38,8 @@ class Nav extends PureComponent {
 
     state = {
         expandedNavItem: null,
-        path: [],
+        selectedParent: this.props.defaultSelected,
+        selectedItem: this.props.defaultSelected,
         defaultSelected: this.props.defaultSelected
     };
 
@@ -67,9 +68,10 @@ class Nav extends PureComponent {
                 }
             ),
             onSelect: chainedFunction(
-                (path) => {
+                (selectedParent, selectedItem) => {
                     this.setState({
-                        path
+                        selectedParent,
+                        selectedItem
                     });
                 },
                 child.props.onSelect,
@@ -87,19 +89,22 @@ class Nav extends PureComponent {
             // Props passed from SideNav component
             expanded,
 
+            selectedParent,
+            selectedItem,
+
             className,
             children,
             ...props
         } = this.props;
 
-        // const { path } = this.state;
+        const currentParentSelected = this.state.defaultSelected
+            ? this.state.selectedParent
+            : selectedParent;
+        const currentItemSelected = this.state.defaultSelected
+            ? this.state.selectedItem
+            : selectedItem;
 
-        // const currentParentSelected = this.state.defaultSelected
-        //     ? path.shift()
-        //     : selectedParent;
-        // const currentItemSelected = this.state.defaultSelected
-        //     ? path
-        //     : selectedItem;
+        console.log(this.state);
 
         return (
             <Component
@@ -115,7 +120,8 @@ class Nav extends PureComponent {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
                         return this.renderNavItem(child, {
                             onSelect,
-                            path: this.state.path,
+                            selectedParent: currentParentSelected,
+                            selectedItem: currentItemSelected,
                             expanded: (!!child.props.expanded) ||
                                 (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey),
                             subLevel: 0
