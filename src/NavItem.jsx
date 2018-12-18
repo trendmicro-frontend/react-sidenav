@@ -34,6 +34,9 @@ class NavItem extends PureComponent {
         // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
         eventKey: PropTypes.any,
 
+        // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
+        parentEventKey: PropTypes.any,
+
         // Callback fired when the navigation item is clicked.
         onClick: PropTypes.func,
 
@@ -52,7 +55,7 @@ class NavItem extends PureComponent {
         //
 
         // Whether it is a sub navigation item.
-        subnav: PropTypes.bool,
+        subNav: PropTypes.bool,
 
         navitemClassName: PropTypes.string,
         navitemStyle: PropTypes.object,
@@ -72,20 +75,9 @@ class NavItem extends PureComponent {
     isNavIcon = match(NavIcon);
     isNavText = match(NavText);
 
-    handleClickOnExpanded(eventKey, event, level) {
-        console.log('triggers');
-        this.setState(state => ({
-            expandedNavItem: state.expandedItem[level] !== eventKey ? eventKey : ''
-        }));
-
-        this.setState(state => ({
-            expandedNavItem: eventKey
-        }));
-    }
-
     handleSelect = (event) => {
         const {
-            disabled, onSelect, eventKey
+            disabled, onSelect, path
         } = this.props;
 
         if (disabled) {
@@ -94,7 +86,7 @@ class NavItem extends PureComponent {
         }
 
         if (onSelect) {
-            onSelect(eventKey, event);
+            onSelect(path);
         }
     };
 
@@ -116,10 +108,12 @@ class NavItem extends PureComponent {
             onSelect,
 
             // Nav props
-            selected,
+            selectedParent,
+            selectedItem,
 
             // Sub navigation item
-            subnav,
+            subNav,
+            subChild,
             // secondSubNav navigation items
             // Override className and style
             navitemClassName,
@@ -147,10 +141,8 @@ class NavItem extends PureComponent {
             ...navTextProps
         } = navText ? { ...navText.props } : {};
 
-        if (subnav) {
+        if (subNav || subChild) {
             // const { subOpen } = this.state;
-
-            const activeNavItems = [];
 
             const navItems = React.Children.toArray(children)
                 .filter(child => {
@@ -160,38 +152,46 @@ class NavItem extends PureComponent {
                         return React.isValidElement(secondChild) && this.isNavItem(secondChild);
                     });
 
-                    if (child.props.active || (!!selected && selected === child.props.eventKey)) {
-                        activeNavItems.push(child);
-                    }
+                    this.props.path.push(this.props.eventKey);
 
                     if (secondSubNavItems.length > 0) {
                         return cloneElement(child, {
-                            subnav: true,
-                            selected,
+                            subNav: true,
+                            selectedParent,
+                            selectedItem,
                             onSelect: chainedFunction(
                                 child.props.onSelect,
                                 onSelect
                             ),
-                            onClick: (event) => {
-                                this.onToggle(child.props.eventKey, event);
+                            onClick: () => {
+                                this.onToggle(child.props.eventKey);
                             },
                             subOpen: this.state.subOpen,
-                            subLevel: this.props.subLevel + 1
+                            subLevel: this.props.subLevel + 1,
+                            parentEventKey: this.props.parentEventKey,
+                            path: this.props.path
                         });
                     }
                     return cloneElement(child, {
                         subChild: true,
-                        selected,
+                        selectedParent,
+                        selectedItem,
                         onSelect: chainedFunction(
                             child.props.onSelect,
                             onSelect
-                        )
+                        ),
+                        onClick: (event) => {
+                            this.onToggle(child.props.eventKey);
+                        },
+                        subLevel: this.props.subLevel + 1,
+                        parentEventKey: this.props.parentEventKey,
+                        path: this.props.path
                     });
                 });
 
             if (navItems.length > 0) {
                 const isOpen = this.props.subOpen === this.props.eventKey;
-                const isNavItemSelected = (!!selected && selected === this.props.eventKey) || (activeNavItems.length > 0);
+                const isNavItemSelected = (selectedItem === this.props.eventKey);
 
                 return (
                     <Component
@@ -199,8 +199,7 @@ class NavItem extends PureComponent {
                         className={cx(className, styles.sidenavSubnavitem, {
                             [styles.selected]: isNavItemSelected,
                             [styles.disabled]: disabled
-                        }, styles[`level-${this.props.subLevel}`])}
-                        style={style}
+                        }, styles[`subnav-${this.props.subLevel}`])}
                     >
                         <div
                             {...props}
@@ -209,13 +208,16 @@ class NavItem extends PureComponent {
                             role="menuitem"
                             tabIndex="-1"
                             style={{
-                                ...navitemStyle
+                                ...navitemStyle,
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                background: '#f8f8f9'
                             }}
                             onClick={chainedFunction(
                                 onClick
                             )}
                         >
-                            <div style={{ display: 'flex' }}>
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
                                 {navIcon ?
                                     <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
                                     : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
@@ -243,13 +245,14 @@ class NavItem extends PureComponent {
                 );
             }
 
-            const isNavItemSelected = !!selected && selected === this.props.eventKey;
+            const isNavItemSelected = (selectedItem === this.props.eventKey);
+
             return (
                 <Component
                     role="presentation"
                     className={cx(className, styles.sidenavSubnavitem, {
                         [styles.selected]: isNavItemSelected
-                    })}
+                    }, styles[`subchild-${this.props.subLevel}`])}
                     style={style}
                 >
                     <div
@@ -279,28 +282,29 @@ class NavItem extends PureComponent {
             );
         }
 
-        const activeNavItems = [];
         const navItems = React.Children.toArray(children)
             .filter(child => {
                 return React.isValidElement(child) && this.isNavItem(child);
             })
-            .map((child, i) => {
-                if (child.props.active || (!!selected && selected === child.props.eventKey)) {
-                    activeNavItems.push(child);
-                }
+            .map((child) => {
+                const path = [];
+                path.push(this.props.eventKey);
 
                 return cloneElement(child, {
-                    subnav: true,
-                    selected,
+                    subNav: true,
+                    selectedParent,
+                    selectedItem,
                     onSelect: chainedFunction(
                         child.props.onSelect,
                         onSelect
                     ),
-                    onClick: (event) => {
-                        this.onToggle(child.props.eventKey, event);
+                    onClick: () => {
+                        this.onToggle(child.props.eventKey);
                     },
                     subOpen: this.state.subOpen,
-                    subLevel: this.props.subLevel + 1
+                    subLevel: this.props.subLevel + 1,
+                    parentEventKey: this.props.eventKey,
+                    path
                 });
             });
         const others = React.Children.toArray(children)
@@ -311,11 +315,12 @@ class NavItem extends PureComponent {
                 return true;
             });
 
-        const isNavItemSelected = active || (!!selected && selected === this.props.eventKey) || (activeNavItems.length > 0);
+        console.log(this.props);
+
+        const isNavItemSelected = !!selectedParent && selectedParent === this.props.eventKey;
         const isNavItemExpandable = (navItems.length > 0);
         const isNavItemExpanded = isNavItemExpandable && expanded;
         const isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
-
 
         return (
             <Component

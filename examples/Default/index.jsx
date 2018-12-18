@@ -1727,7 +1727,7 @@ export default class extends PureComponent {
                     <NavHeader style={{ height: '50px' }} expanded={expanded}>
                         <NavTitle>Side Navigation</NavTitle>
                     </NavHeader>
-                    <SideNav.Nav selected={selected}>
+                    <SideNav.Nav selected={selected} defaultSelected="home">
                         {contentGenerator(generateContent, { expanded, onToggle: this.onToggle })}
                     </SideNav.Nav>
                 </SideNav>

@@ -6,8 +6,6 @@ import NavItem from './NavItem';
 import match from './match-component';
 import styles from './index.styl';
 
-const noop = () => {};
-
 class Nav extends PureComponent {
     static propTypes = {
         componentType: PropTypes.any,
@@ -40,7 +38,7 @@ class Nav extends PureComponent {
 
     state = {
         expandedNavItem: null,
-        selected: this.props.defaultSelected,
+        path: [],
         defaultSelected: this.props.defaultSelected
     };
 
@@ -69,10 +67,11 @@ class Nav extends PureComponent {
                 }
             ),
             onSelect: chainedFunction(
-                this.state.defaultSelected ?
-                    (selected) => {
-                        this.setState({ selected: selected });
-                    } : noop,
+                (path) => {
+                    this.setState({
+                        path
+                    });
+                },
                 child.props.onSelect,
                 onSelect
             )
@@ -83,7 +82,6 @@ class Nav extends PureComponent {
             componentType, // eslint-disable-line
             componentClass: Component,
             onSelect,
-            selected,
             defaultSelected, // eslint-disable-line
 
             // Props passed from SideNav component
@@ -94,10 +92,14 @@ class Nav extends PureComponent {
             ...props
         } = this.props;
 
-        const currentSelected = this.state.defaultSelected
-            ? this.state.selected
-            : selected;
-        console.log(currentSelected);
+        // const { path } = this.state;
+
+        // const currentParentSelected = this.state.defaultSelected
+        //     ? path.shift()
+        //     : selectedParent;
+        // const currentItemSelected = this.state.defaultSelected
+        //     ? path
+        //     : selectedItem;
 
         return (
             <Component
@@ -113,7 +115,7 @@ class Nav extends PureComponent {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
                         return this.renderNavItem(child, {
                             onSelect,
-                            selected: currentSelected,
+                            path: this.state.path,
                             expanded: (!!child.props.expanded) ||
                                 (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey),
                             subLevel: 0
