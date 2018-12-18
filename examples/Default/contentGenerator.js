@@ -7,11 +7,11 @@ const generateSubNav = (subArray) => {
         return (
             <NavItem
                 key={subItem.id}
-                eventKey={subItem.id}
+                eventKey={subItem.to ? subItem.to : subItem.id}
             >
                 {subItem.icon &&
                 <NavIcon>
-                    <i className={`fa fa-${subItem.icon}`} style={{ fontSize: '14px', verticalAlign: 'middle', color: '#09091A' }} />
+                    <i className={`fa fa-${subItem.icon}`} />
                 </NavIcon>
                 }
                 <NavText title={subItem.label}>
@@ -32,9 +32,9 @@ const generateMenu = (content, props) => {
                 eventKey={item.to ? item.to : item.id}
             >
                 <NavIcon>
-                    <i className={`fa fa-${item.icon}`} style={{ fontSize: '20px', verticalAlign: 'middle', color: '#09091A' }} />
+                    <i className={`fa fa-${item.icon}`} style={{ fontSize: '20px' }} />
                 </NavIcon>
-                <NavText style={{ paddingRight: 32, fontSize: '16px' }} title={item.label}>
+                <NavText style={{ fontSize: '16px' }} title={item.label}>
                     {item.label}
                 </NavText>
                 {item.hasOwnProperty('content') && generateSubNav(item.content)}

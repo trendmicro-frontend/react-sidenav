@@ -97,6 +97,7 @@ class Nav extends PureComponent {
         const currentSelected = this.state.defaultSelected
             ? this.state.selected
             : selected;
+        console.log(currentSelected);
 
         return (
             <Component

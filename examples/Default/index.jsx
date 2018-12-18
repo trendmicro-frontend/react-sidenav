@@ -1642,7 +1642,7 @@ const Main = styled.main`
     overflow: hidden;
     transition: all .15s;
     padding: 0 20px;
-    margin-left: ${props => (props.expanded ? 240 : 64)}px;
+    margin-left: ${props => (props.expanded ? 260 : 64)}px;
 `;
 
 const NavHeader = styled.div`
@@ -1678,6 +1678,7 @@ export default class extends PureComponent {
     onSelect = (selected) => {
         this.setState({ selected: selected });
     };
+
     onToggle = (expanded) => {
         this.setState({ expanded: expanded });
     };
@@ -1717,7 +1718,11 @@ export default class extends PureComponent {
 
         return (
             <div>
-                <SideNav onSelect={this.onSelect} onToggle={this.onToggle} expanded={this.state.expanded}>
+                <SideNav
+                    onSelect={this.onSelect}
+                    onToggle={this.onToggle}
+                    expanded={this.state.expanded}
+                >
                     <SideNav.Toggle />
                     <NavHeader style={{ height: '50px' }} expanded={expanded}>
                         <NavTitle>Side Navigation</NavTitle>
