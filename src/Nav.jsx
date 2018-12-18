@@ -114,7 +114,8 @@ class Nav extends PureComponent {
                             onSelect,
                             selected: currentSelected,
                             expanded: (!!child.props.expanded) ||
-                                (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey)
+                                (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey),
+                            subLevel: 0
                         });
                     }
 

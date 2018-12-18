@@ -11,9 +11,7 @@ import styles from './index.styl';
 
 class NavItem extends PureComponent {
     state = {
-        subOpen: false,
-        secondSubNavOpen: false,
-        thirdSubNavOpen: false
+        subOpen: false
     }
     static propTypes = {
         componentType: PropTypes.any,
@@ -74,6 +72,17 @@ class NavItem extends PureComponent {
     isNavIcon = match(NavIcon);
     isNavText = match(NavText);
 
+    handleClickOnExpanded(eventKey, event, level) {
+        console.log('triggers');
+        this.setState(state => ({
+            expandedNavItem: state.expandedItem[level] !== eventKey ? eventKey : ''
+        }));
+
+        this.setState(state => ({
+            expandedNavItem: eventKey
+        }));
+    }
+
     handleSelect = (event) => {
         const {
             disabled, onSelect, eventKey
@@ -89,16 +98,10 @@ class NavItem extends PureComponent {
         }
     };
 
-    onToggle = () => {
-        this.setState(() => ({ subOpen: !this.state.subOpen }));
-    }
-
-    onToggleSecondSubNav = () => {
-        this.setState(() => ({ secondSubNavOpen: !this.state.secondSubNavOpen }));
-    }
-
-    onToggleThirdSubNav = () => {
-        this.setState(() => ({ thirdSubNavOpen: !this.state.thirdSubNavOpen }));
+    onToggle = (eventKey) => {
+        this.setState(state => ({
+            subOpen: state.subOpen !== eventKey ? eventKey : undefined
+        }));
     }
 
     render() {
@@ -118,13 +121,6 @@ class NavItem extends PureComponent {
             // Sub navigation item
             subnav,
             // secondSubNav navigation items
-            secondSubNav,
-            secondSubNavChild,
-            // secondSubNav navigation items
-            thirdSubNav,
-            thirdSubChild,
-            fifthSubChild,
-
             // Override className and style
             navitemClassName,
             navitemStyle,
@@ -151,268 +147,8 @@ class NavItem extends PureComponent {
             ...navTextProps
         } = navText ? { ...navText.props } : {};
 
-        if (fifthSubChild) {
-            return (
-                <Component
-                    role="presentation"
-                    className={cx(className, styles.secondSubNavChild, {
-                        [styles.selected]: isNavItemSelected,
-                        [styles.disabled]: disabled
-                    })}
-                    style={style}
-                >
-                    <div
-                        {...props}
-                        className={cx(navitemClassName, styles.navitem)}
-                        style={navitemStyle}
-                        disabled={disabled}
-                        role="menuitem"
-                        tabIndex="-1"
-                        onClick={chainedFunction(
-                            onClick,
-                            this.handleSelect
-                        )}
-                    >
-                        {navIcon ?
-                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                            : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
-                        }
-                        {navText &&
-                        <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                        }
-                    </div>
-                    <div style={{ background: '#F8F8F9' }}>
-                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
-                    </div>
-                </Component>);
-        }
-
-
-        if (thirdSubNav) {
-            const { thirdSubNavOpen } = this.state;
-            const navItems = React.Children.toArray(children)
-                .filter(child => {
-                    return React.isValidElement(child) && this.isNavItem(child);
-                })
-                .map(child => {
-                    return cloneElement(child, {
-                        fifthSubChild: true,
-                        selected,
-                        onSelect: chainedFunction(
-                            child.props.onSelect,
-                            onSelect
-                        )
-                    });
-                });
-
-            return (
-                <Component
-                    role="presentation"
-                    className={cx(className, styles.sidenavSubnavitem, {
-                        [styles.selected]: isNavItemSelected,
-                        [styles.disabled]: disabled
-                    })}
-                    style={style}
-                >
-                    <div
-                        {...props}
-                        className={cx(navitemClassName, styles.secondSubNavItem, styles.borderBottom)}
-                        disabled={disabled}
-                        role="menuitem"
-                        tabIndex="-1"
-                        onClick={this.onToggleThirdSubNav}
-                        style={{
-                            ...navitemStyle,
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            background: '#f8f8f9'
-                        }}
-                    >
-                        <div style={{ display: 'flex' }}>
-                            {navIcon ?
-                                <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                                : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
-                            }
-                            {navText &&
-                                <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                            }
-                        </div>
-                        <div>
-                            {(navItems.length > 0) &&
-                            <i className={cx('fa-angle-right fw fa fa-caret-right', styles.secondExpandedIcon, {
-                                [styles.secondExpandedIconRotate]: thirdSubNavOpen
-                            })}
-                            />
-                            }
-                        </div>
-                    </div>
-                    <div style={{ background: '#F8F8F9' }}>
-                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
-                    </div>
-                    <div className={cx({ [styles.secondSubMenuOpen]: thirdSubNavOpen, [styles.secondSubMenuClose]: !thirdSubNavOpen })}>
-                        {navItems}
-                    </div>
-                </Component>
-            );
-        }
-
-        if (thirdSubChild) {
-            return (
-                <Component
-                    role="presentation"
-                    className={cx('TEST', styles.secondSubNavChild, {
-                        [styles.selected]: isNavItemSelected,
-                        [styles.disabled]: disabled
-                    })}
-                    style={style}
-                >
-                    <div
-                        {...props}
-                        className={cx(navitemClassName, styles.navitem)}
-                        style={navitemStyle}
-                        disabled={disabled}
-                        role="menuitem"
-                        tabIndex="-1"
-                        onClick={chainedFunction(
-                            onClick,
-                            this.handleSelect
-                        )}
-                    >
-                        {navIcon ?
-                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                            : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
-                        }
-                        {navText &&
-                        <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                        }
-                    </div>
-                    <div style={{ background: '#F8F8F9' }}>
-                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
-                    </div>
-                </Component>
-            );
-        }
-
-        if (secondSubNav) {
-            const { secondSubNavOpen } = this.state;
-            const navItems = React.Children.toArray(children)
-                .filter(child => {
-                    return React.isValidElement(child) && this.isNavItem(child);
-                }).map(child => {
-                    const thirdSubNavItems = React.Children.toArray(child.props.children).filter(secondChild => {
-                        return React.isValidElement(secondChild) && this.isNavItem(secondChild);
-                    });
-
-                    if (thirdSubNavItems.length > 0) {
-                        return cloneElement(child, {
-                            thirdSubNav: true,
-                            selected,
-                            onSelect: chainedFunction(
-                                child.props.onSelect,
-                                onSelect
-                            )
-                        });
-                    }
-                    return cloneElement(child, {
-                        thirdSubChild: true,
-                        selected,
-                        onSelect: chainedFunction(
-                            child.props.onSelect,
-                            onSelect
-                        )
-                    });
-                });
-
-            return (
-                <Component
-                    role="presentation"
-                    className={cx(className, styles.sidenavSubnavitem, {
-                        [styles.selected]: isNavItemSelected,
-                        [styles.disabled]: disabled
-                    })}
-                    style={style}
-                >
-                    <div
-                        {...props}
-                        className={cx(navitemClassName, styles.secondSubNavItem, styles.borderBottom)}
-                        disabled={disabled}
-                        role="menuitem"
-                        tabIndex="-1"
-                        onClick={this.onToggleSecondSubNav}
-                        style={{
-                            ...navitemStyle,
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            background: '#f8f8f9'
-                        }}
-                    >
-                        <div style={{ display: 'flex' }}>
-                            {navIcon ?
-                                <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                                : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
-                            }
-                            {navText &&
-                                <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                            }
-                        </div>
-                        <div>
-                            {(navItems.length > 0) &&
-                            <i className={cx('fa-angle-right fw fa fa-caret-right', styles.secondExpandedIcon, {
-                                [styles.secondExpandedIconRotate]: secondSubNavOpen
-                            })}
-                            />
-                            }
-                        </div>
-                    </div>
-                    <div style={{ background: '#F8F8F9' }}>
-                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
-                    </div>
-                    <div className={cx({ [styles.secondSubMenuOpen]: secondSubNavOpen, [styles.secondSubMenuClose]: !secondSubNavOpen })}>
-                        {navItems}
-                    </div>
-                </Component>
-            );
-        }
-
-        if (secondSubNavChild) {
-            return (
-                <Component
-                    role="presentation"
-                    className={cx(className, styles.secondSubNavChild, {
-                        [styles.selected]: isNavItemSelected,
-                        [styles.disabled]: disabled
-                    })}
-                    style={style}
-                >
-                    <div
-                        {...props}
-                        className={cx(navitemClassName, styles.navitem)}
-                        style={navitemStyle}
-                        disabled={disabled}
-                        role="menuitem"
-                        tabIndex="-1"
-                        onClick={chainedFunction(
-                            onClick,
-                            this.handleSelect
-                        )}
-                    >
-                        {navIcon ?
-                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                            : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
-                        }
-                        {navText &&
-                        <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                        }
-                    </div>
-                    <div style={{ background: '#F8F8F9' }}>
-                        <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
-                    </div>
-                </Component>
-            );
-        }
-
         if (subnav) {
-            const { subOpen } = this.state;
+            // const { subOpen } = this.state;
 
             const navItems = React.Children.toArray(children)
                 .filter(child => {
@@ -424,16 +160,21 @@ class NavItem extends PureComponent {
 
                     if (secondSubNavItems.length > 0) {
                         return cloneElement(child, {
-                            secondSubNav: true,
+                            subnav: true,
                             selected,
                             onSelect: chainedFunction(
                                 child.props.onSelect,
                                 onSelect
-                            )
+                            ),
+                            onClick: (event) => {
+                                this.onToggle(child.props.eventKey, event);
+                            },
+                            subOpen: this.state.subOpen,
+                            subLevel: this.props.subLevel + 1
                         });
                     }
                     return cloneElement(child, {
-                        secondSubNavChild: true,
+                        subChild: true,
                         selected,
                         onSelect: chainedFunction(
                             child.props.onSelect,
@@ -443,13 +184,15 @@ class NavItem extends PureComponent {
                 });
 
             if (navItems.length > 0) {
+                const isOpen = this.props.subOpen === this.props.eventKey;
+
                 return (
                     <Component
                         role="presentation"
                         className={cx(className, styles.sidenavSubnavitem, {
                             [styles.selected]: isNavItemSelected,
                             [styles.disabled]: disabled
-                        })}
+                        }, styles[`level-${this.props.subLevel}`])}
                         style={style}
                     >
                         <div
@@ -458,14 +201,12 @@ class NavItem extends PureComponent {
                             disabled={disabled}
                             role="menuitem"
                             tabIndex="-1"
-                            onClick={this.onToggle}
                             style={{
-                                ...navitemStyle,
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                background: '#f8f8f9',
-                                paddingLeft: '58px'
+                                ...navitemStyle
                             }}
+                            onClick={chainedFunction(
+                                onClick
+                            )}
                         >
                             <div style={{ display: 'flex' }}>
                                 {navIcon ?
@@ -478,8 +219,8 @@ class NavItem extends PureComponent {
                             </div>
                             <div>
                                 {(navItems.length > 0) &&
-                                <i className={cx('fa-angle-right fw fa fa-caret-right', styles.secondExpandedIcon, {
-                                    [styles.secondExpandedIconRotate]: subOpen
+                                <i className={cx('fa-angle-right fw fa fa-caret-right', styles.expandedIcon, {
+                                    [styles.expandedIconRotate]: isOpen
                                 })}
                                 />
                                 }
@@ -488,7 +229,7 @@ class NavItem extends PureComponent {
                         <div style={{ background: '#F8F8F9' }}>
                             <div style={{ height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' }} />
                         </div>
-                        <div className={cx({ [styles.subMenuOpen]: subOpen, [styles.subMenuClose]: !subOpen })}>
+                        <div className={cx({ [styles.subMenuOpen]: isOpen, [styles.subMenuClose]: !isOpen })}>
                             {navItems}
                         </div>
                     </Component>
@@ -536,7 +277,7 @@ class NavItem extends PureComponent {
             .filter(child => {
                 return React.isValidElement(child) && this.isNavItem(child);
             })
-            .map(child => {
+            .map((child, i) => {
                 if (child.props.active || (!!selected && selected === child.props.eventKey)) {
                     activeNavItems.push(child);
                 }
@@ -547,7 +288,12 @@ class NavItem extends PureComponent {
                     onSelect: chainedFunction(
                         child.props.onSelect,
                         onSelect
-                    )
+                    ),
+                    onClick: (event) => {
+                        this.onToggle(child.props.eventKey, event);
+                    },
+                    subOpen: this.state.subOpen,
+                    subLevel: this.props.subLevel + 1
                 });
             });
         const others = React.Children.toArray(children)
@@ -562,6 +308,7 @@ class NavItem extends PureComponent {
         const isNavItemExpandable = (navItems.length > 0);
         const isNavItemExpanded = isNavItemExpandable && expanded;
         const isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
+
 
         return (
             <Component
@@ -578,7 +325,6 @@ class NavItem extends PureComponent {
                 <div
                     {...props}
                     className={cx(navitemClassName, styles.navitem)}
-                    style={navitemStyle}
                     disabled={disabled}
                     role="menuitem"
                     tabIndex="-1"
@@ -587,33 +333,31 @@ class NavItem extends PureComponent {
                         onClick,
                         navItems.length === 0 && this.handleSelect
                     )}
+                    style={{
+                        ...navitemStyle,
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        paddingRight: '14px'
+                    }}
                 >
-                    <div
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            paddingRight: '14px'
-                        }}
-                    >
-                        <div>
-                            {navIcon ?
-                                <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                                : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
-                            }
-                            {navText &&
+                    <div>
+                        {navIcon ?
+                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                            : <i className="fa fa-fw" style={{ fontSize: '16px' }} />
+                        }
+                        {navText &&
                             <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                            }
-                        </div>
-                        {(navItems.length > 0) &&
+                        }
+                    </div>
+                    {(navItems.length > 0) &&
                         <div>
                             <i className={cx('fa-angle-right fw fa fa-caret-right', styles.expandedIcon, {
                                 [styles.expandedIconRotate]: isNavItemExpanded
                             })}
                             />
                         </div>
-                        }
-                        {others}
-                    </div>
+                    }
+                    {others}
                 </div>
                 {(navItems.length > 0) &&
                     <div
