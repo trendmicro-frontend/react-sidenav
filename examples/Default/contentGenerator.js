@@ -29,7 +29,7 @@ const generateMenu = (content, props) => {
             <NavItem
                 key={item.id}
                 toggleExpanded={props.onToggle}
-                eventKey={item.id}
+                eventKey={item.to ? item.to : item.id}
             >
                 <NavIcon>
                     <i className={`fa fa-${item.icon}`} style={{ fontSize: '20px', verticalAlign: 'middle', color: '#09091A' }} />
