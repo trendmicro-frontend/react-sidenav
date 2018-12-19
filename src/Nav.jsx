@@ -107,10 +107,6 @@ class Nav extends PureComponent {
             ? this.state.selected
             : selected;
 
-        if (!expanded) {
-            this.setState({ expandedNavItem: undefined });
-        }
-
         return (
             <Component
                 {...props}
