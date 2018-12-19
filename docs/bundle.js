@@ -1057,7 +1057,7 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, ".sidenav---_u0En {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1006;\n  min-width: 64px;\n  background: #fff;\n  -webkit-transition: min-width 0.15s;\n  -moz-transition: min-width 0.15s;\n  -o-transition: min-width 0.15s;\n  -ms-transition: min-width 0.15s;\n  transition: min-width 0.15s;\n}\n.sub-menu-open---1Detp {\n  display: block;\n}\n.sub-menu-close---2hcVd {\n  display: none;\n}\n.second-sub-menu-open---baWEw {\n  display: block;\n}\n.second-sub-menu-close---3B-wF {\n  display: none;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja {\n  min-width: 240px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER .navicon---d-E_g + .navtext---2Ylza {\n  display: inline-block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expandable---2ZpGQ > .navitem---3LFxv {\n  cursor: pointer;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  position: static;\n  border: none;\n  float: left;\n  clear: both;\n  width: 100%;\n  background: transparent;\n  overflow: hidden;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo {\n  position: relative;\n  background: #f00;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover::before {\n  background: #f8f8f9;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv {\n  color: #fff;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv::before {\n  content: \" \";\n  width: 2px;\n  height: 20px;\n  left: 10px;\n  top: 4px;\n  position: absolute;\n  border-left: 2px #fff solid;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover > .navitem---3LFxv {\n  background: #f8f8f9;\n  color: #09091a;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: box;\n  display: flex;\n  color: #09091a;\n  padding: 7px 14px 7px 35px;\n  line-height: 28px;\n  font-size: 14px;\n  background: #f8f8f9;\n}\n.sub-menu-open---1Detp {\n  min-width: 240px;\n  background: #f8f8f9;\n}\n.sub-menu-open---1Detp .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER .navicon---d-E_g + .navtext---2Ylza {\n  display: inline-block;\n}\n.sub-menu-open---1Detp .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expandable---2ZpGQ > .navitem---3LFxv {\n  cursor: pointer;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K {\n  position: static;\n  border: none;\n  float: left;\n  clear: both;\n  width: 100%;\n  background: transparent;\n  overflow: hidden;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n}\n.sub-menu-open---1Detp .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo {\n  position: relative;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  display: none;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover::before {\n  background: #f8f8f9;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv {\n  color: #fff;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv::before {\n  content: \" \";\n  width: 2px;\n  height: 20px;\n  left: 10px;\n  top: 4px;\n  position: absolute;\n  border-left: 2px #fff solid;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:hover > .navitem---3LFxv {\n  background: #f8f8f9;\n  color: #09091a;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: box;\n  display: flex;\n  color: #09091a;\n  padding: 7px 14px 7px 35px;\n  line-height: 28px;\n  font-size: 14px;\n  background: #f8f8f9;\n  padding: 14px 20px !important;\n}\n.sub-menu-open---1Detp .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv > .navicon---d-E_g {\n  margin-left: 10px;\n  margin-right: 5px;\n}\n.second-sub-nav-item---2lJ0b {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: box;\n  display: flex;\n  color: #09091a;\n  padding: 7px 14px 7px 50px;\n  line-height: 28px;\n  font-size: 14px;\n  background: #f8f8f9;\n  outline: none;\n  cursor: pointer;\n}\n.second-sub-menu-open---baWEw > .sidenav-navitem---3r9ER > .navitem---3LFxv {\n  outline: none;\n  cursor: pointer;\n  font-size: 14px;\n}\n.second-sub-nav-child---G9rpO > .navitem---3LFxv {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: box;\n  display: flex;\n  padding: 7px 14px 7px 50px;\n  line-height: 28px;\n  font-size: 14px;\n  outline: none;\n  cursor: pointer;\n}\n.sidenav-toggle---23_Hl {\n  position: relative;\n  float: left;\n  width: 64px;\n  height: 50px;\n  padding: 0;\n  margin: 0;\n  background-color: transparent;\n  background-image: none;\n  border: 0;\n  border-radius: 0;\n  cursor: pointer;\n  margin-right: -6px;\n}\n.sidenav-toggle---23_Hl:focus {\n  outline: none;\n}\n.sidenav-nav---uvKqK {\n  float: left;\n  padding: 0;\n  margin: 0;\n  clear: both;\n  list-style: none;\n  width: 100%;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER {\n  clear: both;\n  position: relative;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv {\n  cursor: default;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g {\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navtext---2Ylza,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navtext---2Ylza {\n  color: #09091a;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navtext---2Ylza > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navtext---2Ylza > * {\n  color: #09091a;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv {\n  position: relative;\n  display: block;\n  line-height: 50px;\n  height: 50px;\n  white-space: nowrap;\n  text-decoration: none;\n  color: #fff;\n  font-size: 14px;\n  cursor: pointer;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv:focus {\n  outline: 0;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv::after {\n  content: '';\n  position: absolute;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  background: #fff;\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n  z-index: -1;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navtext---2Ylza {\n  color: #09091a;\n  font-size: 16px;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navtext---2Ylza > * {\n  color: #09091a;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g {\n  display: block;\n  float: left;\n  width: 64px;\n  height: 50px;\n  margin-right: -6px;\n  vertical-align: top;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-color: transparent;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n  line-height: 50px;\n  text-align: center;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g + .navtext---2Ylza {\n  display: none;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER {\n  clear: both;\n  position: relative;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv {\n  cursor: default;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv::after {\n  background: #fff;\n  opacity: 0.15;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=15)\";\n  filter: alpha(opacity=15);\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv::after,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y > .navitem---3LFxv::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after {\n  background: #000;\n  opacity: 0.25;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)\";\n  filter: alpha(opacity=25);\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after {\n  background: #000;\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g {\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navtext---2Ylza,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navtext---2Ylza {\n  color: #fff;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g > *,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navtext---2Ylza > *,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g > *,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navtext---2Ylza > * {\n  color: #fff;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv {\n  position: relative;\n  display: block;\n  line-height: 50px;\n  height: 50px;\n  white-space: nowrap;\n  text-decoration: none;\n  color: #fff;\n  font-size: 14px;\n  cursor: pointer;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv:focus {\n  outline: 0;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv::after {\n  content: '';\n  position: absolute;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  background: #fff;\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n  z-index: -1;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navtext---2Ylza {\n  color: #09091a;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g > *,\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navtext---2Ylza > * {\n  color: #09091a;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g {\n  display: block;\n  float: left;\n  width: 64px;\n  height: 50px;\n  margin-right: -6px;\n  vertical-align: top;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-color: transparent;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n  line-height: 50px;\n  text-align: center;\n}\n.sub-menu-open---1Detp > .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g + .navtext---2Ylza {\n  display: none;\n}\n.sidenav-subnav---3Hr7K {\n  min-width: 200px;\n  position: absolute;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  top: 0;\n  left: 64px;\n  background: #fff;\n  border: 1px #bbb solid;\n  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  margin: 0 24px;\n  line-height: 48px;\n  border-bottom: 1px #ccc solid;\n  font-size: 14px;\n  font-weight: normal;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:last-child {\n  margin-bottom: 8px;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv {\n  color: #db3d44;\n  font-weight: bold;\n  background: none;\n  cursor: default;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv:hover {\n  background: #fff;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv {\n  display: block;\n  text-decoration: none;\n  color: #222;\n  font-size: 13px;\n  line-height: 30px;\n  padding: 0 24px;\n  cursor: pointer;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv:hover {\n  background: #eee;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv:focus {\n  outline: 0;\n}\n.expanded-icon-rotate---_VKgB {\n  -webkit-transform: rotate(90deg);\n  -moz-transform: rotate(90deg);\n  -o-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 0.3s;\n  -moz-transition: -moz-transform 0.3s;\n  -o-transition: -o-transform 0.3s;\n  -ms-transition: -ms-transform 0.3s;\n  transition: transform 0.3s;\n}\n.second-expanded-icon-rotate---3Hw9- {\n  -webkit-transform: rotate(90deg);\n  -moz-transform: rotate(90deg);\n  -o-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 0.3s;\n  -moz-transition: -moz-transform 0.3s;\n  -o-transition: -o-transform 0.3s;\n  -ms-transition: -ms-transform 0.3s;\n  transition: transform 0.3s;\n}\n.sidenav---_u0En {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n}\n.sidenav---_u0En *,\n.sidenav---_u0En *:before,\n.sidenav---_u0En *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n", ""]);
+exports.push([module.i, ".sidenav---_u0En {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1006;\n  min-width: 64px;\n  background: #fff;\n}\n.sub-menu-open---1Detp {\n  display: block;\n}\n.sub-menu-close---2hcVd {\n  display: none;\n}\n.level-1---3OFzx .sub-menu-open---1Detp {\n  display: block;\n}\n.level-1---3OFzx .sub-menu-close---2hcVd {\n  display: none;\n}\n.sidenav---_u0En.collapsed---2IIb7 .sidenav-nav---uvKqK .sidenav-navitem---3r9ER .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja {\n  min-width: 260px;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER .navicon---d-E_g + .navtext---2Ylza {\n  display: inline-block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expandable---2ZpGQ > .navitem---3LFxv {\n  cursor: pointer;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  position: static;\n  border: none;\n  float: left;\n  clear: both;\n  width: 100%;\n  background: transparent;\n  overflow: hidden;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: block;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo {\n  position: relative;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo::before {\n  content: \" \";\n  width: 100%;\n  height: 28px;\n  position: absolute;\n  top: 0;\n  z-index: -1;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo:first-child {\n  display: none;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv {\n  color: #2078e4;\n}\n.sidenav---_u0En.expanded---262ja .sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: box;\n  display: flex;\n  color: #09091a;\n  padding: 7px 14px 7px 26px;\n  line-height: 28px;\n  font-size: 14px;\n  background: #f8f8f9;\n  outline: none;\n}\n.subnav-1---2aSyR .selectedSubWrapper---2N5Au,\n.subchild-1---1-0sh .selectedSubWrapper---2N5Au {\n  color: #2078e4;\n}\n.subnav-1---2aSyR .selectedSubWrapper---2N5Au > .navitem---3LFxv,\n.subchild-1---1-0sh .selectedSubWrapper---2N5Au > .navitem---3LFxv,\n.subnav-1---2aSyR .selectedSubWrapper---2N5Au > div > .navicon---d-E_g > i,\n.subchild-1---1-0sh .selectedSubWrapper---2N5Au > div > .navicon---d-E_g > i {\n  color: #2078e4;\n}\n.subnav-1---2aSyR .selectedSubWrapper---2N5Au > div > i,\n.subchild-1---1-0sh .selectedSubWrapper---2N5Au > div > i {\n  color: #2078e4;\n}\n.subnav-1---2aSyR .navitem---3LFxv,\n.subchild-1---1-0sh .navitem---3LFxv {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: box;\n  display: flex;\n  background: #f8f8f9;\n  padding-left: 46px;\n  height: 50px;\n  -webkit-box-align: center;\n  -moz-box-align: center;\n  -o-box-align: center;\n  -ms-flex-align: center;\n  -webkit-align-items: center;\n  align-items: center;\n  cursor: pointer;\n}\n.subnav-1---2aSyR .navitem---3LFxv .navicon---d-E_g,\n.subchild-1---1-0sh .navitem---3LFxv .navicon---d-E_g {\n  margin-right: 5px;\n  width: 18px;\n}\n.subnav-1---2aSyR .navitem---3LFxv:focus,\n.subchild-1---1-0sh .navitem---3LFxv:focus {\n  outline: none;\n}\n.subnav-2---2X03c .navitem---3LFxv,\n.subchild-2---7jpqw .navitem---3LFxv {\n  padding: 0px 15px 0px 46px;\n}\n.subnav-3---2bGEn .navitem---3LFxv,\n.subchild-3---18TN7 .navitem---3LFxv {\n  padding: 0px 15px 0px 64px;\n}\n.sidenav-toggle---23_Hl {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: box;\n  display: flex;\n  position: relative;\n  float: left;\n  width: 64px;\n  height: 50px;\n  padding: 0 0 0 10px;\n  margin: 0;\n  background-color: transparent;\n  background-image: none;\n  border: 0;\n  border-radius: 0;\n  cursor: pointer;\n  margin-right: -6px;\n}\n.sidenav-toggle---23_Hl:focus {\n  outline: none;\n}\n.sidenav-nav---uvKqK {\n  float: left;\n  padding: 0;\n  margin: 0;\n  clear: both;\n  list-style: none;\n  width: 100%;\n  border-top: 1px solid #c0c0c8;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER {\n  clear: both;\n  position: relative;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv {\n  cursor: default;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > .navitem---3LFxv {\n  border-left: 5px #2078e4 solid;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.selected---91VwC > .navitem---3LFxv > div > i {\n  color: #2078e4;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER .navitem---3LFxv {\n  border-left: 5px #f1f1f1 solid;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.expanded---262ja > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover.highlighted---1vG8Y.selected---91VwC.expanded---262ja > .navitem---3LFxv::after {\n  background: #f8f8f9;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g {\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navtext---2Ylza,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navtext---2Ylza {\n  color: #09091a;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navicon---d-E_g > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER:hover > .navitem---3LFxv .navtext---2Ylza > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navicon---d-E_g > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER.highlighted---1vG8Y > .navitem---3LFxv .navtext---2Ylza > * {\n  color: #09091a;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv {\n  position: relative;\n  display: block;\n  line-height: 50px;\n  height: 50px;\n  white-space: nowrap;\n  text-decoration: none;\n  color: #fff;\n  font-size: 14px;\n  cursor: pointer;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv:focus {\n  outline: 0;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv::after {\n  content: '';\n  position: absolute;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  background: #fff;\n  opacity: 0;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter: alpha(opacity=0);\n  z-index: -1;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navtext---2Ylza {\n  color: #09091a;\n  font-size: 16px;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g > *,\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navtext---2Ylza > * {\n  color: #09091a;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g {\n  display: block;\n  float: left;\n  width: 64px;\n  height: 50px;\n  margin-right: -6px;\n  vertical-align: top;\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-color: transparent;\n  opacity: 0.7;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)\";\n  filter: alpha(opacity=70);\n  line-height: 50px;\n  text-align: center;\n}\n.sidenav-nav---uvKqK > .sidenav-navitem---3r9ER > .navitem---3LFxv .navicon---d-E_g + .navtext---2Ylza {\n  display: none;\n}\n.sidenav-subnav---3Hr7K {\n  min-width: 200px;\n  position: absolute;\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  top: 0;\n  left: 64px;\n  background: #fff;\n  border: 1px #bbb solid;\n  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo.selected---91VwC > .navitem---3LFxv > .navicon---d-E_g > i {\n  color: #2078e4;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv {\n  cursor: pointer;\n}\n.sidenav-subnav---3Hr7K > .sidenav-subnavitem---3Rbfo > .navitem---3LFxv:focus {\n  outline: 0;\n}\n.expanded-icon---3drzI {\n  -webkit-transition: -webkit-transform 0.3s;\n  -moz-transition: -moz-transform 0.3s;\n  -o-transition: -o-transform 0.3s;\n  -ms-transition: -ms-transform 0.3s;\n  transition: transform 0.3s;\n  color: #666;\n}\n.expanded-icon-rotate---_VKgB {\n  -webkit-transform: rotate(90deg);\n  -moz-transform: rotate(90deg);\n  -o-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 0.3s;\n  -moz-transition: -moz-transform 0.3s;\n  -o-transition: -o-transform 0.3s;\n  -ms-transition: -ms-transform 0.3s;\n  transition: transform 0.3s;\n}\n.sidenav---_u0En {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n}\n.sidenav---_u0En *,\n.sidenav---_u0En *:before,\n.sidenav---_u0En *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -1066,10 +1066,8 @@ exports.locals = {
 	"subMenuOpen": "sub-menu-open---1Detp",
 	"sub-menu-close": "sub-menu-close---2hcVd",
 	"subMenuClose": "sub-menu-close---2hcVd",
-	"second-sub-menu-open": "second-sub-menu-open---baWEw",
-	"secondSubMenuOpen": "second-sub-menu-open---baWEw",
-	"second-sub-menu-close": "second-sub-menu-close---3B-wF",
-	"secondSubMenuClose": "second-sub-menu-close---3B-wF",
+	"level-1": "level-1---3OFzx",
+	"level1": "level-1---3OFzx",
 	"collapsed": "collapsed---2IIb7",
 	"sidenav-nav": "sidenav-nav---uvKqK",
 	"sidenavNav": "sidenav-nav---uvKqK",
@@ -1085,17 +1083,26 @@ exports.locals = {
 	"sidenav-subnavitem": "sidenav-subnavitem---3Rbfo",
 	"sidenavSubnavitem": "sidenav-subnavitem---3Rbfo",
 	"selected": "selected---91VwC",
-	"second-sub-nav-item": "second-sub-nav-item---2lJ0b",
-	"secondSubNavItem": "second-sub-nav-item---2lJ0b",
-	"second-sub-nav-child": "second-sub-nav-child---G9rpO",
-	"secondSubNavChild": "second-sub-nav-child---G9rpO",
+	"subnav-1": "subnav-1---2aSyR",
+	"subnav1": "subnav-1---2aSyR",
+	"selectedSubWrapper": "selectedSubWrapper---2N5Au",
+	"subchild-1": "subchild-1---1-0sh",
+	"subchild1": "subchild-1---1-0sh",
+	"subnav-2": "subnav-2---2X03c",
+	"subnav2": "subnav-2---2X03c",
+	"subchild-2": "subchild-2---7jpqw",
+	"subchild2": "subchild-2---7jpqw",
+	"subnav-3": "subnav-3---2bGEn",
+	"subnav3": "subnav-3---2bGEn",
+	"subchild-3": "subchild-3---18TN7",
+	"subchild3": "subchild-3---18TN7",
 	"sidenav-toggle": "sidenav-toggle---23_Hl",
 	"sidenavToggle": "sidenav-toggle---23_Hl",
 	"highlighted": "highlighted---1vG8Y",
+	"expanded-icon": "expanded-icon---3drzI",
+	"expandedIcon": "expanded-icon---3drzI",
 	"expanded-icon-rotate": "expanded-icon-rotate---_VKgB",
-	"expandedIconRotate": "expanded-icon-rotate---_VKgB",
-	"second-expanded-icon-rotate": "second-expanded-icon-rotate---3Hw9-",
-	"secondExpandedIconRotate": "second-expanded-icon-rotate---3Hw9-"
+	"expandedIconRotate": "expanded-icon-rotate---_VKgB"
 };
 
 /***/ }),
@@ -24916,13 +24923,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var noop = function noop() {};
 
 var Nav = (_temp2 = _class = function (_PureComponent) {
     _inherits(Nav, _PureComponent);
@@ -24941,8 +24948,15 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Nav.__proto__ || Object.getPrototypeOf(Nav)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             expandedNavItem: null,
             selected: _this.props.defaultSelected,
-            defaultSelected: _this.props.defaultSelected
-        }, _this.isNavItem = (0, _matchComponent2.default)(_NavItem2.default), _temp), _possibleConstructorReturn(_this, _ret);
+            defaultSelected: _this.props.defaultSelected,
+            activeItems: []
+        }, _this.isNavItem = (0, _matchComponent2.default)(_NavItem2.default), _this.addActiveItem = function (item) {
+            _this.setState(function (state) {
+                return {
+                    activeItems: [].concat(_toConsumableArray(state.activeItems), [item])
+                };
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Nav, [{
@@ -24977,9 +24991,12 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
                 onClick: (0, _chainedFunction2.default)(child.props.onClick, function (event) {
                     _this2.handleClickOnExpanded(eventKey, event);
                 }),
-                onSelect: (0, _chainedFunction2.default)(this.state.defaultSelected ? function (selected) {
-                    _this2.setState({ selected: selected });
-                } : noop, child.props.onSelect, onSelect)
+                onSelect: (0, _chainedFunction2.default)(function (selected) {
+                    _this2.setState({
+                        selected: selected,
+                        activeItems: []
+                    });
+                }, child.props.onSelect, onSelect)
             }));
         }
     }, {
@@ -24991,12 +25008,12 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
                 componentType = _props.componentType,
                 Component = _props.componentClass,
                 onSelect = _props.onSelect,
-                selected = _props.selected,
                 defaultSelected = _props.defaultSelected,
                 expanded = _props.expanded,
+                selected = _props.selected,
                 className = _props.className,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'onSelect', 'selected', 'defaultSelected', 'expanded', 'className', 'children']);
+                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'onSelect', 'defaultSelected', 'expanded', 'selected', 'className', 'children']);
 
             var currentSelected = this.state.defaultSelected ? this.state.selected : selected;
 
@@ -25011,7 +25028,11 @@ var Nav = (_temp2 = _class = function (_PureComponent) {
                         return _this3.renderNavItem(child, {
                             onSelect: onSelect,
                             selected: currentSelected,
-                            expanded: !!child.props.expanded || expanded && !!_this3.state.expandedNavItem && _this3.state.expandedNavItem === child.props.eventKey
+                            expanded: !!child.props.expanded || expanded && !!_this3.state.expandedNavItem && _this3.state.expandedNavItem === child.props.eventKey,
+                            subLevel: 0,
+                            isSideNavExpanded: expanded,
+                            addActiveItem: _this3.addActiveItem,
+                            activeItems: _this3.state.activeItems
                         });
                     }
 
@@ -25160,9 +25181,7 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = NavItem.__proto__ || Object.getPrototypeOf(NavItem)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            subOpen: false,
-            secondSubNavOpen: false,
-            thirdSubNavOpen: false
+            subOpen: false
         }, _this.findNavIcon = (0, _findComponent2.default)(_NavIcon2.default), _this.findNavText = (0, _findComponent2.default)(_NavText2.default), _this.isNavItem = (0, _matchComponent2.default)(NavItem), _this.isNavIcon = (0, _matchComponent2.default)(_NavIcon2.default), _this.isNavText = (0, _matchComponent2.default)(_NavText2.default), _this.handleSelect = function (event) {
             var _this$props = _this.props,
                 disabled = _this$props.disabled,
@@ -25176,19 +25195,13 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
             }
 
             if (onSelect) {
-                onSelect(eventKey, event);
+                onSelect(eventKey);
             }
-        }, _this.onToggle = function () {
-            _this.setState(function () {
-                return { subOpen: !_this.state.subOpen };
-            });
-        }, _this.onToggleSecondSubNav = function () {
-            _this.setState(function () {
-                return { secondSubNavOpen: !_this.state.secondSubNavOpen };
-            });
-        }, _this.onToggleThirdSubNav = function () {
-            _this.setState(function () {
-                return { thirdSubNavOpen: !_this.state.thirdSubNavOpen };
+        }, _this.onToggle = function (eventKey) {
+            _this.setState(function (state) {
+                return {
+                    subOpen: state.subOpen !== eventKey ? eventKey : undefined
+                };
             });
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
@@ -25197,8 +25210,8 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
         key: 'render',
         value: function render() {
             var _this2 = this,
-                _cx14,
-                _cx16;
+                _cx7,
+                _cx9;
 
             var _props = this.props,
                 componentType = _props.componentType,
@@ -25210,20 +25223,18 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                 onClick = _props.onClick,
                 onSelect = _props.onSelect,
                 selected = _props.selected,
-                subnav = _props.subnav,
-                secondSubNav = _props.secondSubNav,
-                secondSubNavChild = _props.secondSubNavChild,
-                thirdSubNav = _props.thirdSubNav,
-                thirdSubChild = _props.thirdSubChild,
-                fifthSubChild = _props.fifthSubChild,
+                activeItems = _props.activeItems,
+                subNav = _props.subNav,
+                subChild = _props.subChild,
                 navitemClassName = _props.navitemClassName,
                 navitemStyle = _props.navitemStyle,
                 subnavClassName = _props.subnavClassName,
                 subnavStyle = _props.subnavStyle,
+                isSideNavExpanded = _props.isSideNavExpanded,
                 className = _props.className,
                 style = _props.style,
                 children = _props.children,
-                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'active', 'disabled', 'expanded', 'eventKey', 'onClick', 'onSelect', 'selected', 'subnav', 'secondSubNav', 'secondSubNavChild', 'thirdSubNav', 'thirdSubChild', 'fifthSubChild', 'navitemClassName', 'navitemStyle', 'subnavClassName', 'subnavStyle', 'className', 'style', 'children']);
+                props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'active', 'disabled', 'expanded', 'eventKey', 'onClick', 'onSelect', 'selected', 'activeItems', 'subNav', 'subChild', 'navitemClassName', 'navitemStyle', 'subnavClassName', 'subnavStyle', 'isSideNavExpanded', 'className', 'style', 'children']);
 
             var navIcon = this.findNavIcon(children);
             var navText = this.findNavText(children);
@@ -25238,296 +25249,92 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                 navTextClassName = _ref3.navTextClassName,
                 navTextProps = _objectWithoutProperties(_ref3, ['componentType', 'navTextClassName']);
 
-            if (fifthSubChild) {
-                var _cx;
-
-                return _react2.default.createElement(
-                    Component,
-                    {
-                        role: 'presentation',
-                        className: (0, _classnames2.default)(className, _index2.default.secondSubNavChild, (_cx = {}, _defineProperty(_cx, _index2.default.selected, isNavItemSelected), _defineProperty(_cx, _index2.default.disabled, disabled), _cx)),
-                        style: style
-                    },
-                    _react2.default.createElement(
-                        'div',
-                        _extends({}, props, {
-                            className: (0, _classnames2.default)(navitemClassName, _index2.default.navitem),
-                            style: navitemStyle,
-                            disabled: disabled,
-                            role: 'menuitem',
-                            tabIndex: '-1',
-                            onClick: (0, _chainedFunction2.default)(onClick, this.handleSelect)
-                        }),
-                        navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
-                        navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { style: { background: '#F8F8F9' } },
-                        _react2.default.createElement('div', { style: { height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' } })
-                    )
-                );
-            }
-
-            if (thirdSubNav) {
-                var _cx2, _cx4;
-
-                var thirdSubNavOpen = this.state.thirdSubNavOpen;
-
+            if (subNav || subChild) {
                 var _navItems = _react2.default.Children.toArray(children).filter(function (child) {
                     return _react2.default.isValidElement(child) && _this2.isNavItem(child);
                 }).map(function (child) {
-                    return (0, _react.cloneElement)(child, {
-                        fifthSubChild: true,
-                        selected: selected,
-                        onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
-                    });
-                });
-
-                return _react2.default.createElement(
-                    Component,
-                    {
-                        role: 'presentation',
-                        className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, (_cx2 = {}, _defineProperty(_cx2, _index2.default.selected, isNavItemSelected), _defineProperty(_cx2, _index2.default.disabled, disabled), _cx2)),
-                        style: style
-                    },
-                    _react2.default.createElement(
-                        'div',
-                        _extends({}, props, {
-                            className: (0, _classnames2.default)(navitemClassName, _index2.default.secondSubNavItem, _index2.default.borderBottom),
-                            disabled: disabled,
-                            role: 'menuitem',
-                            tabIndex: '-1',
-                            onClick: this.onToggleThirdSubNav,
-                            style: _extends({}, navitemStyle, {
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                background: '#f8f8f9'
-                            })
-                        }),
-                        _react2.default.createElement(
-                            'div',
-                            { style: { display: 'flex' } },
-                            navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
-                            navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            _navItems.length > 0 && _react2.default.createElement('i', { className: (0, _classnames2.default)('fa-angle-right fw fa fa-caret-right', _index2.default.secondExpandedIcon, _defineProperty({}, _index2.default.secondExpandedIconRotate, thirdSubNavOpen))
-                            })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { style: { background: '#F8F8F9' } },
-                        _react2.default.createElement('div', { style: { height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' } })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: (0, _classnames2.default)((_cx4 = {}, _defineProperty(_cx4, _index2.default.secondSubMenuOpen, thirdSubNavOpen), _defineProperty(_cx4, _index2.default.secondSubMenuClose, !thirdSubNavOpen), _cx4)) },
-                        _navItems
-                    )
-                );
-            }
-
-            if (thirdSubChild) {
-                var _cx5;
-
-                return _react2.default.createElement(
-                    Component,
-                    {
-                        role: 'presentation',
-                        className: (0, _classnames2.default)('TEST', _index2.default.secondSubNavChild, (_cx5 = {}, _defineProperty(_cx5, _index2.default.selected, isNavItemSelected), _defineProperty(_cx5, _index2.default.disabled, disabled), _cx5)),
-                        style: style
-                    },
-                    _react2.default.createElement(
-                        'div',
-                        _extends({}, props, {
-                            className: (0, _classnames2.default)(navitemClassName, _index2.default.navitem),
-                            style: navitemStyle,
-                            disabled: disabled,
-                            role: 'menuitem',
-                            tabIndex: '-1',
-                            onClick: (0, _chainedFunction2.default)(onClick, this.handleSelect)
-                        }),
-                        navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
-                        navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { style: { background: '#F8F8F9' } },
-                        _react2.default.createElement('div', { style: { height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' } })
-                    )
-                );
-            }
-
-            if (secondSubNav) {
-                var _cx6, _cx8;
-
-                var secondSubNavOpen = this.state.secondSubNavOpen;
-
-                var _navItems2 = _react2.default.Children.toArray(children).filter(function (child) {
-                    return _react2.default.isValidElement(child) && _this2.isNavItem(child);
-                }).map(function (child) {
-                    var thirdSubNavItems = _react2.default.Children.toArray(child.props.children).filter(function (secondChild) {
-                        return _react2.default.isValidElement(secondChild) && _this2.isNavItem(secondChild);
+                    var subNavItems = _react2.default.Children.toArray(child.props.children).filter(function (subChild) {
+                        return _react2.default.isValidElement(subChild) && _this2.isNavItem(subChild);
                     });
 
-                    if (thirdSubNavItems.length > 0) {
+                    if (!_this2.props.activeItems.includes(_this2.props.eventKey)) {
+                        if (_this2.props.selected === child.props.eventKey || _this2.props.activeItems.includes(child.props.eventKey)) {
+                            _this2.props.addActiveItem(_this2.props.eventKey);
+                        }
+                    }
+
+                    if (_this2.state.subOpen && !isSideNavExpanded) {
+                        _this2.setState({
+                            subOpen: undefined
+                        });
+                    }
+
+                    if (subNavItems.length > 0) {
                         return (0, _react.cloneElement)(child, {
-                            thirdSubNav: true,
+                            subNav: true,
                             selected: selected,
-                            onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
+                            onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect),
+                            onClick: function onClick() {
+                                _this2.onToggle(child.props.eventKey);
+                            },
+                            subOpen: _this2.state.subOpen,
+                            subLevel: _this2.props.subLevel + 1,
+                            activeItems: _this2.props.activeItems,
+                            addActiveItem: _this2.props.addActiveItem,
+                            isSideNavExpanded: isSideNavExpanded
                         });
                     }
                     return (0, _react.cloneElement)(child, {
-                        thirdSubChild: true,
+                        subChild: true,
                         selected: selected,
-                        onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
+                        onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect),
+                        onClick: function onClick() {
+                            _this2.onToggle(child.props.eventKey);
+                        },
+                        subLevel: _this2.props.subLevel + 1,
+                        activeItems: _this2.props.activeItems,
+                        addActiveItem: _this2.props.addActiveItem,
+                        isSideNavExpanded: isSideNavExpanded
                     });
                 });
 
-                return _react2.default.createElement(
-                    Component,
-                    {
-                        role: 'presentation',
-                        className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, (_cx6 = {}, _defineProperty(_cx6, _index2.default.selected, isNavItemSelected), _defineProperty(_cx6, _index2.default.disabled, disabled), _cx6)),
-                        style: style
-                    },
-                    _react2.default.createElement(
-                        'div',
-                        _extends({}, props, {
-                            className: (0, _classnames2.default)(navitemClassName, _index2.default.secondSubNavItem, _index2.default.borderBottom),
-                            disabled: disabled,
-                            role: 'menuitem',
-                            tabIndex: '-1',
-                            onClick: this.onToggleSecondSubNav,
-                            style: _extends({}, navitemStyle, {
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                background: '#f8f8f9'
-                            })
-                        }),
-                        _react2.default.createElement(
-                            'div',
-                            { style: { display: 'flex' } },
-                            navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
-                            navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            _navItems2.length > 0 && _react2.default.createElement('i', { className: (0, _classnames2.default)('fa-angle-right fw fa fa-caret-right', _index2.default.secondExpandedIcon, _defineProperty({}, _index2.default.secondExpandedIconRotate, secondSubNavOpen))
-                            })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { style: { background: '#F8F8F9' } },
-                        _react2.default.createElement('div', { style: { height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' } })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: (0, _classnames2.default)((_cx8 = {}, _defineProperty(_cx8, _index2.default.secondSubMenuOpen, secondSubNavOpen), _defineProperty(_cx8, _index2.default.secondSubMenuClose, !secondSubNavOpen), _cx8)) },
-                        _navItems2
-                    )
-                );
-            }
+                var _isNavItemSelected = selected === eventKey || activeItems.includes(eventKey);
 
-            if (secondSubNavChild) {
-                var _cx9;
+                if (_navItems.length > 0) {
+                    var _cx, _cx4;
 
-                return _react2.default.createElement(
-                    Component,
-                    {
-                        role: 'presentation',
-                        className: (0, _classnames2.default)(className, _index2.default.secondSubNavChild, (_cx9 = {}, _defineProperty(_cx9, _index2.default.selected, isNavItemSelected), _defineProperty(_cx9, _index2.default.disabled, disabled), _cx9)),
-                        style: style
-                    },
-                    _react2.default.createElement(
-                        'div',
-                        _extends({}, props, {
-                            className: (0, _classnames2.default)(navitemClassName, _index2.default.navitem),
-                            style: navitemStyle,
-                            disabled: disabled,
-                            role: 'menuitem',
-                            tabIndex: '-1',
-                            onClick: (0, _chainedFunction2.default)(onClick, this.handleSelect)
-                        }),
-                        navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
-                        navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { style: { background: '#F8F8F9' } },
-                        _react2.default.createElement('div', { style: { height: '1px', background: '#e5e5e4', marginRight: '20px', marginLeft: '40px' } })
-                    )
-                );
-            }
-
-            if (subnav) {
-                var _cx13;
-
-                var subOpen = this.state.subOpen;
-
-
-                var _navItems3 = _react2.default.Children.toArray(children).filter(function (child) {
-                    return _react2.default.isValidElement(child) && _this2.isNavItem(child);
-                }).map(function (child) {
-                    var secondSubNavItems = _react2.default.Children.toArray(child.props.children).filter(function (secondChild) {
-                        return _react2.default.isValidElement(secondChild) && _this2.isNavItem(secondChild);
-                    });
-
-                    if (secondSubNavItems.length > 0) {
-                        return (0, _react.cloneElement)(child, {
-                            secondSubNav: true,
-                            selected: selected,
-                            onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
-                        });
-                    }
-                    return (0, _react.cloneElement)(child, {
-                        secondSubNavChild: true,
-                        selected: selected,
-                        onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
-                    });
-                });
-
-                if (_navItems3.length > 0) {
-                    var _cx10, _cx12;
+                    var isOpen = this.props.subOpen === this.props.eventKey;
 
                     return _react2.default.createElement(
                         Component,
                         {
                             role: 'presentation',
-                            className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, (_cx10 = {}, _defineProperty(_cx10, _index2.default.selected, isNavItemSelected), _defineProperty(_cx10, _index2.default.disabled, disabled), _cx10)),
-                            style: style
+                            className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, (_cx = {}, _defineProperty(_cx, _index2.default.selected, _isNavItemSelected), _defineProperty(_cx, _index2.default.disabled, disabled), _cx), _index2.default['subnav-' + this.props.subLevel])
                         },
                         _react2.default.createElement(
                             'div',
                             _extends({}, props, {
-                                className: (0, _classnames2.default)(navitemClassName, _index2.default.navitem, _index2.default.borderBottom),
+                                className: (0, _classnames2.default)(navitemClassName, _index2.default.navitem, _index2.default.borderBottom, _defineProperty({}, _index2.default.selectedSubWrapper, _isNavItemSelected)),
                                 disabled: disabled,
                                 role: 'menuitem',
                                 tabIndex: '-1',
-                                onClick: this.onToggle,
                                 style: _extends({}, navitemStyle, {
                                     display: 'flex',
                                     justifyContent: 'space-between',
-                                    background: '#f8f8f9',
-                                    paddingLeft: '58px'
-                                })
+                                    background: '#f8f8f9'
+                                }),
+                                onClick: (0, _chainedFunction2.default)(onClick)
                             }),
                             _react2.default.createElement(
                                 'div',
-                                { style: { display: 'flex' } },
+                                { style: { display: 'flex', alignItems: 'center' } },
                                 navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
                                 navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
                             ),
                             _react2.default.createElement(
                                 'div',
                                 null,
-                                _navItems3.length > 0 && _react2.default.createElement('i', { className: (0, _classnames2.default)('fa-angle-right fw fa fa-caret-right', _index2.default.secondExpandedIcon, _defineProperty({}, _index2.default.secondExpandedIconRotate, subOpen))
+                                _navItems.length > 0 && _react2.default.createElement('i', { className: (0, _classnames2.default)('fa-angle-right fw fa fa-caret-right', _index2.default.expandedIcon, _defineProperty({}, _index2.default.expandedIconRotate, isOpen))
                                 })
                             )
                         ),
@@ -25538,8 +25345,8 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: (0, _classnames2.default)((_cx12 = {}, _defineProperty(_cx12, _index2.default.subMenuOpen, subOpen), _defineProperty(_cx12, _index2.default.subMenuClose, !subOpen), _cx12)) },
-                            _navItems3
+                            { className: (0, _classnames2.default)((_cx4 = {}, _defineProperty(_cx4, _index2.default.subMenuOpen, isOpen), _defineProperty(_cx4, _index2.default.subMenuClose, !isOpen), _cx4)) },
+                            _navItems
                         )
                     );
                 }
@@ -25548,14 +25355,13 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                     Component,
                     {
                         role: 'presentation',
-                        className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, (_cx13 = {}, _defineProperty(_cx13, _index2.default.selected, isNavItemSelected), _defineProperty(_cx13, _index2.default.disabled, disabled), _cx13)),
+                        className: (0, _classnames2.default)(className, _index2.default.sidenavSubnavitem, _defineProperty({}, _index2.default.selected, _isNavItemSelected), _index2.default['subchild-' + this.props.subLevel], _defineProperty({}, _index2.default.selectedSubWrapper, _isNavItemSelected)),
                         style: style
                     },
                     _react2.default.createElement(
                         'div',
                         _extends({}, props, {
                             className: (0, _classnames2.default)(navitemClassName, _index2.default.navitem),
-                            style: navitemStyle,
                             disabled: disabled,
                             role: 'menuitem',
                             tabIndex: '-1',
@@ -25572,18 +25378,31 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                 );
             }
 
-            var activeNavItems = [];
             var navItems = _react2.default.Children.toArray(children).filter(function (child) {
                 return _react2.default.isValidElement(child) && _this2.isNavItem(child);
             }).map(function (child) {
-                if (child.props.active || !!selected && selected === child.props.eventKey) {
-                    activeNavItems.push(child);
+                if ((_this2.props.selected === child.props.eventKey || _this2.props.activeItems.includes(child.props.eventKey)) && !_this2.props.activeItems.includes(_this2.props.eventKey)) {
+                    _this2.props.addActiveItem(_this2.props.eventKey);
+                }
+
+                if (_this2.state.subOpen && !isSideNavExpanded) {
+                    _this2.setState({
+                        subOpen: undefined
+                    });
                 }
 
                 return (0, _react.cloneElement)(child, {
-                    subnav: true,
+                    subNav: true,
                     selected: selected,
-                    onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect)
+                    onSelect: (0, _chainedFunction2.default)(child.props.onSelect, onSelect),
+                    onClick: function onClick() {
+                        _this2.onToggle(child.props.eventKey);
+                    },
+                    subOpen: _this2.state.subOpen,
+                    subLevel: _this2.props.subLevel + 1,
+                    activeItems: _this2.props.activeItems,
+                    addActiveItem: _this2.props.addActiveItem,
+                    isSideNavExpanded: isSideNavExpanded
                 });
             });
             var others = _react2.default.Children.toArray(children).filter(function (child) {
@@ -25593,7 +25412,7 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                 return true;
             });
 
-            var isNavItemSelected = active || !!selected && selected === this.props.eventKey || activeNavItems.length > 0;
+            var isNavItemSelected = selected === eventKey || activeItems.includes(eventKey);
             var isNavItemExpandable = navItems.length > 0;
             var isNavItemExpanded = isNavItemExpandable && expanded;
             var isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
@@ -25602,42 +25421,36 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                 Component,
                 {
                     role: 'presentation',
-                    className: (0, _classnames2.default)(className, _index2.default.sidenavNavitem, (_cx14 = {}, _defineProperty(_cx14, _index2.default.selected, isNavItemSelected), _defineProperty(_cx14, _index2.default.highlighted, isNavItemHighlighted), _defineProperty(_cx14, _index2.default.expandable, isNavItemExpandable), _defineProperty(_cx14, _index2.default.expanded, isNavItemExpanded), _defineProperty(_cx14, _index2.default.disabled, disabled), _cx14)),
+                    className: (0, _classnames2.default)(className, _index2.default.sidenavNavitem, (_cx7 = {}, _defineProperty(_cx7, _index2.default.selected, isNavItemSelected), _defineProperty(_cx7, _index2.default.highlighted, isNavItemHighlighted), _defineProperty(_cx7, _index2.default.expandable, isNavItemExpandable), _defineProperty(_cx7, _index2.default.expanded, isNavItemExpanded), _defineProperty(_cx7, _index2.default.disabled, disabled), _cx7)),
                     style: style
                 },
                 _react2.default.createElement(
                     'div',
                     _extends({}, props, {
                         className: (0, _classnames2.default)(navitemClassName, _index2.default.navitem),
-                        style: navitemStyle,
                         disabled: disabled,
                         role: 'menuitem',
                         tabIndex: '-1',
-                        onClick: (0, _chainedFunction2.default)(navItems.length > 0 && this.props.toggleExpanded, onClick, navItems.length === 0 && this.handleSelect)
+                        onClick: (0, _chainedFunction2.default)(navItems.length > 0 && this.props.toggleExpanded, onClick, navItems.length === 0 && this.handleSelect),
+                        style: _extends({}, navitemStyle, {
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            paddingRight: '14px'
+                        })
                     }),
                     _react2.default.createElement(
                         'div',
-                        {
-                            style: {
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                paddingRight: '14px'
-                            }
-                        },
-                        _react2.default.createElement(
-                            'div',
-                            null,
-                            navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
-                            navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
-                        ),
-                        navItems.length > 0 && _react2.default.createElement(
-                            'div',
-                            null,
-                            _react2.default.createElement('i', { className: (0, _classnames2.default)('fa-angle-right fw fa fa-caret-right', _index2.default.expandedIcon, _defineProperty({}, _index2.default.expandedIconRotate, isNavItemExpanded))
-                            })
-                        ),
-                        others
-                    )
+                        null,
+                        navIcon ? _react2.default.createElement('div', _extends({}, navIconProps, { className: (0, _classnames2.default)(navIconClassName, _index2.default.navicon) })) : _react2.default.createElement('i', { className: 'fa fa-fw', style: { fontSize: '16px' } }),
+                        navText && _react2.default.createElement('div', _extends({}, navTextProps, { className: (0, _classnames2.default)(navTextClassName, _index2.default.navtext) }))
+                    ),
+                    navItems.length > 0 && _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement('i', { className: (0, _classnames2.default)('fa-angle-right fw fa fa-caret-right', _index2.default.expandedIcon, _defineProperty({}, _index2.default.expandedIconRotate, isNavItemExpanded))
+                        })
+                    ),
+                    others
                 ),
                 navItems.length > 0 && _react2.default.createElement(
                     'div',
@@ -25650,7 +25463,7 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
                         Component,
                         {
                             role: 'heading',
-                            className: (0, _classnames2.default)(_index2.default.sidenavSubnavitem, (_cx16 = {}, _defineProperty(_cx16, _index2.default.highlighted, active), _defineProperty(_cx16, _index2.default.disabled, disabled), _cx16)),
+                            className: (0, _classnames2.default)(_index2.default.sidenavSubnavitem, (_cx9 = {}, _defineProperty(_cx9, _index2.default.highlighted, active), _defineProperty(_cx9, _index2.default.disabled, disabled), _cx9)),
                             style: style
                         },
                         navText && navText.props ? navText.props.children : null
@@ -25680,6 +25493,9 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
     // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
     eventKey: _propTypes2.default.any,
 
+    // Func to add items to activeItemsArray.
+    addActiveItem: _propTypes2.default.func,
+
     // Callback fired when the navigation item is clicked.
     onClick: _propTypes2.default.func,
 
@@ -25698,7 +25514,7 @@ var NavItem = (_temp2 = _class = function (_PureComponent) {
     //
 
     // Whether it is a sub navigation item.
-    subnav: _propTypes2.default.bool,
+    subNav: _propTypes2.default.bool,
 
     navitemClassName: _propTypes2.default.string,
     navitemStyle: _propTypes2.default.object,
@@ -26286,12 +26102,12 @@ var generateSubNav = function generateSubNav(subArray) {
             _SideNav.NavItem,
             {
                 key: subItem.id,
-                eventKey: subItem.id
+                eventKey: subItem.to ? subItem.to : subItem.id
             },
             subItem.icon && _react2.default.createElement(
                 _SideNav.NavIcon,
                 null,
-                _react2.default.createElement('i', { className: 'fa fa-' + subItem.icon, style: { fontSize: '14px', verticalAlign: 'middle', color: '#09091A' } })
+                _react2.default.createElement('i', { className: 'fa fa-' + subItem.icon })
             ),
             _react2.default.createElement(
                 _SideNav.NavText,
@@ -26310,12 +26126,12 @@ var generateMenu = function generateMenu(content, props) {
             {
                 key: item.id,
                 toggleExpanded: props.onToggle,
-                eventKey: item.id
+                eventKey: item.to ? item.to : item.id
             },
             _react2.default.createElement(
                 _SideNav.NavIcon,
                 null,
-                _react2.default.createElement('i', { className: 'fa fa-' + item.icon, style: { fontSize: '20px', verticalAlign: 'middle', color: '#09091A' } })
+                _react2.default.createElement('i', { className: 'fa fa-' + item.icon, style: { fontSize: '20px' } })
             ),
             _react2.default.createElement(
                 _SideNav.NavText,
@@ -26344,7 +26160,7 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    overflow: hidden;\n    transition: all .15s;\n    padding: 0 20px;\n    margin-left: ', 'px;\n'], ['\n    position: relative;\n    overflow: hidden;\n    transition: all .15s;\n    padding: 0 20px;\n    margin-left: ', 'px;\n']),
+var _templateObject = _taggedTemplateLiteral(['\n    position: relative;\n    overflow: hidden;\n    padding: 0 20px;\n    margin-left: ', 'px;\n'], ['\n    position: relative;\n    overflow: hidden;\n    padding: 0 20px;\n    margin-left: ', 'px;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n    display: ', ';\n    white-space: nowrap;\n    background: #FFFFFF;\n    color: #fff;\n    align-items: center;\n\n    > * {\n        color: inherit;\n        background-color: inherit;\n    }\n'], ['\n    display: ', ';\n    white-space: nowrap;\n    background: #FFFFFF;\n    color: #fff;\n    align-items: center;\n\n    > * {\n        color: inherit;\n        background-color: inherit;\n    }\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n    line-height: 44px;\n    padding: 10px 0;\n    color: #09091A;\n    font-size: 16px;\n    height: 50px;\n    display: flex;\n    align-items: center;\n'], ['\n    line-height: 44px;\n    padding: 10px 0;\n    color: #09091A;\n    font-size: 16px;\n    height: 50px;\n    display: flex;\n    align-items: center;\n']);
 
@@ -26387,7 +26203,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 var generateContent = [];
 
 var Main = _styledComponents2.default.main(_templateObject, function (props) {
-    return props.expanded ? 240 : 64;
+    return props.expanded ? 260 : 64;
 });
 
 var NavHeader = _styledComponents2.default.div(_templateObject2, function (props) {
@@ -26466,20 +26282,27 @@ var _default = function (_PureComponent) {
                 null,
                 _react2.default.createElement(
                     _SideNav2.default,
-                    { onSelect: this.onSelect, onToggle: this.onToggle, expanded: this.state.expanded },
-                    _react2.default.createElement(_SideNav2.default.Toggle, null),
+                    {
+                        onSelect: this.onSelect,
+                        onToggle: this.onToggle,
+                        expanded: this.state.expanded
+                    },
                     _react2.default.createElement(
-                        NavHeader,
-                        { style: { height: '50px' }, expanded: expanded },
+                        _SideNav2.default.Toggle,
+                        null,
                         _react2.default.createElement(
-                            NavTitle,
-                            null,
-                            'Side Navigation'
+                            NavHeader,
+                            { style: { height: '50px' }, expanded: expanded },
+                            _react2.default.createElement(
+                                NavTitle,
+                                null,
+                                'Side Navigation'
+                            )
                         )
                     ),
                     _react2.default.createElement(
                         _SideNav2.default.Nav,
-                        { selected: selected },
+                        { selected: selected, defaultSelected: 'home' },
                         (0, _contentGenerator2.default)(generateContent, { expanded: expanded, onToggle: this.onToggle })
                     )
                 ),
@@ -27201,4 +27024,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?4ca3e2ad56ee70c152e7
+//# sourceMappingURL=bundle.js.map?20cd8404cfe4f976c10e

@@ -7,6 +7,7 @@ import SideNav from '../SideNav';
 import generateMenu from './contentGenerator';
 
 // fake array for contentGenerator
+const generateContent = [];
 
 const Main = styled.main`
     position: relative;
