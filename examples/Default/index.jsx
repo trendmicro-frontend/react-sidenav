@@ -4,16 +4,14 @@ import ensureArray from 'ensure-array';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav from '../SideNav';
-import contentGenerator from './contentGenerator';
+import generateMenu from './contentGenerator';
 
 // fake array for contentGenerator
-const generateContent = [
-];
+const generateContent = [];
 
 const Main = styled.main`
     position: relative;
     overflow: hidden;
-    transition: all .15s;
     padding: 0 20px;
     margin-left: ${props => (props.expanded ? 260 : 64)}px;
 `;
@@ -96,12 +94,13 @@ export default class extends PureComponent {
                     onToggle={this.onToggle}
                     expanded={this.state.expanded}
                 >
-                    <SideNav.Toggle />
-                    <NavHeader style={{ height: '50px' }} expanded={expanded}>
-                        <NavTitle>Side Navigation</NavTitle>
-                    </NavHeader>
-                    <SideNav.Nav selected={selected}>
-                        {contentGenerator(generateContent, { expanded, onToggle: this.onToggle })}
+                    <SideNav.Toggle >
+                        <NavHeader style={{ height: '50px' }} expanded={expanded}>
+                            <NavTitle>Side Navigation</NavTitle>
+                        </NavHeader>
+                    </SideNav.Toggle>
+                    <SideNav.Nav selected={selected} defaultSelected="home">
+                        {generateMenu(generateContent, { expanded, onToggle: this.onToggle })}
                     </SideNav.Nav>
                 </SideNav>
                 <Main expanded={expanded}>

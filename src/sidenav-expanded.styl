@@ -53,54 +53,62 @@
         > .navitem {
             display: flex;
             color: #09091A;
-            padding: 7px 14px 7px 35px;
+            padding: 7px 14px 7px 26px;
             line-height: 28px;
             font-size: 14px;
             background: #F8F8F9;
+            outline: none;
         }
 
-        > .navitem > .navicon {
-        }
     }
 }
 
-.second-sub-nav-item {
-  display: flex;
-  color: #09091A;
-  padding: 7px 14px 7px 50px;
-  line-height: 28px;
-  font-size: 14px;
-  background: #F8F8F9;
-  outline: none;
-  cursor: pointer;
-}
+.subnav-1, .subchild-1 {
 
-.second-sub-menu-open > .sidenav-navitem > .navitem {
-  outline: none;
-  cursor: pointer;
-  font-size: 14px;
-}
+  .selectedSubWrapper {
+      color: #2078E4;
+
+      > .navitem
+
+      > div > .navicon > i {
+          color: #2078E4;
+      }
+
+      > div > i {
+          color: #2078E4;
+      }
+  }
+
+  .navitem {
+    display: flex;
+    background: #f8f8f9;
+    padding-left: 46px;
+    height: 50px;
+    align-items: center;
+    cursor: pointer;
     
-.second-sub-nav-child {
-  &.selected > .navitem {
-    color: #2078E4;
- }
- &.selected > .navitem > .navicon > i {
-     color: #2078E4;
- }
+    .navicon {
+    margin-right: 5px;
+    width: 18px;
+    
+    }
+
+    &:focus {
+        outline: none;    
+    }
+  }
 }
-        
 
-.second-sub-nav-child > .navitem {
-  display: flex;
-  padding: 7px 14px 7px 50px;
-  line-height: 28px;
-  font-size: 14px;
-  outline: none;
-  background: #F8F8F9;
-  cursor: pointer;
+.subnav-2, .subchild-2 {
 
-  &.selected {
-      color: red;
+  .navitem {
+    padding: 0px 15px 0px 46px;  
+  }
+}
+
+.subnav-3, .subchild-3 {
+
+  .navitem {
+    padding: 0px 15px 0px 64px;
   }
 }

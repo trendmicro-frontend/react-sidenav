@@ -1,4 +1,4 @@
-/*! react-sub-sidenav v0.4.6 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
+/*! react-sub-sidenav v0.4.7 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sub-sidenav---sidenav---_2tBP {
   position: absolute;
   top: 0;
@@ -7,11 +7,6 @@
   z-index: 1006;
   min-width: 64px;
   background: #fff;
-  -webkit-transition: min-width 0.15s;
-  -moz-transition: min-width 0.15s;
-  -o-transition: min-width 0.15s;
-  -ms-transition: min-width 0.15s;
-  transition: min-width 0.15s;
 }
 .sub-sidenav---sub-menu-open---2kVAr {
   display: block;
@@ -19,10 +14,10 @@
 .sub-sidenav---sub-menu-close---1bj8B {
   display: none;
 }
-.sub-sidenav---second-sub-menu-open---3iRz5 {
+.sub-sidenav---level-1---lRuKc .sub-sidenav---sub-menu-open---2kVAr {
   display: block;
 }
-.sub-sidenav---second-sub-menu-close---8KGYc {
+.sub-sidenav---level-1---lRuKc .sub-sidenav---sub-menu-close---1bj8B {
   display: none;
 }
 .sub-sidenav---sidenav---_2tBP.sub-sidenav---collapsed---LQDEv .sub-sidenav---sidenav-nav---3tvij .sub-sidenav---sidenav-navitem---uwIJ- .sub-sidenav---sidenav-subnav---1EN61 {
@@ -79,60 +74,74 @@
   display: box;
   display: flex;
   color: #09091a;
-  padding: 7px 14px 7px 35px;
+  padding: 7px 14px 7px 26px;
   line-height: 28px;
   font-size: 14px;
   background: #f8f8f9;
+  outline: none;
 }
-.sub-sidenav---second-sub-nav-item---7J_xR {
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---selectedSubWrapper---Y6Ff9,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---selectedSubWrapper---Y6Ff9 {
+  color: #2078e4;
+}
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---selectedSubWrapper---Y6Ff9 > .sub-sidenav---navitem---9uL5T,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---selectedSubWrapper---Y6Ff9 > .sub-sidenav---navitem---9uL5T,
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---selectedSubWrapper---Y6Ff9 > div > .sub-sidenav---navicon---3gCRo > i,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---selectedSubWrapper---Y6Ff9 > div > .sub-sidenav---navicon---3gCRo > i {
+  color: #2078e4;
+}
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---selectedSubWrapper---Y6Ff9 > div > i,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---selectedSubWrapper---Y6Ff9 > div > i {
+  color: #2078e4;
+}
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---navitem---9uL5T,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---navitem---9uL5T {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: box;
   display: flex;
-  color: #09091a;
-  padding: 7px 14px 7px 50px;
-  line-height: 28px;
-  font-size: 14px;
   background: #f8f8f9;
-  outline: none;
+  padding-left: 46px;
+  height: 50px;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   cursor: pointer;
 }
-.sub-sidenav---second-sub-menu-open---3iRz5 > .sub-sidenav---sidenav-navitem---uwIJ- > .sub-sidenav---navitem---9uL5T {
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---navitem---9uL5T .sub-sidenav---navicon---3gCRo,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---navitem---9uL5T .sub-sidenav---navicon---3gCRo {
+  margin-right: 5px;
+  width: 18px;
+}
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---navitem---9uL5T:focus,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---navitem---9uL5T:focus {
   outline: none;
-  cursor: pointer;
-  font-size: 14px;
 }
-.sub-sidenav---second-sub-nav-child---EYJAh.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T {
-  color: #2078e4;
+.sub-sidenav---subnav-2---BrFzK .sub-sidenav---navitem---9uL5T,
+.sub-sidenav---subchild-2---19Z3a .sub-sidenav---navitem---9uL5T {
+  padding: 0px 15px 0px 46px;
 }
-.sub-sidenav---second-sub-nav-child---EYJAh.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T > .sub-sidenav---navicon---3gCRo > i {
-  color: #2078e4;
-}
-.sub-sidenav---second-sub-nav-child---EYJAh > .sub-sidenav---navitem---9uL5T {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  padding: 7px 14px 7px 50px;
-  line-height: 28px;
-  font-size: 14px;
-  outline: none;
-  background: #f8f8f9;
-  cursor: pointer;
-}
-.sub-sidenav---second-sub-nav-child---EYJAh > .sub-sidenav---navitem---9uL5T.sub-sidenav---selected---1EK3y {
-  color: #f00;
+.sub-sidenav---subnav-3---1Vdfm .sub-sidenav---navitem---9uL5T,
+.sub-sidenav---subchild-3---31MYq .sub-sidenav---navitem---9uL5T {
+  padding: 0px 15px 0px 64px;
 }
 .sub-sidenav---sidenav-toggle---1KRjR {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
   position: relative;
   float: left;
   width: 64px;
   height: 50px;
-  padding: 0;
+  padding: 0 0 0 10px;
   margin: 0;
   background-color: transparent;
   background-image: none;
@@ -162,6 +171,9 @@
 }
 .sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T {
   border-left: 5px #2078e4 solid;
+}
+.sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T > div > i {
+  color: #2078e4;
 }
 .sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ- .sub-sidenav---navitem---9uL5T {
   border-left: 5px #f1f1f1 solid;
@@ -288,19 +300,15 @@
 .sub-sidenav---sidenav-subnav---1EN61 > .sub-sidenav---sidenav-subnavitem---1cD47 > .sub-sidenav---navitem---9uL5T:focus {
   outline: 0;
 }
-.sub-sidenav---expanded-icon-rotate---3qzXU {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+.sub-sidenav---expanded-icon---1Zdcm {
   -webkit-transition: -webkit-transform 0.3s;
   -moz-transition: -moz-transform 0.3s;
   -o-transition: -o-transform 0.3s;
   -ms-transition: -ms-transform 0.3s;
   transition: transform 0.3s;
+  color: #666;
 }
-.sub-sidenav---second-expanded-icon-rotate---1Za0N {
+.sub-sidenav---expanded-icon-rotate---3qzXU {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);

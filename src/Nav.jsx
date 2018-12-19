@@ -6,8 +6,6 @@ import NavItem from './NavItem';
 import match from './match-component';
 import styles from './index.styl';
 
-const noop = () => {};
-
 class Nav extends PureComponent {
     static propTypes = {
         componentType: PropTypes.any,
@@ -41,7 +39,8 @@ class Nav extends PureComponent {
     state = {
         expandedNavItem: null,
         selected: this.props.defaultSelected,
-        defaultSelected: this.props.defaultSelected
+        defaultSelected: this.props.defaultSelected,
+        activeItems: []
     };
 
     isNavItem = match(NavItem);
@@ -57,6 +56,13 @@ class Nav extends PureComponent {
             }));
         }
     }
+
+    addActiveItem = (item) => {
+        this.setState(state => ({
+            activeItems: [...state.activeItems, item]
+        }));
+    }
+
     renderNavItem(child, { onSelect, ...props }) {
         const { eventKey } = { ...child.props };
 
@@ -69,10 +75,12 @@ class Nav extends PureComponent {
                 }
             ),
             onSelect: chainedFunction(
-                this.state.defaultSelected ?
-                    (selected) => {
-                        this.setState({ selected: selected });
-                    } : noop,
+                (selected) => {
+                    this.setState({
+                        selected,
+                        activeItems: []
+                    });
+                },
                 child.props.onSelect,
                 onSelect
             )
@@ -83,11 +91,12 @@ class Nav extends PureComponent {
             componentType, // eslint-disable-line
             componentClass: Component,
             onSelect,
-            selected,
             defaultSelected, // eslint-disable-line
 
             // Props passed from SideNav component
             expanded,
+
+            selected,
 
             className,
             children,
@@ -97,7 +106,6 @@ class Nav extends PureComponent {
         const currentSelected = this.state.defaultSelected
             ? this.state.selected
             : selected;
-        console.log(currentSelected);
 
         return (
             <Component
@@ -115,7 +123,11 @@ class Nav extends PureComponent {
                             onSelect,
                             selected: currentSelected,
                             expanded: (!!child.props.expanded) ||
-                                (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey)
+                                (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey),
+                            subLevel: 0,
+                            isSideNavExpanded: expanded,
+                            addActiveItem: this.addActiveItem,
+                            activeItems: this.state.activeItems
                         });
                     }
 
