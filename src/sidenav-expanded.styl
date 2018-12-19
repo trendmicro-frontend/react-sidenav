@@ -66,10 +66,12 @@
 
 .subnav-1, .subchild-1 {
 
-  .selected {
-    .navitem, .navicon > i {
-    color: #2078E4;
-    }
+  .selectedSubWrapper {
+      color: #2078E4;
+
+      > div > .navicon > i {
+          color: #2078E4;
+      }
   }
 
   .navitem {
@@ -83,7 +85,7 @@
     .navicon {
     margin-right: 5px;
     width: 18px;
-    color: red;
+
     }
 
     &:focus {

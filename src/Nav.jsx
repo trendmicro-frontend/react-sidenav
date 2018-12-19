@@ -38,9 +38,9 @@ class Nav extends PureComponent {
 
     state = {
         expandedNavItem: null,
-        selectedParent: this.props.defaultSelected,
-        selectedItem: this.props.defaultSelected,
-        defaultSelected: this.props.defaultSelected
+        selected: this.props.defaultSelected,
+        defaultSelected: this.props.defaultSelected,
+        activeItems: []
     };
 
     isNavItem = match(NavItem);
@@ -56,6 +56,13 @@ class Nav extends PureComponent {
             }));
         }
     }
+
+    addActiveItem = (item) => {
+        this.setState(state => ({
+            activeItems: [...state.activeItems, item]
+        }));
+    }
+
     renderNavItem(child, { onSelect, ...props }) {
         const { eventKey } = { ...child.props };
 
@@ -68,10 +75,10 @@ class Nav extends PureComponent {
                 }
             ),
             onSelect: chainedFunction(
-                (selectedParent, selectedItem) => {
+                (selected) => {
                     this.setState({
-                        selectedParent,
-                        selectedItem
+                        selected,
+                        activeItems: []
                     });
                 },
                 child.props.onSelect,
@@ -89,22 +96,20 @@ class Nav extends PureComponent {
             // Props passed from SideNav component
             expanded,
 
-            selectedParent,
-            selectedItem,
+            selected,
 
             className,
             children,
             ...props
         } = this.props;
 
-        const currentParentSelected = this.state.defaultSelected
-            ? this.state.selectedParent
-            : selectedParent;
-        const currentItemSelected = this.state.defaultSelected
-            ? this.state.selectedItem
-            : selectedItem;
+        const currentSelected = this.state.defaultSelected
+            ? this.state.selected
+            : selected;
 
-        console.log(this.state);
+        if (!expanded) {
+            this.setState({ expandedNavItem: undefined });
+        }
 
         return (
             <Component
@@ -120,11 +125,13 @@ class Nav extends PureComponent {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
                         return this.renderNavItem(child, {
                             onSelect,
-                            selectedParent: currentParentSelected,
-                            selectedItem: currentItemSelected,
+                            selected: currentSelected,
                             expanded: (!!child.props.expanded) ||
                                 (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey),
-                            subLevel: 0
+                            subLevel: 0,
+                            isSideNavExpanded: expanded,
+                            addActiveItem: this.addActiveItem,
+                            activeItems: this.state.activeItems
                         });
                     }
 

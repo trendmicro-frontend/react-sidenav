@@ -4,7 +4,7 @@ import ensureArray from 'ensure-array';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav from '../SideNav';
-import contentGenerator from './contentGenerator';
+import generateMenu from './contentGenerator';
 
 // fake array for contentGenerator
 
@@ -94,12 +94,13 @@ export default class extends PureComponent {
                     onToggle={this.onToggle}
                     expanded={this.state.expanded}
                 >
-                    <SideNav.Toggle />
-                    <NavHeader style={{ height: '50px' }} expanded={expanded}>
-                        <NavTitle>Side Navigation</NavTitle>
-                    </NavHeader>
+                    <SideNav.Toggle >
+                        <NavHeader style={{ height: '50px' }} expanded={expanded}>
+                            <NavTitle>Side Navigation</NavTitle>
+                        </NavHeader>
+                    </SideNav.Toggle>
                     <SideNav.Nav selected={selected} defaultSelected="home">
-                        {contentGenerator(generateContent, { expanded, onToggle: this.onToggle })}
+                        {generateMenu(generateContent, { expanded, onToggle: this.onToggle })}
                     </SideNav.Nav>
                 </SideNav>
                 <Main expanded={expanded}>
