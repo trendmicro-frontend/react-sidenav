@@ -358,7 +358,7 @@ class NavItem extends PureComponent {
                     role="menuitem"
                     tabIndex="-1"
                     onClick={chainedFunction(
-                        navItems.length > 0 && this.props.toggleExpanded,
+                        navItems.length > 0 ? () => this.props.toggleExpanded(true) : () => {},
                         onClick,
                         navItems.length === 0 && this.handleSelect
                     )}
