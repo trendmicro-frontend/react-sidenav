@@ -1,4 +1,4 @@
-/*! react-sub-sidenav v0.4.7 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
+/*! react-sub-sidenav v0.4.8 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sub-sidenav---sidenav---_2tBP {
   position: absolute;
   top: 0;
@@ -118,6 +118,10 @@
   margin-right: 5px;
   width: 18px;
 }
+.sub-sidenav---subnav-1---1TUK0 .sub-sidenav---navitem---9uL5T .sub-sidenav---navicon---3gCRo > i,
+.sub-sidenav---subchild-1---wF6G2 .sub-sidenav---navitem---9uL5T .sub-sidenav---navicon---3gCRo > i {
+  color: #666;
+}
 .sub-sidenav---subnav-1---1TUK0 .sub-sidenav---navitem---9uL5T:focus,
 .sub-sidenav---subchild-1---wF6G2 .sub-sidenav---navitem---9uL5T:focus {
   outline: none;
@@ -137,6 +141,12 @@
   display: -ms-flexbox;
   display: box;
   display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   position: relative;
   float: left;
   width: 64px;
@@ -172,7 +182,8 @@
 .sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T {
   border-left: 5px #2078e4 solid;
 }
-.sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T > div > i {
+.sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T > div > .sub-sidenav---navicon---3gCRo > i,
+.sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ-.sub-sidenav---selected---1EK3y > .sub-sidenav---navitem---9uL5T div > i {
   color: #2078e4;
 }
 .sub-sidenav---sidenav-nav---3tvij > .sub-sidenav---sidenav-navitem---uwIJ- .sub-sidenav---navitem---9uL5T {
