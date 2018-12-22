@@ -2,18 +2,14 @@
 import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { PureComponent, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import NavIcon from './NavIcon';
 import NavText from './NavText';
 import findComponent from './find-component';
 import match from './match-component';
 import styles from './index.styl';
 
-class NavItem extends PureComponent {
-    state = {
-        subOpen: false
-    }
-
+class NavItem extends React.Component {
     static propTypes = {
         componentType: PropTypes.any,
 
@@ -78,7 +74,7 @@ class NavItem extends PureComponent {
 
     handleSelect = (event) => {
         const {
-            disabled, onSelect, eventKey
+            disabled, onSelect, eventKey, subLevel
         } = this.props;
 
         if (disabled) {
@@ -87,15 +83,9 @@ class NavItem extends PureComponent {
         }
 
         if (onSelect) {
-            onSelect(eventKey);
+            onSelect(eventKey, subLevel);
         }
     };
-
-    onToggle = (eventKey) => {
-        this.setState(state => ({
-            subOpen: state.subOpen !== eventKey ? eventKey : undefined
-        }));
-    }
 
     render() {
         const {
@@ -122,8 +112,6 @@ class NavItem extends PureComponent {
             navitemStyle,
             subnavClassName,
             subnavStyle,
-
-            isSideNavExpanded,
 
             // Default props
             className,
@@ -154,34 +142,28 @@ class NavItem extends PureComponent {
                         return React.isValidElement(subChild) && this.isNavItem(subChild);
                     });
 
-                    if (!this.props.activeItems.includes(this.props.eventKey)) {
-                        if (this.props.selected === child.props.eventKey || this.props.activeItems.includes(child.props.eventKey)) {
-                            this.props.addActiveItem(this.props.eventKey);
-                        }
-                    }
-
-                    if (this.state.subOpen && !isSideNavExpanded) {
-                        this.setState({
-                            subOpen: undefined
-                        });
+                    if ((child.props.eventKey === this.props.selected
+                        || child.props.eventKey === this.props.activeItems[this.props.subLevel + 1])
+                          && this.props.activeItems[this.props.subLevel] !== this.props.eventKey) {
+                        this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
                     }
 
                     if (subNavItems.length > 0) {
                         return cloneElement(child, {
                             subNav: true,
                             selected,
+                            activeItems: this.props.activeItems,
+                            expanded: child.props.eventKey === this.props.selected
+                              || this.props.activeItems[this.props.subLevel + 1] === child.props.eventKey,
+                            addActiveItem: this.props.addActiveItem,
                             onSelect: chainedFunction(
                                 child.props.onSelect,
                                 onSelect
                             ),
-                            onClick: () => {
-                                this.onToggle(child.props.eventKey);
-                            },
-                            subOpen: this.state.subOpen,
+                            onClick: this.props.addActiveItem,
                             subLevel: this.props.subLevel + 1,
-                            activeItems: this.props.activeItems,
-                            addActiveItem: this.props.addActiveItem,
-                            isSideNavExpanded
+                            clearState: this.props.clearState,
+                            highlitedItems: this.props.highlitedItems
                         });
                     }
                     return cloneElement(child, {
@@ -191,20 +173,20 @@ class NavItem extends PureComponent {
                             child.props.onSelect,
                             onSelect
                         ),
-                        onClick: () => {
-                            this.onToggle(child.props.eventKey);
-                        },
+                        onClick: this.props.addActiveItem,
                         subLevel: this.props.subLevel + 1,
                         activeItems: this.props.activeItems,
                         addActiveItem: this.props.addActiveItem,
-                        isSideNavExpanded
+                        clearState: this.props.clearState,
+                        highlitedItems: this.props.highlitedItems
                     });
                 });
 
-            const isNavItemSelected = selected === eventKey || activeItems.includes(eventKey);
+            const isNavItemSelected = selected === eventKey || activeItems[this.props.subLevel] === (eventKey) && selected
+              || this.props.highlitedItems[this.props.subLevel] === (eventKey) || this.props.highlitedItems.selected === (eventKey);
 
             if (navItems.length > 0) {
-                const isOpen = this.props.subOpen === this.props.eventKey;
+                const isOpen = this.props.activeItems[this.props.subLevel] === this.props.eventKey;
 
                 return (
                     <Component
@@ -228,7 +210,8 @@ class NavItem extends PureComponent {
                                 background: '#f8f8f9'
                             }}
                             onClick={chainedFunction(
-                                onClick
+                                () => this.props.clearState('subNav', this.props.eventKey),
+                                () => onClick(this.props.eventKey, this.props.subLevel),
                             )}
                         >
                             <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -274,7 +257,7 @@ class NavItem extends PureComponent {
                         role="menuitem"
                         tabIndex="-1"
                         onClick={chainedFunction(
-                            onClick,
+                            () => this.props.clearState('subChild'),
                             this.handleSelect
                         )}
                     >
@@ -298,32 +281,27 @@ class NavItem extends PureComponent {
                 return React.isValidElement(child) && this.isNavItem(child);
             })
             .map((child) => {
-                if ((this.props.selected === child.props.eventKey || this.props.activeItems.includes(child.props.eventKey))
-                  && !this.props.activeItems.includes(this.props.eventKey)) {
-                    this.props.addActiveItem(this.props.eventKey);
-                }
-
-                if (this.state.subOpen && !isSideNavExpanded) {
-                    this.setState({
-                        subOpen: undefined
-                    });
+                if ((child.props.eventKey === this.props.selected
+                    || child.props.eventKey === this.props.activeItems[this.props.subLevel + 1])
+                      && this.props.activeItems[this.props.subLevel] !== this.props.eventKey) {
+                    this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
                 }
 
                 return cloneElement(child, {
                     subNav: true,
+                    subLevel: this.props.subLevel + 1,
                     selected,
+                    activeItems: this.props.activeItems,
+                    expanded: this.props.eventKey === this.props.selected
+                      || this.props.activeItems[this.props.subLevel + 1] === child.props.eventKey,
                     onSelect: chainedFunction(
                         child.props.onSelect,
                         onSelect
                     ),
-                    onClick: () => {
-                        this.onToggle(child.props.eventKey);
-                    },
-                    subOpen: this.state.subOpen,
-                    subLevel: this.props.subLevel + 1,
-                    activeItems: this.props.activeItems,
+                    onClick: this.props.addActiveItem,
                     addActiveItem: this.props.addActiveItem,
-                    isSideNavExpanded
+                    clearState: this.props.clearState,
+                    highlitedItems: this.props.highlitedItems
                 });
             });
         const others = React.Children.toArray(children)
@@ -334,7 +312,8 @@ class NavItem extends PureComponent {
                 return true;
             });
 
-        const isNavItemSelected = selected === eventKey || activeItems.includes(eventKey);
+        const isNavItemSelected = selected === eventKey || activeItems[this.props.subLevel] === eventKey && selected
+          || this.props.highlitedItems[this.props.subLevel] === (eventKey) || this.props.activeItems.selected === eventKey;
         const isNavItemExpandable = (navItems.length > 0);
         const isNavItemExpanded = isNavItemExpandable && expanded;
         const isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
@@ -359,7 +338,9 @@ class NavItem extends PureComponent {
                     tabIndex="-1"
                     onClick={chainedFunction(
                         navItems.length > 0 ? () => this.props.toggleExpanded(true) : () => {},
-                        onClick,
+                        navItems.length > 0 ? () => this.props.clearState('subNav', this.props.eventKey)
+                            : () => this.props.clearState('subChild'),
+                        () => onClick(this.props.eventKey, this.props.subLevel),
                         navItems.length === 0 && this.handleSelect
                     )}
                     style={{

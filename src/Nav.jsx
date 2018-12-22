@@ -1,12 +1,12 @@
 import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { PureComponent, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import NavItem from './NavItem';
 import match from './match-component';
 import styles from './index.styl';
 
-class Nav extends PureComponent {
+class Nav extends React.Component {
     static propTypes = {
         componentType: PropTypes.any,
 
@@ -37,51 +37,76 @@ class Nav extends PureComponent {
     };
 
     state = {
-        expandedNavItem: null,
-        selected: this.props.defaultSelected,
-        defaultSelected: this.props.defaultSelected,
-        activeItems: []
+        activeItems: {},
+        highlitedItems: {},
+        selected: this.props.selected ? this.props.selected : this.props.defaultSelected
     };
+
+    componentDidMount() {
+        this.setState(state => {
+            const newObj = state.activeItems;
+            newObj.selected = this.state.selected;
+            return {
+                highlitedItems: newObj
+            };
+        });
+    }
 
     isNavItem = match(NavItem);
 
-    handleClickOnExpanded(eventKey, event) {
-        if (this.props.expanded) {
-            this.setState(state => ({
-                expandedNavItem: state.expandedNavItem !== eventKey ? eventKey : ''
-            }));
-        } else {
-            this.setState(state => ({
-                expandedNavItem: eventKey
-            }));
-        }
+    clearState = (type, eventKey) => { //eslint-disable-line
+        // if (type === 'subNav') {
+        //     const newObj = this.state.activeItems;
+        //     for (const key in newObj) {
+        //         if (newObj.hasOwnProperty(key)) { // eslint-disable-line
+        //             const element = newObj[key];
+        //             if (eventKey === element) {
+        //                 const newActiveItems = this.state.activeItems;
+        //                 delete newActiveItems[key];
+        //                 return this.setState({
+        //                     activeItems: {},
+        //                     selected: undefined
+        //                 });
+        //             }
+        //             console.log('this.state');
+        //         }
+        //     }
+        // }
+        // console.log('triggers');
+        return this.setState({
+            selected: undefined,
+            activeItems: {}
+        });
     }
 
-    addActiveItem = (item) => {
-        this.setState(state => ({
-            activeItems: [...state.activeItems, item]
-        }));
+    addActiveItem = (item, level) => {
+        this.setState(state => {
+            const activeItems = state.activeItems;
+            activeItems[level] = item;
+            return ({
+                activeItems
+            });
+        });
     }
 
     renderNavItem(child, { onSelect, ...props }) {
-        const { eventKey } = { ...child.props };
-
         return cloneElement(child, {
             ...props,
             onClick: chainedFunction(
                 child.props.onClick,
-                (event) => {
-                    this.handleClickOnExpanded(eventKey, event);
-                }
+                this.clearState,
+                this.addActiveItem
             ),
             onSelect: chainedFunction(
-                (selected) => {
-                    this.setState({
-                        selected,
-                        activeItems: []
-                    });
-                },
                 child.props.onSelect,
+                (selected, subLevel) => this.setState(state => {
+                    const newObj = state.activeItems;
+                    newObj[subLevel] = selected;
+                    return {
+                        selected,
+                        highlitedItems: newObj
+                    };
+                }),
                 onSelect
             )
         });
@@ -96,16 +121,10 @@ class Nav extends PureComponent {
             // Props passed from SideNav component
             expanded,
 
-            selected,
-
             className,
             children,
             ...props
         } = this.props;
-
-        const currentSelected = this.state.defaultSelected
-            ? this.state.selected
-            : selected;
 
         return (
             <Component
@@ -117,17 +136,18 @@ class Nav extends PureComponent {
                     { [styles.expanded]: expanded }
                 )}
             >
-                {React.Children.map(children, child => {
+                {React.Children.map(children, (child, i) => {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
                         return this.renderNavItem(child, {
                             onSelect,
-                            selected: currentSelected,
-                            expanded: (!!child.props.expanded) ||
-                                (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey),
+                            selected: this.state.selected,
+                            expanded: child.props.eventKey === this.state.selected
+                              || this.state.activeItems['0'] === child.props.eventKey,
                             subLevel: 0,
-                            isSideNavExpanded: expanded,
                             addActiveItem: this.addActiveItem,
-                            activeItems: this.state.activeItems
+                            activeItems: this.state.activeItems,
+                            clearState: this.clearState,
+                            highlitedItems: this.state.highlitedItems
                         });
                     }
 

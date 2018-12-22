@@ -23,12 +23,12 @@ const generateSubNav = (subArray) => {
     });
 };
 
-const generateMenu = (content, props) => {
+const generateMenu = (content, onToggle) => {
     return content.map((item) => {
         return (
             <NavItem
                 key={item.id}
-                toggleExpanded={props.onToggle}
+                toggleExpanded={onToggle}
                 eventKey={item.to ? item.to : item.id}
             >
                 <NavIcon>

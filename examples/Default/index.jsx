@@ -7,7 +7,6 @@ import SideNav from '../SideNav';
 import generateMenu from './contentGenerator';
 
 // fake array for contentGenerator
-const generateContent = [];
 
 const Main = styled.main`
     position: relative;
@@ -42,11 +41,12 @@ const NavTitle = styled.div`
 
 export default class extends PureComponent {
     state = {
-        selected: 'home',
+        selected: undefined,
         expanded: false
     };
 
     onSelect = (selected) => {
+        console.log('onSelect: ', selected);
         this.setState({ selected: selected });
     };
 
@@ -80,10 +80,6 @@ export default class extends PureComponent {
         );
     }
 
-    navigate = (pathname) => () => {
-        this.setState({ selected: pathname });
-    };
-
     render() {
         const { expanded, selected } = this.state;
 
@@ -92,15 +88,15 @@ export default class extends PureComponent {
                 <SideNav
                     onSelect={this.onSelect}
                     onToggle={this.onToggle}
-                    expanded={this.state.expanded}
+                    expanded={expanded}
                 >
                     <SideNav.Toggle >
                         <NavHeader style={{ height: '50px' }} expanded={expanded}>
                             <NavTitle>Side Navigation</NavTitle>
                         </NavHeader>
                     </SideNav.Toggle>
-                    <SideNav.Nav selected={selected} defaultSelected="home">
-                        {generateMenu(generateContent, { expanded, onToggle: this.onToggle })}
+                    <SideNav.Nav selected={selected} defaultSelected="/last-mile/tools/bm-apac/driver/channel-overview">
+                        {generateMenu(generateContent, this.onToggle)}
                     </SideNav.Nav>
                 </SideNav>
                 <Main expanded={expanded}>
