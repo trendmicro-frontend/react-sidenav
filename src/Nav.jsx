@@ -38,15 +38,22 @@ class Nav extends React.Component {
 
     state = {
         activeItems: {},
-        highlightedItems: {},
+        highlightedItems: [],
         selected: this.props.selected ? this.props.selected : this.props.defaultSelected
     };
 
-    componentDidMount() {
-        this.changeSomething();
-    }
-
     isNavItem = match(NavItem);
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.expanded && !nextProps.expanded) {
+            const newObj = {};
+            newObj['0'] = this.state.activeItems['0'];
+            this.setState({
+                selected: undefined,
+                activeItems: newObj
+            });
+        }
+    }
 
     changeHighlightedItems = (selected) => {
         this.setState({
@@ -54,13 +61,9 @@ class Nav extends React.Component {
         });
     }
 
-    changeSomething = () => {
-        this.setState(state => {
-            const newObj = state.activeItems;
-            newObj.selected = state.selected;
-            return {
-                highlightedItems: newObj
-            };
+    clear = () => {
+        this.setState({
+            highlightedItems: []
         });
     }
 
@@ -90,6 +93,15 @@ class Nav extends React.Component {
         });
     }
 
+    addHighlightedItem = (item) => {
+        this.setState(state => {
+            const highlightedItems = state.highlightedItems;
+            return ({
+                highlightedItems: [...highlightedItems, item]
+            });
+        });
+    }
+
     renderNavItem(child, { onSelect, ...props }) {
         return cloneElement(child, {
             ...props,
@@ -98,8 +110,8 @@ class Nav extends React.Component {
             ),
             onSelect: chainedFunction(
                 child.props.onSelect,
+                this.clear,
                 this.changeHighlightedItems,
-                this.changeSomething,
                 onSelect
             )
         });
@@ -120,6 +132,8 @@ class Nav extends React.Component {
             ...props
         } = this.props;
 
+        console.log(this.state);
+
         return (
             <Component
                 {...props}
@@ -132,6 +146,11 @@ class Nav extends React.Component {
             >
                 {React.Children.map(children, (child, i) => {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
+                        if (child.props.eventKey === this.state.selected
+                              && !this.state.highlightedItems.includes(child.props.eventKey)) {
+                            this.addHighlightedItem(child.props.eventKey);
+                        }
+
                         return this.renderNavItem(child, {
                             onSelect,
                             selected: this.state.selected,
@@ -141,7 +160,8 @@ class Nav extends React.Component {
                             addActiveItem: this.addActiveItem,
                             activeItems: this.state.activeItems,
                             clearState: this.clearState,
-                            highlightedItems: this.state.highlightedItems
+                            highlightedItems: this.state.highlightedItems,
+                            addHighlightedItem: this.addHighlightedItem
                         });
                     }
 

@@ -149,6 +149,18 @@ class NavItem extends React.Component {
                         }
                     }
 
+                    if ((child.props.eventKey === this.props.selected || this.props.selected === this.props.eventKey
+                        || this.props.highlightedItems.includes(child.props.eventKey))
+                    && !this.props.highlightedItems.includes(this.props.eventKey)) {
+                        this.props.addHighlightedItem(this.props.eventKey);
+                    }
+
+                    if ((child.props.eventKey === this.props.selected
+                        || this.props.highlightedItems.includes(child.props.eventKey))
+                    && !this.props.highlightedItems.includes(child.props.eventKey)) {
+                        this.props.addHighlightedItem(child.props.eventKey);
+                    }
+
                     if (subNavItems.length > 0) {
                         // TODO:refactor
                         return cloneElement(child, {
@@ -163,7 +175,8 @@ class NavItem extends React.Component {
                             onClick: this.props.addActiveItem,
                             subLevel: this.props.subLevel + 1,
                             clearState: this.props.clearState,
-                            highlightedItems: this.props.highlightedItems
+                            highlightedItems: this.props.highlightedItems,
+                            addHighlightedItem: this.props.addHighlightedItem
                         });
                     }
                     return cloneElement(child, {
@@ -179,13 +192,14 @@ class NavItem extends React.Component {
                         activeItems: this.props.activeItems,
                         addActiveItem: this.props.addActiveItem,
                         clearState: this.props.clearState,
-                        highlightedItems: this.props.highlightedItems
+                        highlightedItems: this.props.highlightedItems,
+                        addHighlightedItem: this.props.addHighlightedItem
                     });
                 });
 
 
-            const isNavItemSelected = this.props.highlightedItems[this.props.subLevel] === eventKey
-              || this.props.highlightedItems.selected === eventKey;
+            const isNavItemSelected = this.props.highlightedItems.includes(this.props.eventKey)
+              || this.props.eventKey === this.props.selected;
 
             if (navItems.length > 0) {
                 const isOpen = this.props.activeItems[this.props.subLevel] === this.props.eventKey;
@@ -291,6 +305,18 @@ class NavItem extends React.Component {
                     this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
                 }
 
+                if ((child.props.eventKey === this.props.selected || this.props.selected === this.props.eventKey
+                    || this.props.highlightedItems.includes(child.props.eventKey))
+                && !this.props.highlightedItems.includes(this.props.eventKey)) {
+                    this.props.addHighlightedItem(this.props.eventKey);
+                }
+
+                if ((child.props.eventKey === this.props.selected
+                    || this.props.highlightedItems.includes(child.props.eventKey))
+                && !this.props.highlightedItems.includes(child.props.eventKey)) {
+                    this.props.addHighlightedItem(child.props.eventKey);
+                }
+
                 return cloneElement(child, {
                     // TODO:refactor
                     subNav: true,
@@ -304,7 +330,8 @@ class NavItem extends React.Component {
                     onClick: this.props.addActiveItem,
                     addActiveItem: this.props.addActiveItem,
                     clearState: this.props.clearState,
-                    highlightedItems: this.props.highlightedItems
+                    highlightedItems: this.props.highlightedItems,
+                    addHighlightedItem: this.props.addHighlightedItem
                 });
             });
         const others = React.Children.toArray(children)
@@ -315,8 +342,7 @@ class NavItem extends React.Component {
                 return true;
             });
 
-        const isNavItemSelected = this.props.highlightedItems[this.props.subLevel] === eventKey
-         || this.props.eventKey === this.props.selected;
+        const isNavItemSelected = this.props.highlightedItems.includes(this.props.eventKey);
         const isNavItemExpandable = (navItems.length > 0);
         const isNavItemExpanded = isNavItemExpandable && expanded;
         const isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
