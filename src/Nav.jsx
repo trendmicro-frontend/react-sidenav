@@ -43,7 +43,6 @@ class Nav extends React.Component {
     };
 
     componentDidMount() {
-        console.log('here1');
         this.setState(state => {
             const newObj = state.activeItems;
             newObj.selected = state.selected;
@@ -55,17 +54,17 @@ class Nav extends React.Component {
 
     isNavItem = match(NavItem);
 
-    changeHighlightedItems = (selected, subLevel) => {
-        this.setState(state => {
-            console.log('here2');
-            const newObj = state.activeItems;
-            newObj[subLevel] = selected;
-            return {
-                selected,
-                highlightedItems: newObj
-            };
-        });
-    }
+    // changeHighlightedItems = (selected, subLevel) => {
+    //     this.setState(state => {
+    //         console.log('here2');
+    //         const newObj = state.activeItems;
+    //         newObj[subLevel] = selected;
+    //         return {
+    //             selected,
+    //             highlightedItems: newObj
+    //         };
+    //     });
+    // }
 
     clearState = (type, eventKey, level) => {
         if (type === 'subNav' && this.state.activeItems[level] === eventKey) {
@@ -101,7 +100,7 @@ class Nav extends React.Component {
             ),
             onSelect: chainedFunction(
                 child.props.onSelect,
-                this.changeHighlightedItems,
+                //this.changeHighlightedItems,
                 onSelect
             )
         });
@@ -121,8 +120,6 @@ class Nav extends React.Component {
             children,
             ...props
         } = this.props;
-
-        console.log(this.state.highlightedItems);
 
         return (
             <Component
