@@ -1,12 +1,12 @@
 import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { PureComponent, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import NavItem from './NavItem';
 import match from './match-component';
 import styles from './index.styl';
 
-class Nav extends PureComponent {
+class Nav extends React.Component {
     static propTypes = {
         componentType: PropTypes.any,
 
@@ -37,55 +37,86 @@ class Nav extends PureComponent {
     };
 
     state = {
-        expandedNavItem: null,
-        selected: this.props.defaultSelected,
-        defaultSelected: this.props.defaultSelected,
-        activeItems: []
+        activeItems: {},
+        highlightedItems: [],
+        selected: this.props.selected ? this.props.selected : this.props.defaultSelected
     };
 
     isNavItem = match(NavItem);
 
-    handleClickOnExpanded(eventKey, event) {
-        if (this.props.expanded) {
-            this.setState(state => ({
-                expandedNavItem: state.expandedNavItem !== eventKey ? eventKey : ''
-            }));
-        } else {
-            this.setState(state => ({
-                expandedNavItem: eventKey
-            }));
+    componentWillReceiveProps(nextProps) {
+        if (this.props.expanded && !nextProps.expanded) {
+            const newObj = {};
+            newObj['0'] = this.state.activeItems['0'];
+            this.setState({
+                selected: undefined,
+                activeItems: newObj
+            });
         }
     }
 
-    addActiveItem = (item) => {
-        this.setState(state => ({
-            activeItems: [...state.activeItems, item]
-        }));
+    changeHighlightedItems = (selected) => {
+        this.setState({
+            selected
+        });
+    }
+
+    clear = () => {
+        this.setState({
+            highlightedItems: []
+        });
+    }
+
+    clearState = (type, eventKey, level) => {
+        if (type === 'subNav' && this.state.activeItems[level] === eventKey) {
+            return this.setState({
+                selected: undefined
+            });
+        }
+        return this.setState({
+            activeItems: {},
+            selected: undefined
+        });
+    }
+
+    addActiveItem = (item, level) => {
+        this.setState(state => {
+            const activeItems = state.activeItems;
+            if (activeItems[level] === item && this.props.expanded) {
+                activeItems[level] = null;
+            } else {
+                activeItems[level] = item;
+            }
+            return ({
+                activeItems
+            });
+        });
+    }
+
+    addHighlightedItem = (item) => {
+        this.setState(state => {
+            const highlightedItems = state.highlightedItems;
+            return ({
+                highlightedItems: [...highlightedItems, item]
+            });
+        });
     }
 
     renderNavItem(child, { onSelect, ...props }) {
-        const { eventKey } = { ...child.props };
-
         return cloneElement(child, {
             ...props,
             onClick: chainedFunction(
-                child.props.onClick,
-                (event) => {
-                    this.handleClickOnExpanded(eventKey, event);
-                }
+                this.addActiveItem
             ),
             onSelect: chainedFunction(
-                (selected) => {
-                    this.setState({
-                        selected,
-                        activeItems: []
-                    });
-                },
                 child.props.onSelect,
+                this.clear,
+                this.changeHighlightedItems,
                 onSelect
             )
         });
     }
+
     render() {
         const {
             componentType, // eslint-disable-line
@@ -96,16 +127,12 @@ class Nav extends PureComponent {
             // Props passed from SideNav component
             expanded,
 
-            selected,
-
             className,
             children,
             ...props
         } = this.props;
 
-        const currentSelected = this.state.defaultSelected
-            ? this.state.selected
-            : selected;
+        console.log(this.state);
 
         return (
             <Component
@@ -117,17 +144,24 @@ class Nav extends PureComponent {
                     { [styles.expanded]: expanded }
                 )}
             >
-                {React.Children.map(children, child => {
+                {React.Children.map(children, (child, i) => {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
+                        if (child.props.eventKey === this.state.selected
+                              && !this.state.highlightedItems.includes(child.props.eventKey)) {
+                            this.addHighlightedItem(child.props.eventKey);
+                        }
+
                         return this.renderNavItem(child, {
                             onSelect,
-                            selected: currentSelected,
-                            expanded: (!!child.props.expanded) ||
-                                (expanded && !!this.state.expandedNavItem && this.state.expandedNavItem === child.props.eventKey),
+                            selected: this.state.selected,
+                            expanded: this.props.expanded && (child.props.eventKey === this.state.selected
+                              || this.state.activeItems['0'] === child.props.eventKey),
                             subLevel: 0,
-                            isSideNavExpanded: expanded,
                             addActiveItem: this.addActiveItem,
-                            activeItems: this.state.activeItems
+                            activeItems: this.state.activeItems,
+                            clearState: this.clearState,
+                            highlightedItems: this.state.highlightedItems,
+                            addHighlightedItem: this.addHighlightedItem
                         });
                     }
 
