@@ -101,8 +101,6 @@ class NavItem extends React.Component {
             // Nav props
             selected,
 
-            activeItems,
-
             // Sub navigation item
             subNav,
             subChild,
@@ -142,19 +140,21 @@ class NavItem extends React.Component {
                         return React.isValidElement(subChild) && this.isNavItem(subChild);
                     });
 
-                    if ((child.props.eventKey === this.props.selected
+                    // TODO:refactor
+                    if (this.props.activeItems[this.props.subLevel] !== null) {
+                        if ((child.props.eventKey === this.props.selected
                         || child.props.eventKey === this.props.activeItems[this.props.subLevel + 1])
                           && this.props.activeItems[this.props.subLevel] !== this.props.eventKey) {
-                        this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
+                            this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
+                        }
                     }
 
                     if (subNavItems.length > 0) {
+                        // TODO:refactor
                         return cloneElement(child, {
                             subNav: true,
                             selected,
                             activeItems: this.props.activeItems,
-                            expanded: child.props.eventKey === this.props.selected
-                              || this.props.activeItems[this.props.subLevel + 1] === child.props.eventKey,
                             addActiveItem: this.props.addActiveItem,
                             onSelect: chainedFunction(
                                 child.props.onSelect,
@@ -163,10 +163,11 @@ class NavItem extends React.Component {
                             onClick: this.props.addActiveItem,
                             subLevel: this.props.subLevel + 1,
                             clearState: this.props.clearState,
-                            highlitedItems: this.props.highlitedItems
+                            highlightedItems: this.props.highlightedItems
                         });
                     }
                     return cloneElement(child, {
+                        // TODO:refactor
                         subChild: true,
                         selected,
                         onSelect: chainedFunction(
@@ -178,12 +179,13 @@ class NavItem extends React.Component {
                         activeItems: this.props.activeItems,
                         addActiveItem: this.props.addActiveItem,
                         clearState: this.props.clearState,
-                        highlitedItems: this.props.highlitedItems
+                        highlightedItems: this.props.highlightedItems
                     });
                 });
 
-            const isNavItemSelected = selected === eventKey || activeItems[this.props.subLevel] === (eventKey) && selected
-              || this.props.highlitedItems[this.props.subLevel] === (eventKey) || this.props.highlitedItems.selected === (eventKey);
+
+            const isNavItemSelected = this.props.highlightedItems[this.props.subLevel] === eventKey
+              || this.props.highlightedItems.selected === eventKey;
 
             if (navItems.length > 0) {
                 const isOpen = this.props.activeItems[this.props.subLevel] === this.props.eventKey;
@@ -210,7 +212,7 @@ class NavItem extends React.Component {
                                 background: '#f8f8f9'
                             }}
                             onClick={chainedFunction(
-                                () => this.props.clearState('subNav', this.props.eventKey),
+                                () => this.props.clearState('subNav', this.props.eventKey, this.props.subLevel),
                                 () => onClick(this.props.eventKey, this.props.subLevel),
                             )}
                         >
@@ -281,19 +283,20 @@ class NavItem extends React.Component {
                 return React.isValidElement(child) && this.isNavItem(child);
             })
             .map((child) => {
-                if ((child.props.eventKey === this.props.selected
+                // TODO:refactor
+                if (this.props.activeItems[this.props.subLevel] !== null &&
+                    (child.props.eventKey === this.props.selected
                     || child.props.eventKey === this.props.activeItems[this.props.subLevel + 1])
                       && this.props.activeItems[this.props.subLevel] !== this.props.eventKey) {
                     this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
                 }
 
                 return cloneElement(child, {
+                    // TODO:refactor
                     subNav: true,
                     subLevel: this.props.subLevel + 1,
                     selected,
                     activeItems: this.props.activeItems,
-                    expanded: this.props.eventKey === this.props.selected
-                      || this.props.activeItems[this.props.subLevel + 1] === child.props.eventKey,
                     onSelect: chainedFunction(
                         child.props.onSelect,
                         onSelect
@@ -301,7 +304,7 @@ class NavItem extends React.Component {
                     onClick: this.props.addActiveItem,
                     addActiveItem: this.props.addActiveItem,
                     clearState: this.props.clearState,
-                    highlitedItems: this.props.highlitedItems
+                    highlightedItems: this.props.highlightedItems
                 });
             });
         const others = React.Children.toArray(children)
@@ -312,8 +315,8 @@ class NavItem extends React.Component {
                 return true;
             });
 
-        const isNavItemSelected = selected === eventKey || activeItems[this.props.subLevel] === eventKey && selected
-          || this.props.highlitedItems[this.props.subLevel] === (eventKey) || this.props.activeItems.selected === eventKey;
+        const isNavItemSelected = this.props.highlightedItems[this.props.subLevel] === eventKey
+         || this.props.eventKey === this.props.selected;
         const isNavItemExpandable = (navItems.length > 0);
         const isNavItemExpanded = isNavItemExpandable && expanded;
         const isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
@@ -336,9 +339,10 @@ class NavItem extends React.Component {
                     disabled={disabled}
                     role="menuitem"
                     tabIndex="-1"
+                    // TODO:refactor
                     onClick={chainedFunction(
                         navItems.length > 0 ? () => this.props.toggleExpanded(true) : () => {},
-                        navItems.length > 0 ? () => this.props.clearState('subNav', this.props.eventKey)
+                        navItems.length > 0 ? () => this.props.clearState('subNav', this.props.eventKey, this.props.subLevel)
                             : () => this.props.clearState('subChild'),
                         () => onClick(this.props.eventKey, this.props.subLevel),
                         navItems.length === 0 && this.handleSelect

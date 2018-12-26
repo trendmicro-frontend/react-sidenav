@@ -38,51 +38,55 @@ class Nav extends React.Component {
 
     state = {
         activeItems: {},
-        highlitedItems: {},
+        highlightedItems: {},
         selected: this.props.selected ? this.props.selected : this.props.defaultSelected
     };
 
     componentDidMount() {
+        console.log('here1');
         this.setState(state => {
             const newObj = state.activeItems;
-            newObj.selected = this.state.selected;
+            newObj.selected = state.selected;
             return {
-                highlitedItems: newObj
+                highlightedItems: newObj
             };
         });
     }
 
     isNavItem = match(NavItem);
 
-    clearState = (type, eventKey) => { //eslint-disable-line
-        // if (type === 'subNav') {
-        //     const newObj = this.state.activeItems;
-        //     for (const key in newObj) {
-        //         if (newObj.hasOwnProperty(key)) { // eslint-disable-line
-        //             const element = newObj[key];
-        //             if (eventKey === element) {
-        //                 const newActiveItems = this.state.activeItems;
-        //                 delete newActiveItems[key];
-        //                 return this.setState({
-        //                     activeItems: {},
-        //                     selected: undefined
-        //                 });
-        //             }
-        //             console.log('this.state');
-        //         }
-        //     }
-        // }
-        // console.log('triggers');
+    changeHighlightedItems = (selected, subLevel) => {
+        this.setState(state => {
+            console.log('here2');
+            const newObj = state.activeItems;
+            newObj[subLevel] = selected;
+            return {
+                selected,
+                highlightedItems: newObj
+            };
+        });
+    }
+
+    clearState = (type, eventKey, level) => {
+        if (type === 'subNav' && this.state.activeItems[level] === eventKey) {
+            return this.setState({
+                selected: undefined
+            });
+        }
         return this.setState({
-            selected: undefined,
-            activeItems: {}
+            activeItems: {},
+            selected: undefined
         });
     }
 
     addActiveItem = (item, level) => {
         this.setState(state => {
             const activeItems = state.activeItems;
-            activeItems[level] = item;
+            if (activeItems[level] === item && this.props.expanded) {
+                activeItems[level] = null;
+            } else {
+                activeItems[level] = item;
+            }
             return ({
                 activeItems
             });
@@ -93,24 +97,16 @@ class Nav extends React.Component {
         return cloneElement(child, {
             ...props,
             onClick: chainedFunction(
-                child.props.onClick,
-                this.clearState,
                 this.addActiveItem
             ),
             onSelect: chainedFunction(
                 child.props.onSelect,
-                (selected, subLevel) => this.setState(state => {
-                    const newObj = state.activeItems;
-                    newObj[subLevel] = selected;
-                    return {
-                        selected,
-                        highlitedItems: newObj
-                    };
-                }),
+                this.changeHighlightedItems,
                 onSelect
             )
         });
     }
+
     render() {
         const {
             componentType, // eslint-disable-line
@@ -125,6 +121,8 @@ class Nav extends React.Component {
             children,
             ...props
         } = this.props;
+
+        console.log(this.state.highlightedItems);
 
         return (
             <Component
@@ -141,13 +139,13 @@ class Nav extends React.Component {
                         return this.renderNavItem(child, {
                             onSelect,
                             selected: this.state.selected,
-                            expanded: child.props.eventKey === this.state.selected
-                              || this.state.activeItems['0'] === child.props.eventKey,
+                            expanded: this.props.expanded && (child.props.eventKey === this.state.selected
+                              || this.state.activeItems['0'] === child.props.eventKey),
                             subLevel: 0,
                             addActiveItem: this.addActiveItem,
                             activeItems: this.state.activeItems,
                             clearState: this.clearState,
-                            highlitedItems: this.state.highlitedItems
+                            highlightedItems: this.state.highlightedItems
                         });
                     }
 
