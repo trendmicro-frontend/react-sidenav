@@ -24920,6 +24920,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -24942,9 +24944,17 @@ var Nav = (_temp2 = _class = function (_React$Component) {
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Nav.__proto__ || Object.getPrototypeOf(Nav)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             activeItems: {},
-            highlightedItems: {},
+            highlightedItems: [],
             selected: _this.props.selected ? _this.props.selected : _this.props.defaultSelected
-        }, _this.isNavItem = (0, _matchComponent2.default)(_NavItem2.default), _this.clearState = function (type, eventKey, level) {
+        }, _this.isNavItem = (0, _matchComponent2.default)(_NavItem2.default), _this.changeHighlightedItems = function (selected) {
+            _this.setState({
+                selected: selected
+            });
+        }, _this.clear = function () {
+            _this.setState({
+                highlightedItems: []
+            });
+        }, _this.clearState = function (type, eventKey, level) {
             if (type === 'subNav' && _this.state.activeItems[level] === eventKey) {
                 return _this.setState({
                     selected: undefined
@@ -24966,33 +24976,28 @@ var Nav = (_temp2 = _class = function (_React$Component) {
                     activeItems: activeItems
                 };
             });
+        }, _this.addHighlightedItem = function (item) {
+            _this.setState(function (state) {
+                var highlightedItems = state.highlightedItems;
+                return {
+                    highlightedItems: [].concat(_toConsumableArray(highlightedItems), [item])
+                };
+            });
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Nav, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.setState(function (state) {
-                var newObj = state.activeItems;
-                newObj.selected = state.selected;
-                return {
-                    highlightedItems: newObj
-                };
-            });
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            if (this.props.expanded && !nextProps.expanded) {
+                var newObj = {};
+                newObj['0'] = this.state.activeItems['0'];
+                this.setState({
+                    selected: undefined,
+                    activeItems: newObj
+                });
+            }
         }
-
-        // changeHighlightedItems = (selected, subLevel) => {
-        //     this.setState(state => {
-        //         console.log('here2');
-        //         const newObj = state.activeItems;
-        //         newObj[subLevel] = selected;
-        //         return {
-        //             selected,
-        //             highlightedItems: newObj
-        //         };
-        //     });
-        // }
-
     }, {
         key: 'renderNavItem',
         value: function renderNavItem(child, _ref2) {
@@ -25001,9 +25006,7 @@ var Nav = (_temp2 = _class = function (_React$Component) {
 
             return (0, _react.cloneElement)(child, _extends({}, props, {
                 onClick: (0, _chainedFunction2.default)(this.addActiveItem),
-                onSelect: (0, _chainedFunction2.default)(child.props.onSelect,
-                //this.changeHighlightedItems,
-                onSelect)
+                onSelect: (0, _chainedFunction2.default)(child.props.onSelect, this.clear, this.changeHighlightedItems, onSelect)
             }));
         }
     }, {
@@ -25021,6 +25024,8 @@ var Nav = (_temp2 = _class = function (_React$Component) {
                 children = _props.children,
                 props = _objectWithoutProperties(_props, ['componentType', 'componentClass', 'onSelect', 'defaultSelected', 'expanded', 'className', 'children']);
 
+            console.log(this.state);
+
             return _react2.default.createElement(
                 Component,
                 _extends({}, props, {
@@ -25029,6 +25034,10 @@ var Nav = (_temp2 = _class = function (_React$Component) {
                 }),
                 _react2.default.Children.map(children, function (child, i) {
                     if (_react2.default.isValidElement(child) && _this2.isNavItem(child)) {
+                        if (child.props.eventKey === _this2.state.selected && !_this2.state.highlightedItems.includes(child.props.eventKey)) {
+                            _this2.addHighlightedItem(child.props.eventKey);
+                        }
+
                         return _this2.renderNavItem(child, {
                             onSelect: onSelect,
                             selected: _this2.state.selected,
@@ -25037,7 +25046,8 @@ var Nav = (_temp2 = _class = function (_React$Component) {
                             addActiveItem: _this2.addActiveItem,
                             activeItems: _this2.state.activeItems,
                             clearState: _this2.clearState,
-                            highlightedItems: _this2.state.highlightedItems
+                            highlightedItems: _this2.state.highlightedItems,
+                            addHighlightedItem: _this2.addHighlightedItem
                         });
                     }
 
@@ -25260,6 +25270,14 @@ var NavItem = (_temp2 = _class = function (_React$Component) {
                         }
                     }
 
+                    if ((child.props.eventKey === _this2.props.selected || _this2.props.selected === _this2.props.eventKey || _this2.props.highlightedItems.includes(child.props.eventKey)) && !_this2.props.highlightedItems.includes(_this2.props.eventKey)) {
+                        _this2.props.addHighlightedItem(_this2.props.eventKey);
+                    }
+
+                    if ((child.props.eventKey === _this2.props.selected || _this2.props.highlightedItems.includes(child.props.eventKey)) && !_this2.props.highlightedItems.includes(child.props.eventKey)) {
+                        _this2.props.addHighlightedItem(child.props.eventKey);
+                    }
+
                     if (subNavItems.length > 0) {
                         // TODO:refactor
                         return (0, _react.cloneElement)(child, {
@@ -25271,7 +25289,8 @@ var NavItem = (_temp2 = _class = function (_React$Component) {
                             onClick: _this2.props.addActiveItem,
                             subLevel: _this2.props.subLevel + 1,
                             clearState: _this2.props.clearState,
-                            highlightedItems: _this2.props.highlightedItems
+                            highlightedItems: _this2.props.highlightedItems,
+                            addHighlightedItem: _this2.props.addHighlightedItem
                         });
                     }
                     return (0, _react.cloneElement)(child, {
@@ -25284,11 +25303,12 @@ var NavItem = (_temp2 = _class = function (_React$Component) {
                         activeItems: _this2.props.activeItems,
                         addActiveItem: _this2.props.addActiveItem,
                         clearState: _this2.props.clearState,
-                        highlightedItems: _this2.props.highlightedItems
+                        highlightedItems: _this2.props.highlightedItems,
+                        addHighlightedItem: _this2.props.addHighlightedItem
                     });
                 });
 
-                var _isNavItemSelected = this.props.highlightedItems[this.props.subLevel] === eventKey || this.props.highlightedItems.selected === eventKey;
+                var _isNavItemSelected = this.props.highlightedItems.includes(this.props.eventKey) || this.props.eventKey === this.props.selected;
 
                 if (_navItems.length > 0) {
                     var _cx, _cx4;
@@ -25382,6 +25402,14 @@ var NavItem = (_temp2 = _class = function (_React$Component) {
                     _this2.props.addActiveItem(_this2.props.eventKey, _this2.props.subLevel);
                 }
 
+                if ((child.props.eventKey === _this2.props.selected || _this2.props.selected === _this2.props.eventKey || _this2.props.highlightedItems.includes(child.props.eventKey)) && !_this2.props.highlightedItems.includes(_this2.props.eventKey)) {
+                    _this2.props.addHighlightedItem(_this2.props.eventKey);
+                }
+
+                if ((child.props.eventKey === _this2.props.selected || _this2.props.highlightedItems.includes(child.props.eventKey)) && !_this2.props.highlightedItems.includes(child.props.eventKey)) {
+                    _this2.props.addHighlightedItem(child.props.eventKey);
+                }
+
                 return (0, _react.cloneElement)(child, {
                     // TODO:refactor
                     subNav: true,
@@ -25392,7 +25420,8 @@ var NavItem = (_temp2 = _class = function (_React$Component) {
                     onClick: _this2.props.addActiveItem,
                     addActiveItem: _this2.props.addActiveItem,
                     clearState: _this2.props.clearState,
-                    highlightedItems: _this2.props.highlightedItems
+                    highlightedItems: _this2.props.highlightedItems,
+                    addHighlightedItem: _this2.props.addHighlightedItem
                 });
             });
             var others = _react2.default.Children.toArray(children).filter(function (child) {
@@ -25402,7 +25431,7 @@ var NavItem = (_temp2 = _class = function (_React$Component) {
                 return true;
             });
 
-            var isNavItemSelected = this.props.highlightedItems[this.props.subLevel] === eventKey || this.props.eventKey === this.props.selected;
+            var isNavItemSelected = this.props.highlightedItems.includes(this.props.eventKey);
             var isNavItemExpandable = navItems.length > 0;
             var isNavItemExpanded = isNavItemExpandable && expanded;
             var isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
@@ -27020,4 +27049,3 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?cb8659fa9373218a8930
