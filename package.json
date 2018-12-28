@@ -83,8 +83,8 @@
     "http-server": "~0.10.0",
     "jsdom": "~11.5.1",
     "nib": "~1.1.2",
-    "react": "~16.2.0",
-    "react-dom": "~16.2.0",
+    "react": "~16.7.0",
+    "react-dom": "~16.7.0",
     "style-loader": "~0.19.1",
     "styled-components": "~2.3.3",
     "stylint": "~1.5.9",
@@ -94,6 +94,8 @@
     "trendmicro-ui": "~0.5.0",
     "url-loader": "~0.6.2",
     "webpack": "~3.10.0",
-    "webpack-dev-server": "~2.9.7"
+    "webpack-dev-server": "~2.9.7",
+    "react-redux": "~6.0.0",
+    "redux": "~4.0.1"
   }
 }

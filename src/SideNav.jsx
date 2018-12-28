@@ -1,9 +1,13 @@
+/* eslint-disable */
 import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent, cloneElement } from 'react';
 import uncontrollable from 'uncontrollable';
 import warning from 'warning';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
+
 import Toggle from './Toggle';
 import Nav from './Nav';
 import NavItem from './NavItem';
@@ -11,6 +15,9 @@ import NavIcon from './NavIcon';
 import NavText from './NavText';
 import styles from './index.styl';
 import match from './match-component';
+import subNav from './reducers';
+
+const store = createStore(subNav, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class SideNav extends PureComponent {
     static propTypes = {
@@ -125,38 +132,40 @@ class SideNav extends PureComponent {
         } = this.props;
 
         return (
-            <Component
-                {...props}
-                className={cx(
-                    className,
-                    styles.sidenav,
-                    {
-                        [styles.disabled]: disabled,
-                        [styles.expanded]: expanded,
-                        [styles.collapsed]: !expanded
-                    }
-                )}
-            >
-                {React.Children.map(children, child => {
-                    if (!React.isValidElement(child)) {
-                        return child;
-                    }
-
-                    if (this.isToggle(child)) {
-                        return this.renderToggle(child, {
-                            disabled, expanded
-                        });
-                    }
-
-                    if (this.isNav(child)) {
-                        return this.renderNav(child, {
-                            onSelect, expanded
-                        });
-                    }
-
-                    return child;
-                })}
-            </Component>
+            <Provider store={store}>
+              <Component
+                  {...props}
+                  className={cx(
+                      className,
+                      styles.sidenav,
+                      {
+                          [styles.disabled]: disabled,
+                          [styles.expanded]: expanded,
+                          [styles.collapsed]: !expanded
+                      }
+                  )}
+              >
+                  {React.Children.map(children, child => {
+                      if (!React.isValidElement(child)) {
+                          return child;
+                      }
+  
+                      if (this.isToggle(child)) {
+                          return this.renderToggle(child, {
+                              disabled, expanded
+                          });
+                      }
+  
+                      if (this.isNav(child)) {
+                          return this.renderNav(child, {
+                              onSelect, expanded
+                          });
+                      }
+  
+                      return child;
+                  })}
+              </Component>
+            </Provider>
         );
     }
 }

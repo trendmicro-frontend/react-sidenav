@@ -2,116 +2,54 @@ import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { cloneElement } from 'react';
+import { connect } from 'react-redux';
+
 import NavItem from './NavItem';
 import match from './match-component';
 import styles from './index.styl';
+import {
+    changeActive, clearActive,
+    addHighlighted, clearHighlighted,
+    setSelected
+} from './actions';
 
 class Nav extends React.Component {
-    static propTypes = {
-        componentType: PropTypes.any,
-
-        // A custom element for this component.
-        componentClass: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.func
-        ]),
-
-        // Callback fired when a navigation item is selected.
-        onSelect: PropTypes.func,
-
-        // The selected navigation item.
-        selected: PropTypes.any,
-
-        // The initially selected navigation item.
-        defaultSelected: PropTypes.any,
-
-        //
-        // SideNav props
-        //
-
-        // Whether the side navigation is expanded or collapsed.
-        expanded: PropTypes.bool
-    };
-    static defaultProps = {
-        componentClass: 'div'
-    };
-
-    state = {
-        activeItems: {},
-        highlightedItems: [],
-        selected: this.props.selected ? this.props.selected : this.props.defaultSelected
-    };
-
     isNavItem = match(NavItem);
 
+    componentDidMount() {
+        this.props.setSelected(this.props.selected);
+    }
+
     componentWillReceiveProps(nextProps) {
-        if (this.props.expanded && !nextProps.expanded) {
-            const newObj = {};
-            newObj['0'] = this.state.activeItems['0'];
-            this.setState({
-                selected: undefined,
-                activeItems: newObj
-            });
+        if (!this.props.expanded && nextProps.expanded) {
+            this.props.setSelected(undefined);
+            this.props.changeActive({ eventKey: null, level: 1 });
         }
     }
 
-    changeHighlightedItems = (selected) => {
-        this.setState({
-            selected
-        });
+    changeSelected = (selected) => {
+        this.props.clearHighlighted();
+        this.props.setSelected(selected);
     }
 
-    clear = () => {
-        this.setState({
-            highlightedItems: []
-        });
-    }
+    changeActiveItems = (eventKey, level) => {
+        const { activeItems, expanded, changeActive } = this.props;
 
-    clearState = (type, eventKey, level) => {
-        if (type === 'subNav' && this.state.activeItems[level] === eventKey) {
-            return this.setState({
-                selected: undefined
-            });
+        this.props.setSelected(undefined);
+
+        if (activeItems[level] === eventKey && expanded) {
+            changeActive({ eventKey: null, level });
+        } else {
+            changeActive({ eventKey, level });
         }
-        return this.setState({
-            activeItems: {},
-            selected: undefined
-        });
-    }
-
-    addActiveItem = (item, level) => {
-        this.setState(state => {
-            const activeItems = state.activeItems;
-            if (activeItems[level] === item && this.props.expanded) {
-                activeItems[level] = null;
-            } else {
-                activeItems[level] = item;
-            }
-            return ({
-                activeItems
-            });
-        });
-    }
-
-    addHighlightedItem = (item) => {
-        this.setState(state => {
-            const highlightedItems = state.highlightedItems;
-            return ({
-                highlightedItems: [...highlightedItems, item]
-            });
-        });
     }
 
     renderNavItem(child, { onSelect, ...props }) {
         return cloneElement(child, {
             ...props,
-            onClick: chainedFunction(
-                this.addActiveItem
-            ),
             onSelect: chainedFunction(
                 child.props.onSelect,
-                this.clear,
-                this.changeHighlightedItems,
+                this.changeSelected,
                 onSelect
             )
         });
@@ -123,16 +61,15 @@ class Nav extends React.Component {
             componentClass: Component,
             onSelect,
             defaultSelected, // eslint-disable-line
-
-            // Props passed from SideNav component
             expanded,
-
             className,
             children,
+            highlightedItems,
+            localSelected,
+            addHighlighted,
+            activeItems,
             ...props
         } = this.props;
-
-        console.log(this.state);
 
         return (
             <Component
@@ -146,25 +83,22 @@ class Nav extends React.Component {
             >
                 {React.Children.map(children, (child, i) => {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
-                        if (child.props.eventKey === this.state.selected
-                              && !this.state.highlightedItems.includes(child.props.eventKey)) {
-                            this.addHighlightedItem(child.props.eventKey);
+                        if (child.props.eventKey === localSelected && !highlightedItems.includes(child.props.eventKey)) {
+                            addHighlighted(child.props.eventKey);
                         }
 
                         return this.renderNavItem(child, {
                             onSelect,
-                            selected: this.state.selected,
-                            expanded: this.props.expanded && (child.props.eventKey === this.state.selected
-                              || this.state.activeItems['0'] === child.props.eventKey),
+                            selected: localSelected,
+                            expanded: expanded &&
+                              (child.props.eventKey === localSelected || activeItems['0'] === child.props.eventKey),
                             subLevel: 0,
-                            addActiveItem: this.addActiveItem,
-                            activeItems: this.state.activeItems,
-                            clearState: this.clearState,
-                            highlightedItems: this.state.highlightedItems,
-                            addHighlightedItem: this.addHighlightedItem
+                            addActiveItem: this.changeActiveItems,
+                            activeItems: activeItems,
+                            highlightedItems: highlightedItems,
+                            addHighlightedItem: this.props.addHighlighted
                         });
                     }
-
                     return child;
                 })}
             </Component>
@@ -172,7 +106,58 @@ class Nav extends React.Component {
     }
 }
 
-// For component matching
+Nav.propTypes = {
+    componentType: PropTypes.any,
+    componentClass: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.func
+    ]),
+    onSelect: PropTypes.func,
+    selected: PropTypes.any,
+    defaultSelected: PropTypes.any,
+    expanded: PropTypes.bool,
+    addHighlighted: PropTypes.func,
+    clearHighlighted: PropTypes.func,
+    changeActive: PropTypes.func,
+    clearActive: PropTypes.func,
+    setSelected: PropTypes.func,
+    highlightedItems: PropTypes.arrayOf(PropTypes.string),
+    activeItems: PropTypes.shape({}),
+    localSelected: PropTypes.string
+};
+
+Nav.defaultProps = {
+    componentClass: 'div'
+};
+
 Nav.defaultProps.componentType = Nav;
 
-export default Nav;
+const mapStateToProps = state => {
+    return {
+        activeItems: state.items.activeItems,
+        highlightedItems: state.items.highlightedItems,
+        localSelected: state.items.selected
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeActive: item => {
+            dispatch(changeActive(item));
+        },
+        clearActive: item => {
+            dispatch(clearActive(item));
+        },
+        addHighlighted: item => {
+            dispatch(addHighlighted(item));
+        },
+        clearHighlighted: item => {
+            dispatch(clearHighlighted(item));
+        },
+        setSelected: selected => {
+            dispatch(setSelected(selected));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

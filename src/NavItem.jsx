@@ -10,62 +10,6 @@ import match from './match-component';
 import styles from './index.styl';
 
 class NavItem extends React.Component {
-    static propTypes = {
-        componentType: PropTypes.any,
-
-        // A custom element for this component.
-        componentClass: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.func
-        ]),
-
-        // Highlight the navigation item as active.
-        active: PropTypes.bool,
-
-        // Disable the navigation item, making it unselectable.
-        disabled: PropTypes.bool,
-
-        // Whether the navigation item is expanded or collapsed.
-        expanded: PropTypes.bool,
-
-        // Value passed to the `onSelect` handler, useful for identifying the selected navigation item.
-        eventKey: PropTypes.any,
-
-        // Func to add items to activeItemsArray.
-        addActiveItem: PropTypes.func,
-
-        // Callback fired when the navigation item is clicked.
-        onClick: PropTypes.func,
-
-        // Callback fired when a navigation item is selected.
-        onSelect: PropTypes.func,
-
-        //
-        // Nav props
-        //
-
-        // The selected navigation item.
-        selected: PropTypes.any,
-
-        //
-        // Sub navigation item (internal use only)
-        //
-
-        // Whether it is a sub navigation item.
-        subNav: PropTypes.bool,
-
-        navitemClassName: PropTypes.string,
-        navitemStyle: PropTypes.object,
-        subnavClassName: PropTypes.string,
-        subnavStyle: PropTypes.object
-    };
-    static defaultProps = {
-        componentClass: 'div',
-        active: false,
-        disabled: false,
-        expanded: false
-    };
-
     findNavIcon = findComponent(NavIcon);
     findNavText = findComponent(NavText);
     isNavItem = match(NavItem);
@@ -90,31 +34,14 @@ class NavItem extends React.Component {
     render() {
         const {
             componentType, // eslint-disable-line
-            componentClass: Component,
-            active,
-            disabled,
-            expanded,
-            eventKey, // eslint-disable-line
-            onClick,
-            onSelect,
-
-            // Nav props
-            selected,
-
-            // Sub navigation item
-            subNav,
-            subChild,
-            // secondSubNav navigation items
-            // Override className and style
-            navitemClassName,
-            navitemStyle,
-            subnavClassName,
-            subnavStyle,
-
-            // Default props
-            className,
-            style,
-            children,
+            componentClass: Component, active,
+            disabled, expanded, eventKey, // eslint-disable-line
+            onSelect, selected,
+            subNav, subChild, navitemClassName,
+            navitemStyle, subnavClassName, subnavStyle,
+            className, style, children,
+            activeItems, highlightedItems, subLevel,
+            addActiveItem, addHighlightedItem, toggleExpanded,
             ...props
         } = this.props;
 
@@ -140,69 +67,61 @@ class NavItem extends React.Component {
                         return React.isValidElement(subChild) && this.isNavItem(subChild);
                     });
 
-                    // TODO:refactor
-                    if (this.props.activeItems[this.props.subLevel] !== null) {
-                        if ((child.props.eventKey === this.props.selected
-                        || child.props.eventKey === this.props.activeItems[this.props.subLevel + 1])
-                          && this.props.activeItems[this.props.subLevel] !== this.props.eventKey) {
-                            this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
-                        }
+                    const isActive = (child.props.eventKey === selected || child.props.eventKey === activeItems[subLevel + 1])
+                      && activeItems[subLevel] !== eventKey;
+                    const isChildHighlighted = child.props.eventKey === selected
+                      || highlightedItems.includes(child.props.eventKey);
+                    const isHighlighted = isChildHighlighted || selected === eventKey;
+
+                    if (isActive && activeItems[subLevel] !== null) {
+                        addActiveItem(eventKey, subLevel);
                     }
 
-                    if ((child.props.eventKey === this.props.selected || this.props.selected === this.props.eventKey
-                        || this.props.highlightedItems.includes(child.props.eventKey))
-                    && !this.props.highlightedItems.includes(this.props.eventKey)) {
-                        this.props.addHighlightedItem(this.props.eventKey);
+                    if (isHighlighted && !highlightedItems.includes(eventKey)) {
+                        addHighlightedItem(eventKey);
                     }
 
-                    if ((child.props.eventKey === this.props.selected
-                        || this.props.highlightedItems.includes(child.props.eventKey))
-                    && !this.props.highlightedItems.includes(child.props.eventKey)) {
-                        this.props.addHighlightedItem(child.props.eventKey);
+                    if (isChildHighlighted && !highlightedItems.includes(child.props.eventKey)) {
+                        addHighlightedItem(child.props.eventKey);
                     }
 
                     if (subNavItems.length > 0) {
-                        // TODO:refactor
                         return cloneElement(child, {
                             subNav: true,
                             selected,
-                            activeItems: this.props.activeItems,
+                            subLevel: subLevel + 1,
+                            activeItems: activeItems,
+                            highlightedItems: highlightedItems,
+                            onClick: this.props.addActiveItem,
                             addActiveItem: this.props.addActiveItem,
+                            addHighlightedItem: this.props.addHighlightedItem,
                             onSelect: chainedFunction(
                                 child.props.onSelect,
                                 onSelect
-                            ),
-                            onClick: this.props.addActiveItem,
-                            subLevel: this.props.subLevel + 1,
-                            clearState: this.props.clearState,
-                            highlightedItems: this.props.highlightedItems,
-                            addHighlightedItem: this.props.addHighlightedItem
+                            )
                         });
                     }
                     return cloneElement(child, {
-                        // TODO:refactor
                         subChild: true,
                         selected,
+                        subLevel: subLevel + 1,
+                        activeItems: activeItems,
+                        highlightedItems: highlightedItems,
+                        addActiveItem: this.props.addActiveItem,
+                        addHighlightedItem: this.props.addHighlightedItem,
                         onSelect: chainedFunction(
                             child.props.onSelect,
                             onSelect
-                        ),
-                        onClick: this.props.addActiveItem,
-                        subLevel: this.props.subLevel + 1,
-                        activeItems: this.props.activeItems,
-                        addActiveItem: this.props.addActiveItem,
-                        clearState: this.props.clearState,
-                        highlightedItems: this.props.highlightedItems,
-                        addHighlightedItem: this.props.addHighlightedItem
+                        )
                     });
                 });
 
 
-            const isNavItemSelected = this.props.highlightedItems.includes(this.props.eventKey)
-              || this.props.eventKey === this.props.selected;
+            const isNavItemSelected = highlightedItems.includes(eventKey)
+              || eventKey === selected;
 
             if (navItems.length > 0) {
-                const isOpen = this.props.activeItems[this.props.subLevel] === this.props.eventKey;
+                const isOpen = activeItems[subLevel] === eventKey;
 
                 return (
                     <Component
@@ -210,7 +129,7 @@ class NavItem extends React.Component {
                         className={cx(className, styles.sidenavSubnavitem, {
                             [styles.selected]: isNavItemSelected,
                             [styles.disabled]: disabled
-                        }, styles[`subnav-${this.props.subLevel}`])}
+                        }, styles[`subnav-${subLevel}`])}
                     >
                         <div
                             {...props}
@@ -225,10 +144,7 @@ class NavItem extends React.Component {
                                 justifyContent: 'space-between',
                                 background: '#f8f8f9'
                             }}
-                            onClick={chainedFunction(
-                                () => this.props.clearState('subNav', this.props.eventKey, this.props.subLevel),
-                                () => onClick(this.props.eventKey, this.props.subLevel),
-                            )}
+                            onClick={() => addActiveItem(eventKey, subLevel)}
                         >
                             <div style={{ display: 'flex', alignItems: 'center' }}>
                                 {navIcon ?
@@ -263,7 +179,7 @@ class NavItem extends React.Component {
                     role="presentation"
                     className={cx(className, styles.sidenavSubnavitem, {
                         [styles.selected]: isNavItemSelected
-                    }, styles[`subchild-${this.props.subLevel}`], { [styles.selectedSubWrapper]: isNavItemSelected })}
+                    }, styles[`subchild-${subLevel}`], { [styles.selectedSubWrapper]: isNavItemSelected })}
                     style={style}
                 >
                     <div
@@ -273,7 +189,7 @@ class NavItem extends React.Component {
                         role="menuitem"
                         tabIndex="-1"
                         onClick={chainedFunction(
-                            () => this.props.clearState('subChild'),
+                            () => addActiveItem(eventKey, subLevel),
                             this.handleSelect
                         )}
                     >
@@ -297,41 +213,37 @@ class NavItem extends React.Component {
                 return React.isValidElement(child) && this.isNavItem(child);
             })
             .map((child) => {
-                // TODO:refactor
-                if (this.props.activeItems[this.props.subLevel] !== null &&
-                    (child.props.eventKey === this.props.selected
-                    || child.props.eventKey === this.props.activeItems[this.props.subLevel + 1])
-                      && this.props.activeItems[this.props.subLevel] !== this.props.eventKey) {
-                    this.props.addActiveItem(this.props.eventKey, this.props.subLevel);
+                const isActive = (child.props.eventKey === selected || child.props.eventKey === activeItems[subLevel + 1])
+                      && activeItems[subLevel] !== eventKey;
+                const isChildHighlighted = child.props.eventKey === selected
+                        || highlightedItems.includes(child.props.eventKey);
+                const isHighlighted = isChildHighlighted || selected === eventKey;
+
+
+                if (isActive && activeItems[subLevel] !== null) {
+                    addActiveItem(eventKey, subLevel);
                 }
 
-                if ((child.props.eventKey === this.props.selected || this.props.selected === this.props.eventKey
-                    || this.props.highlightedItems.includes(child.props.eventKey))
-                && !this.props.highlightedItems.includes(this.props.eventKey)) {
-                    this.props.addHighlightedItem(this.props.eventKey);
+                if (isHighlighted && !highlightedItems.includes(eventKey)) {
+                    addHighlightedItem(eventKey);
                 }
 
-                if ((child.props.eventKey === this.props.selected
-                    || this.props.highlightedItems.includes(child.props.eventKey))
-                && !this.props.highlightedItems.includes(child.props.eventKey)) {
-                    this.props.addHighlightedItem(child.props.eventKey);
+                if (isChildHighlighted && !highlightedItems.includes(child.props.eventKey)) {
+                    addHighlightedItem(child.props.eventKey);
                 }
 
                 return cloneElement(child, {
-                    // TODO:refactor
                     subNav: true,
-                    subLevel: this.props.subLevel + 1,
                     selected,
-                    activeItems: this.props.activeItems,
+                    subLevel: subLevel + 1,
+                    activeItems: activeItems,
+                    highlightedItems: highlightedItems,
+                    addActiveItem: this.props.addActiveItem,
+                    addHighlightedItem: this.props.addHighlightedItem,
                     onSelect: chainedFunction(
                         child.props.onSelect,
                         onSelect
-                    ),
-                    onClick: this.props.addActiveItem,
-                    addActiveItem: this.props.addActiveItem,
-                    clearState: this.props.clearState,
-                    highlightedItems: this.props.highlightedItems,
-                    addHighlightedItem: this.props.addHighlightedItem
+                    )
                 });
             });
         const others = React.Children.toArray(children)
@@ -342,7 +254,7 @@ class NavItem extends React.Component {
                 return true;
             });
 
-        const isNavItemSelected = this.props.highlightedItems.includes(this.props.eventKey);
+        const isNavItemSelected = highlightedItems.includes(eventKey);
         const isNavItemExpandable = (navItems.length > 0);
         const isNavItemExpanded = isNavItemExpandable && expanded;
         const isNavItemHighlighted = isNavItemExpanded || isNavItemSelected;
@@ -365,19 +277,17 @@ class NavItem extends React.Component {
                     disabled={disabled}
                     role="menuitem"
                     tabIndex="-1"
-                    // TODO:refactor
                     onClick={chainedFunction(
-                        navItems.length > 0 ? () => this.props.toggleExpanded(true) : () => {},
-                        navItems.length > 0 ? () => this.props.clearState('subNav', this.props.eventKey, this.props.subLevel)
-                            : () => this.props.clearState('subChild'),
-                        () => onClick(this.props.eventKey, this.props.subLevel),
+                        navItems.length > 0 ? () => toggleExpanded(true) : () => {},
+                        () => addActiveItem(eventKey, subLevel),
                         navItems.length === 0 && this.handleSelect
                     )}
                     style={{
                         ...navitemStyle,
                         display: 'flex',
                         justifyContent: 'space-between',
-                        paddingRight: '14px'
+                        paddingRight: '14px',
+                        cursor: 'pointer'
                     }}
                 >
                     <div>
@@ -423,7 +333,40 @@ class NavItem extends React.Component {
     }
 }
 
-// For component matching
+NavItem.propTypes = {
+    componentType: PropTypes.any,
+    componentClass: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.func
+    ]),
+    active: PropTypes.bool,
+    disabled: PropTypes.bool,
+    expanded: PropTypes.bool,
+    eventKey: PropTypes.any,
+    addActiveItem: PropTypes.func,
+    onClick: PropTypes.func,
+    onSelect: PropTypes.func,
+    selected: PropTypes.any,
+    subNav: PropTypes.bool,
+    subLevel: PropTypes.number,
+    subChild: PropTypes.bool,
+    navitemClassName: PropTypes.string,
+    navitemStyle: PropTypes.object,
+    subnavClassName: PropTypes.string,
+    subnavStyle: PropTypes.object,
+    activeItems: PropTypes.shape({}),
+    highlightedItems: PropTypes.arrayOf(PropTypes.string),
+    addHighlightedItem: PropTypes.func,
+    toggleExpanded: PropTypes.func
+};
+
+NavItem.defaultProps = {
+    componentClass: 'div',
+    active: false,
+    disabled: false,
+    expanded: false
+};
+
 NavItem.defaultProps.componentType = NavItem;
 
 export default NavItem;

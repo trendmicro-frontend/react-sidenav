@@ -42,12 +42,11 @@ const NavTitle = styled.div`
 
 export default class extends PureComponent {
     state = {
-        selected: undefined,
-        expanded: false
+        selected: '/last-mile/tools/bm-apac/driver/channel-overview',
+        expanded: true
     };
 
     onSelect = (selected) => {
-        console.log('onSelect: ', selected);
         this.setState({ selected: selected });
     };
 
@@ -96,7 +95,7 @@ export default class extends PureComponent {
                             <NavTitle>Side Navigation</NavTitle>
                         </NavHeader>
                     </SideNav.Toggle>
-                    <SideNav.Nav selected={selected} defaultSelected="/last-mile/tools/bm-apac/driver/channel-overview">
+                    <SideNav.Nav selected={selected}>
                         {generateMenu(generateContent, this.onToggle)}
                     </SideNav.Nav>
                 </SideNav>
