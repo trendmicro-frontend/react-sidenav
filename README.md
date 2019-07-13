@@ -25,6 +25,8 @@ Demo: https://trendmicro-frontend.github.io/react-sidenav
 
 ## Usage
 
+These examples make use of font-awesome.
+
 ```jsx
 <SideNav
     onSelect={(selected) => {
