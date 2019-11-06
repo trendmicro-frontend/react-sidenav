@@ -1,4 +1,4 @@
-/*! react-sidenav v0.4.5 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
+/*! react-sidenav v0.4.5 | (c) 2019 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sidenav---sidenav---_2tBP {
   position: absolute;
   top: 0;
@@ -7,11 +7,11 @@
   z-index: 1006;
   min-width: 64px;
   background: #db3d44;
-  -webkit-transition: min-width 0.15s;
-  -moz-transition: min-width 0.15s;
-  -o-transition: min-width 0.15s;
-  -ms-transition: min-width 0.15s;
-  transition: min-width 0.15s;
+  -webkit-transition: min-width 0.2s;
+  -moz-transition: min-width 0.2s;
+  -o-transition: min-width 0.2s;
+  -ms-transition: min-width 0.2s;
+  transition: min-width 0.2s;
 }
 .sidenav---sidenav---_2tBP.sidenav---collapsed---LQDEv .sidenav---sidenav-nav---3tvij .sidenav---sidenav-navitem---uwIJ- .sidenav---sidenav-subnav---1EN61 {
   display: none;
@@ -23,7 +23,15 @@
   min-width: 240px;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- .sidenav---navicon---3gCRo + .sidenav---navtext---1AE_f {
-  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  -ms-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
 }
 .sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---expandable---3_dr7 > .sidenav---navitem---9uL5T {
   cursor: pointer;
@@ -264,7 +272,16 @@
   text-align: center;
 }
 .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo + .sidenav---navtext---1AE_f {
-  display: none;
+  width: 0;
+  visibility: hidden;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: visibility 0s 0.2s, opacity 0.2s linear;
+  -moz-transition: visibility 0s 0.2s, opacity 0.2s linear;
+  -o-transition: visibility 0s 0.2s, opacity 0.2s linear;
+  -ms-transition: visibility 0s 0.2s, opacity 0.2s linear;
+  transition: visibility 0s 0.2s, opacity 0.2s linear;
 }
 .sidenav---sidenav-subnav---1EN61 {
   min-width: 200px;
