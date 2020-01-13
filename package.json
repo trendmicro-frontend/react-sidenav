@@ -48,7 +48,7 @@
     "chained-function": "^0.5.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "uncontrollable": "^4.1.0",
+    "uncontrollable": "^7.1.1",
     "warning": "^3.0.0"
   },
   "devDependencies": {
