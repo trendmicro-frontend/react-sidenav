@@ -2,7 +2,7 @@ import chainedFunction from 'chained-function';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent, cloneElement } from 'react';
-import uncontrollable from 'uncontrollable';
+import { uncontrollable } from 'uncontrollable';
 import warning from 'warning';
 import Toggle from './Toggle';
 import Nav from './Nav';
