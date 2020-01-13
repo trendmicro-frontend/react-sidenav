@@ -4644,7 +4644,7 @@ module.exports = invariant;
 
 
 
-var isObject = __webpack_require__("../node_modules/isobject/index.js");
+var isObject = __webpack_require__("../node_modules/is-plain-object/node_modules/isobject/index.js");
 
 function isObjectObject(o) {
   return isObject(o) === true
@@ -4676,7 +4676,7 @@ module.exports = function isPlainObject(o) {
 
 /***/ }),
 
-/***/ "../node_modules/isobject/index.js":
+/***/ "../node_modules/is-plain-object/node_modules/isobject/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29815,4 +29815,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?77c550a8802fb3f99ec9
+//# sourceMappingURL=bundle.js.map?c843ae8c3c4f2ea69f97

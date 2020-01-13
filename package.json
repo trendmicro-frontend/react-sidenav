@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-sidenav",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "description": "React SideNav",
   "main": "lib/index.js",
   "files": [
@@ -42,7 +42,7 @@
     "sidenav"
   ],
   "peerDependencies": {
-    "react": "^0.14.0 || >=15.0.0"
+    "react": ">=15.0.0"
   },
   "dependencies": {
     "chained-function": "^0.5.0",
