@@ -12,10 +12,10 @@ declare module '@trendmicro/react-sidenav' {
             active?: boolean;
             disabled?: boolean;
             expanded?: boolean;
-            eventKey?: any;
-            onClick?: Function;
-            onSelect?: Function;
-            selected?: any;
+            eventKey: string;
+            onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+            onSelect?: (eventKey: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+            selected?: string;
             subnav?: boolean;
             navitemClassName?: string;
             navitemStyle?: CSSProperties;
@@ -37,9 +37,9 @@ declare module '@trendmicro/react-sidenav' {
         interface NavProps {
             componentType?: any;
             componentClass?: string | Function;
-            onSelect?: Function;
-            selected?: any;
-            defaultSelected?: any;
+            onSelect?: (eventKey: string, event: React.MouseEvent<HTMLElement>) => void;
+            selected?: string;
+            defaultSelected?: string;
             expanded?: boolean;
         }
 
@@ -51,7 +51,7 @@ declare module '@trendmicro/react-sidenav' {
             disabled?: boolean;
             expanded?: boolean;
             onToggle?: Function;
-            onSelect?: Function;
+            onSelect?: (expanded: boolean) => void;
         }
     }
 
