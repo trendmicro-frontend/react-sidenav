@@ -56,7 +56,9 @@ class NavItem extends PureComponent {
         navitemClassName: PropTypes.string,
         navitemStyle: PropTypes.object,
         subnavClassName: PropTypes.string,
-        subnavStyle: PropTypes.object
+        subnavStyle: PropTypes.object,
+
+        tabIndex: PropTypes.string,
     };
     static defaultProps = {
         componentClass: 'div',
@@ -93,8 +95,8 @@ class NavItem extends PureComponent {
     onKeyDown = (event) => {
         const SPACEBAR_CODE = 32;
         const ENTER_KEY = 13;
-        const isSpaceKey = e.keyCode === SPACEBAR_CODE;
-        const isEnterKey = e.keyCode === ENTER_KEY;
+        const isSpaceKey = event.keyCode === SPACEBAR_CODE;
+        const isEnterKey = event.keyCode === ENTER_KEY;
         if (isSpaceKey || isEnterKey) {
             event.target.click();
         }
