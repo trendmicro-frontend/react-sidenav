@@ -104,9 +104,10 @@ class Nav extends PureComponent {
                     { [styles.expanded]: expanded }
                 )}
             >
-                {React.Children.map(children, child => {
+                {React.Children.map(children, (child, key) => {
                     if (React.isValidElement(child) && this.isNavItem(child)) {
                         return this.renderNavItem(child, {
+                            tabIndex: child.props.tabIndexPosition || key,
                             onSelect,
                             selected: currentSelected,
                             expanded: (!!child.props.expanded) ||

@@ -2,49 +2,49 @@
     clear: both;
     position: relative;
 
-    &.highlighted > .navitem {
+    &.highlighted > a > .navitem {
         cursor: default;
     }
 
-    &:hover > .navitem::after {
+    &:hover > a > .navitem::after {
         background: #fff;
         opacity: .15;
     }
 
-    &.highlighted > .navitem::after,
+    &.highlighted > a > .navitem::after,
     &:hover.highlighted > .navitem::after {
         background: #000;
         opacity: .2;
     }
 
-    &.highlighted.expanded > .navitem::after,
-    &:hover.highlighted.expanded > .navitem::after {
+    &.highlighted.expanded > a > .navitem::after,
+    &:hover.highlighted.expanded > a > .navitem::after {
         background: #000;
         opacity: .25;
     }
 
-    &.highlighted.selected.expanded > .navitem::after,
-    &:hover.highlighted.selected.expanded > .navitem::after {
+    &.highlighted.selected.expanded > a > .navitem::after,
+    &:hover.highlighted.selected.expanded > a > .navitem::after {
         background: #000;
         opacity: .2;
     }
 
-    &:hover > .navitem .navicon,
-    &.highlighted > .navitem .navicon {
+    &:hover > a > .navitem .navicon,
+    &.highlighted > a > .navitem .navicon {
         opacity: 1;
     }
 
-    &:hover > .navitem .navicon,
-    &:hover > .navitem .navtext,
-    &.highlighted > .navitem .navicon,
-    &.highlighted > .navitem .navtext {
+    &:hover > a > .navitem .navicon,
+    &:hover > a > .navitem .navtext,
+    &.highlighted > a > .navitem .navicon,
+    &.highlighted > a > .navitem .navtext {
         color: #fff;
         > * {
             color: #fff;
         }
     }
 
-    > .navitem {
+    > a > .navitem {
         position: relative;
         display: block;
         line-height: 50px;
@@ -73,15 +73,15 @@
         }
     }
 
-    > .navitem .navicon,
-    > .navitem .navtext {
+    > a > .navitem .navicon,
+    > a > .navitem .navtext {
         color: #f9dcdd;
         > * {
             color: #f9dcdd;
         }
     }
 
-    > .navitem .navicon {
+    > a > .navitem .navicon {
         display: block;
         float: left;
         width: 64px;
@@ -96,7 +96,7 @@
         text-align: center;
     }
 
-    > .navitem .navicon + .navtext {
+    > a > .navitem .navicon + .navtext {
         width: 0;
         visibility: hidden;
         opacity: 0;
