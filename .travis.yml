@@ -10,6 +10,9 @@ os:
 node_js:
   - '14'
 
+cache:
+  npm: false
+
 before_install:
   - npm install -g npm
   - npm --version
