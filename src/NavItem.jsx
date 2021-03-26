@@ -58,7 +58,7 @@ class NavItem extends PureComponent {
         subnavClassName: PropTypes.string,
         subnavStyle: PropTypes.object,
 
-        tabIndex: PropTypes.string,
+        tabIndex: PropTypes.string
     };
     static defaultProps = {
         componentClass: 'div',
