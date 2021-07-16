@@ -1,6 +1,6 @@
 /*! react-sidenav v0.5.0 | (c) 2020 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sidenav---sidenav---_2tBP {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
