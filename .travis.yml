@@ -8,8 +8,10 @@ os:
   - linux
 
 node_js:
-  - '8'
-  - '10'
+  - '14'
+
+install:
+  - npm install --legacy-peer-deps
 
 before_install:
   - npm install -g npm

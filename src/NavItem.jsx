@@ -56,7 +56,9 @@ class NavItem extends PureComponent {
         navitemClassName: PropTypes.string,
         navitemStyle: PropTypes.object,
         subnavClassName: PropTypes.string,
-        subnavStyle: PropTypes.object
+        subnavStyle: PropTypes.object,
+
+        tabIndex: PropTypes.string
     };
     static defaultProps = {
         componentClass: 'div',
@@ -86,6 +88,20 @@ class NavItem extends PureComponent {
         }
     };
 
+    preventDefault = (event) => {
+        event.preventDefault();
+    };
+
+    onKeyDown = (event) => {
+        const SPACEBAR_CODE = 32;
+        const ENTER_KEY = 13;
+        const isSpaceKey = event.keyCode === SPACEBAR_CODE;
+        const isEnterKey = event.keyCode === ENTER_KEY;
+        if (isSpaceKey || isEnterKey) {
+            event.target.click();
+        }
+    }
+
     render() {
         const {
             componentType, // eslint-disable-line
@@ -99,6 +115,7 @@ class NavItem extends PureComponent {
 
             // Nav props
             selected,
+            tabIndex,
 
             // Sub navigation item
             subnav,
@@ -141,25 +158,32 @@ class NavItem extends PureComponent {
                     })}
                     style={style}
                 >
-                    <div
-                        {...props}
-                        className={cx(navitemClassName, styles.navitem)}
-                        style={navitemStyle}
-                        disabled={disabled}
-                        role="menuitem"
-                        tabIndex="-1"
+                    <a
+                        href="#"
                         onClick={chainedFunction(
                             onClick,
-                            this.handleSelect
+                            this.handleSelect,
+                            this.preventDefault,
                         )}
+                        onKeyDown={this.onKeyDown}
+                        aria-label={navText.props.title}
                     >
-                        {navIcon &&
-                        <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                        }
-                        {navText &&
-                        <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                        }
-                    </div>
+                        <div
+                            {...props}
+                            className={cx(navitemClassName, styles.navitem)}
+                            style={navitemStyle}
+                            disabled={disabled}
+                            role="menuitem"
+                            tabIndex="-1"
+                        >
+                            {navIcon &&
+                            <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                            }
+                            {navText &&
+                            <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
+                            }
+                        </div>
+                    </a>
                 </Component>
             );
         }
@@ -208,26 +232,37 @@ class NavItem extends PureComponent {
                 })}
                 style={style}
             >
-                <div
-                    {...props}
-                    className={cx(navitemClassName, styles.navitem)}
-                    style={navitemStyle}
-                    disabled={disabled}
-                    role="menuitem"
-                    tabIndex="-1"
+                <a
+                    href="#"
                     onClick={chainedFunction(
                         onClick,
-                        (navItems.length === 0) ? this.handleSelect : noop
+                        this.handleSelect,
+                        this.preventDefault,
                     )}
+                    onKeyDown={this.onKeyDown}
+                    aria-label={navText.props.title}
                 >
-                    {navIcon &&
-                    <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
-                    }
-                    {navText &&
-                    <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
-                    }
-                    {others}
-                </div>
+                    <div
+                        {...props}
+                        className={cx(navitemClassName, styles.navitem)}
+                        style={navitemStyle}
+                        disabled={disabled}
+                        role="menuitem"
+                        tabIndex={tabIndex}
+                        onClick={chainedFunction(
+                            onClick,
+                            (navItems.length === 0) ? this.handleSelect : noop
+                        )}
+                    >
+                        {navIcon &&
+                        <div {...navIconProps} className={cx(navIconClassName, styles.navicon)} />
+                        }
+                        {navText &&
+                        <div {...navTextProps} className={cx(navTextClassName, styles.navtext)} />
+                        }
+                        {others}
+                    </div>
+                </a>
                 {(navItems.length > 0) &&
                     <div
                         role="menu"
