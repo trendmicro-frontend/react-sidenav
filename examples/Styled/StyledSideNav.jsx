@@ -67,7 +67,7 @@ const StyledNav = styled(Nav)`
                     color: #666;
                 }
             }
-            [class*="sidenav-nav-text--"] {
+            [class*="navtext--"] {
                 &, > * {
                     color: #222;
                 }
@@ -82,10 +82,8 @@ const StyledNav = styled(Nav)`
             [class*="navtext--"] {
                 &, > * {
                     color: #db3d44;
+                    font-weight: 700;
                 }
-            }
-            [class*="sidenav-nav-text--"] {
-                font-weight: 700;
             }
         }
     }
