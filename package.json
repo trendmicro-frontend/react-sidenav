@@ -23,14 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/trendmicro-frontend/react-sidenav.git"
   },
-  "author": "Cheton Wu <cheton_wu@trend.com.tw>",
-  "contributors": [
-    {
-      "name": "Cheton Wu",
-      "email": "cheton_wu@trend.com.tw",
-      "url": "https://github.com/trendmicro-frontend"
-    }
-  ],
+  "author": "Cheton Wu",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/trendmicro-frontend/react-sidenav/issues"
